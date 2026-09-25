@@ -27,7 +27,7 @@ export const METHODES: Record<MethodeId, Methode> = {
   doen: {
     id: "doen",
     naam: "Doen",
-    korteUitleg: "Zelf een zin maken met het woord en feedback krijgen.",
+    korteUitleg: "Zelf een zin maken met het woord en die vergelijken met een voorbeeld.",
   },
 };
 

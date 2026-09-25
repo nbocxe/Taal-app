@@ -2,16 +2,15 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { DOMEINEN } from "@/lib/domeinen";
 import { METHODES, METHODE_IDS } from "@/lib/methodes";
 import { useAppData } from "@/lib/opslag";
 import type { MethodeId, Niveau } from "@/lib/types";
+import { DOMEINEN } from "@/lib/woordenbank";
 
 export default function Start() {
   const router = useRouter();
   const [data, wijzig] = useAppData();
   const [domeinen, setDomeinen] = useState<string[]>([]);
-  const [eigen, setEigen] = useState("");
   const [niveau, setNiveau] = useState<Niveau>("gevorderd");
   const [voorkeur, setVoorkeur] = useState<MethodeId | "weet-niet">("weet-niet");
 
@@ -20,7 +19,6 @@ export default function Start() {
   useEffect(() => {
     if (!profiel) return;
     setDomeinen(profiel.domeinen.filter((d) => DOMEINEN.includes(d)));
-    setEigen(profiel.domeinen.find((d) => !DOMEINEN.includes(d)) ?? "");
     setNiveau(profiel.niveau);
     setVoorkeur(profiel.voorkeur);
   }, [profiel]);
@@ -30,10 +28,8 @@ export default function Start() {
   const wissel = (d: string) =>
     setDomeinen((huidig) => (huidig.includes(d) ? huidig.filter((x) => x !== d) : [...huidig, d]));
 
-  const alleDomeinen = [...domeinen, ...(eigen.trim() ? [eigen.trim()] : [])];
-
   const opslaan = () => {
-    wijzig((d) => ({ ...d, profiel: { domeinen: alleDomeinen, niveau, voorkeur } }));
+    wijzig((d) => ({ ...d, profiel: { domeinen, niveau, voorkeur } }));
     router.push("/leren");
   };
 
@@ -55,10 +51,6 @@ export default function Start() {
             </button>
           ))}
         </div>
-        <label>
-          <span className="zacht">Of een eigen onderwerp, bijvoorbeeld "sterrenkunde" of "wijn":</span>
-          <input type="text" value={eigen} onChange={(e) => setEigen(e.target.value)} maxLength={80} />
-        </label>
       </div>
 
       <div className="kaart">
@@ -93,7 +85,7 @@ export default function Start() {
         </button>
       </div>
 
-      <button onClick={opslaan} disabled={alleDomeinen.length === 0}>
+      <button onClick={opslaan} disabled={domeinen.length === 0}>
         Beginnen
       </button>
     </>

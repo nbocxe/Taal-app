@@ -4,9 +4,10 @@ import Link from "next/link";
 import { useState } from "react";
 import { kiesMethodes } from "@/lib/experiment";
 import { METHODES } from "@/lib/methodes";
-import { nieuwId, nu, useAppData } from "@/lib/opslag";
+import { nu, useAppData } from "@/lib/opslag";
 import { nieuweKaart } from "@/lib/srs";
 import type { MethodeId, Woord } from "@/lib/types";
+import { aantalOver, DOMEINEN, kiesNieuweWoorden } from "@/lib/woordenbank";
 import { Beeld, Doen, Lezen, Luisteren } from "./methodes";
 
 const PER_RONDE = 5;
@@ -22,8 +23,6 @@ interface Ronde {
 export default function Leren() {
   const [data, wijzig] = useAppData();
   const [domein, setDomein] = useState<string | null>(null);
-  const [laden, setLaden] = useState(false);
-  const [fout, setFout] = useState<string | null>(null);
   const [ronde, setRonde] = useState<Ronde | null>(null);
 
   if (!data) return null;
@@ -35,36 +34,22 @@ export default function Leren() {
     );
   }
 
-  const gekozenDomein = domein ?? data.profiel.domeinen[0];
+  // Alleen vakgebieden die in de woordenbank staan (oudere voorkeuren kunnen andere bevatten).
+  const domeinen = data.profiel.domeinen.filter((d) => DOMEINEN.includes(d));
+  if (domeinen.length === 0) {
+    return (
+      <p>
+        Kies eerst een of meer vakgebieden: <Link href="/start">voorkeuren aanpassen</Link>.
+      </p>
+    );
+  }
 
-  const haalWoorden = async () => {
-    setLaden(true);
-    setFout(null);
-    try {
-      const antwoord = await fetch("/api/woorden", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          domein: gekozenDomein,
-          niveau: data.profiel!.niveau,
-          aantal: PER_RONDE,
-          bekend: Object.values(data.woorden).map((w) => w.woord),
-        }),
-      });
-      const json = await antwoord.json();
-      if (!antwoord.ok) throw new Error(json.fout ?? "Er ging iets mis.");
-      const woorden: Woord[] = json.woorden.map((w: Omit<Woord, "id" | "domein">) => ({
-        ...w,
-        id: nieuwId(),
-        domein: gekozenDomein,
-      }));
-      if (woorden.length === 0) throw new Error("Geen nieuwe woorden gevonden. Probeer een ander vakgebied.");
-      setRonde({ woorden, methodes: kiesMethodes(Object.values(data.kaarten), woorden.length), positie: 0 });
-    } catch (e) {
-      setFout(e instanceof Error ? e.message : "Er ging iets mis.");
-    } finally {
-      setLaden(false);
-    }
+  const gekozenDomein = domein ?? domeinen[0];
+  const bekend = new Set(Object.keys(data.woorden));
+
+  const start = () => {
+    const woorden = kiesNieuweWoorden(gekozenDomein, data.profiel!.niveau, bekend, PER_RONDE);
+    setRonde({ woorden, methodes: kiesMethodes(Object.values(data.kaarten), woorden.length), positie: 0 });
   };
 
   // Pas als je een woord helemaal doorlopen hebt, komt het in je herhaallijst.
@@ -127,18 +112,22 @@ export default function Leren() {
       <div className="kaart">
         <p>Kies een vakgebied. Je krijgt {PER_RONDE} nieuwe woorden, elk op een andere manier aangeboden.</p>
         <div className="rij">
-          {data.profiel.domeinen.map((d) => (
+          {domeinen.map((d) => (
             <button key={d} className={d === gekozenDomein ? "" : "tweede"} onClick={() => setDomein(d)}>
               {d}
             </button>
           ))}
         </div>
-        <button onClick={haalWoorden} disabled={laden}>
-          {laden ? "Woorden worden samengesteld…" : "Start"}
-        </button>
-        {fout && <p className="fout">{fout}</p>}
+        {aantalOver(gekozenDomein, bekend) > 0 ? (
+          <>
+            <p className="zacht">Nog {aantalOver(gekozenDomein, bekend)} nieuwe woorden in dit vakgebied.</p>
+            <button onClick={start}>Start</button>
+          </>
+        ) : (
+          <p>Je hebt alle woorden in dit vakgebied al geleerd. Kies een ander vakgebied.</p>
+        )}
         <p className="zacht">
-          Ander vakgebied? <Link href="/start">Pas je voorkeuren aan</Link>.
+          Andere vakgebieden of een ander niveau? <Link href="/start">Pas je voorkeuren aan</Link>.
         </p>
       </div>
     </>

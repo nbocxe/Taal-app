@@ -4,10 +4,11 @@ export type MethodeId = "lezen" | "beeld" | "luisteren" | "doen";
 
 export type Niveau = "basis" | "gevorderd" | "expert";
 
-/** Een woord zoals de AI het aanlevert, aangevuld met een id en vakgebied. */
+/** Een woord uit de woordenbank, aangevuld met een id en vakgebied. */
 export interface Woord {
   id: string;
   domein: string;
+  niveau: Niveau;
   woord: string;
   woordsoort: string;
   definitie: string;

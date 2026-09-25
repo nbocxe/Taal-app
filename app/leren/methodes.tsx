@@ -139,36 +139,10 @@ export function Luisteren({ woord, klaar }: Props) {
   );
 }
 
-interface Oordeel {
-  juistGebruikt: boolean;
-  feedback: string;
-  verbeterdeZin: string;
-}
-
+// Zelf een zin maken is de actiefste manier van leren. Zonder AI vergelijk je je zin daarna zelf met het voorbeeld.
 export function Doen({ woord, klaar }: Props) {
   const [zin, setZin] = useState("");
-  const [bezig, setBezig] = useState(false);
-  const [oordeel, setOordeel] = useState<Oordeel | null>(null);
-  const [fout, setFout] = useState<string | null>(null);
-
-  const controleer = async () => {
-    setBezig(true);
-    setFout(null);
-    try {
-      const antwoord = await fetch("/api/feedback", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ woord: woord.woord, definitie: woord.definitie, zin }),
-      });
-      const json = await antwoord.json();
-      if (!antwoord.ok) throw new Error(json.fout ?? "Er ging iets mis.");
-      setOordeel(json);
-    } catch (e) {
-      setFout(e instanceof Error ? e.message : "Er ging iets mis.");
-    } finally {
-      setBezig(false);
-    }
-  };
+  const [vergelijk, setVergelijk] = useState(false);
 
   return (
     <>
@@ -178,33 +152,21 @@ export function Doen({ woord, klaar }: Props) {
         <span className="zacht">Maak zelf een zin met dit woord, het liefst over iets uit je eigen leven:</span>
         <textarea rows={3} value={zin} onChange={(e) => setZin(e.target.value)} maxLength={500} />
       </label>
-      {!oordeel && (
+      {!vergelijk ? (
         <div className="rij">
-          <button onClick={controleer} disabled={bezig || zin.trim().length === 0}>
-            {bezig ? "Even kijken…" : "Controleer mijn zin"}
+          <button onClick={() => setVergelijk(true)} disabled={zin.trim().length === 0}>
+            Klaar, laat het voorbeeld zien
           </button>
         </div>
-      )}
-      {fout && (
-        <>
-          <p className="fout">{fout}</p>
-          <button className="tweede" onClick={klaar}>
-            Toch verder
-          </button>
-        </>
-      )}
-      {oordeel && (
+      ) : (
         <div className="kaart">
-          <p className={oordeel.juistGebruikt ? "goed" : "fout"}>
-            <strong>{oordeel.juistGebruikt ? "Goed gebruikt!" : "Nog niet helemaal"}</strong>
+          <p className="label">Voorbeeld</p>
+          <p>
+            <em>“{woord.voorbeeldzin}”</em>
           </p>
-          <p>{oordeel.feedback}</p>
-          {oordeel.verbeterdeZin && (
-            <p>
-              <em>Voorstel: “{oordeel.verbeterdeZin}”</em>
-            </p>
-          )}
-          <p className="zacht">Voorbeeld: “{woord.voorbeeldzin}”</p>
+          <p className="zacht">
+            Gebruik je het woord in dezelfde betekenis? Zo niet, pas je zin hierboven gerust nog aan.
+          </p>
           <button onClick={klaar}>Volgende</button>
         </div>
       )}
