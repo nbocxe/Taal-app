@@ -1,0 +1,65 @@
+/* Bewust eenvoudig: het echte ontwerp komt later. */
+:root {
+  --tekst: #1d1d1f;
+  --zacht: #6b6b70;
+  --achtergrond: #fafaf8;
+  --vlak: #ffffff;
+  --rand: #e2e2de;
+  --accent: #2f5bd3;
+  --goed: #1f7a3f;
+  --fout: #b3261e;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --tekst: #ececec;
+    --zacht: #a0a0a6;
+    --achtergrond: #161618;
+    --vlak: #202023;
+    --rand: #34343a;
+    --accent: #7c9dff;
+    --goed: #5fcf8a;
+    --fout: #ff8a80;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.5;
+  color: var(--tekst);
+  background: var(--achtergrond);
+}
+main { max-width: 640px; margin: 0 auto; padding: 16px; }
+a { color: var(--accent); }
+.kop {
+  display: flex; flex-wrap: wrap; gap: 8px 16px; justify-content: space-between; align-items: center;
+  padding: 12px 16px; border-bottom: 1px solid var(--rand); background: var(--vlak);
+}
+.kop > a { font-weight: 700; text-decoration: none; color: var(--tekst); }
+.kop nav { display: flex; gap: 16px; }
+.kaart { background: var(--vlak); border: 1px solid var(--rand); border-radius: 12px; padding: 16px; margin: 16px 0; }
+.zacht { color: var(--zacht); }
+.goed { color: var(--goed); }
+.fout { color: var(--fout); }
+.groot { font-size: 2rem; margin: 0; }
+button, .knop {
+  display: inline-block; font: inherit; padding: 10px 16px; border-radius: 8px; cursor: pointer;
+  border: 1px solid var(--accent); background: var(--accent); color: #fff; text-decoration: none;
+}
+button.tweede, .knop.tweede { background: transparent; color: var(--accent); }
+button:disabled { opacity: 0.5; cursor: default; }
+.rij { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.keuze { display: block; width: 100%; text-align: left; margin: 8px 0; background: var(--vlak); color: var(--tekst); border-color: var(--rand); }
+.keuze.gekozen { border-color: var(--accent); outline: 2px solid var(--accent); }
+.keuze.juist { border-color: var(--goed); outline: 2px solid var(--goed); }
+.keuze.onjuist { border-color: var(--fout); outline: 2px solid var(--fout); }
+textarea, input[type="text"], select {
+  width: 100%; font: inherit; padding: 10px; border-radius: 8px; border: 1px solid var(--rand);
+  background: var(--vlak); color: var(--tekst);
+}
+.balk { height: 8px; border-radius: 4px; background: var(--rand); overflow: hidden; }
+.balk > div { height: 100%; background: var(--accent); }
+.tabel { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+th, td { text-align: left; padding: 6px 4px; border-bottom: 1px solid var(--rand); }
+.label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--zacht); }
