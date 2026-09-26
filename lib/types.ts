@@ -13,6 +13,8 @@ export interface Woord {
   woordsoort: string;
   definitie: string;
   voorbeeldzin: string;
+  /** Extra voorbeeldzinnen, voor als je meer context nodig hebt. */
+  voorbeelden: string[];
   herkomst: string;
   /** Een beeldende ezelsbrug: een scène die je voor je ziet. */
   beeld: string;
