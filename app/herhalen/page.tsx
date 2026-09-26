@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { nu, useAppData } from "@/lib/opslag";
 import { teHerhalen, verwerkAntwoord } from "@/lib/srs";
+import { kiesAfleiders } from "@/lib/woordenbank";
 
 function schud<T>(lijst: T[]): T[] {
   const kopie = [...lijst];
@@ -36,7 +37,7 @@ export default function Herhalen() {
 
   // Nieuwe antwoordvolgorde per woord; afhankelijk van het id zodat opslaan niet opnieuw schudt.
   useEffect(() => {
-    if (woord) setOpties(schud([woord.definitie, ...woord.afleiders]));
+    if (woord) setOpties(schud([woord.definitie, ...kiesAfleiders(woord)]));
     setGekozen(null);
   }, [woordId]);
 

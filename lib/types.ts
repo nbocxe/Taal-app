@@ -17,8 +17,6 @@ export interface Woord {
   /** Een beeldende ezelsbrug: een scène die je voor je ziet. */
   beeld: string;
   emoji: string;
-  /** Foute maar plausibele definities, voor meerkeuzevragen. */
-  afleiders: string[];
 }
 
 export interface Herhaling {

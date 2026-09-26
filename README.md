@@ -1,7 +1,9 @@
 # Taal-app
 
-Een app om je woordenschat per vakgebied te vergroten (algemene kennis, politiek, biologie, natuurkunde en tech)
-en om te ontdekken **hoe jij het beste leert**.
+Een app om je woordenschat per vakgebied te vergroten en om te ontdekken **hoe jij het beste leert**.
+
+De woordenlijst bevat 230 woorden in twaalf vakgebieden: algemene kennis, taal & retorica, filosofie, politiek,
+politieke stromingen, maatschappij, economie, recht, psychologie, biologie, natuurkunde en tech.
 
 Deze eerste versie werkt zonder AI: de woorden komen uit een ingebouwde woordenlijst. Er is geen account, geen
 API-sleutel en geen internetverbinding met een externe dienst nodig.
@@ -18,7 +20,8 @@ Je hoeft geen leerstijltest te doen. De app voert een klein persoonlijk experime
    - **Luisteren**: het woord en de uitleg worden voorgelezen door je apparaat.
    - **Doen**: zelf een zin maken en die vergelijken met een voorbeeld.
 3. Een dag later krijg je een korte meerkeuze-overhoring. Voor elk woord dezelfde test, zodat de methodes eerlijk
-   vergeleken worden.
+   vergeleken worden. De foute antwoorden zijn betekenissen van andere woorden uit hetzelfde vakgebied, van ongeveer
+   dezelfde lengte. Zo kun je het goede antwoord niet raden door gewoon het langste te kiezen.
 4. In **Mijn leerprofiel** zie je per methode hoeveel je nog wist. Zodra er genoeg metingen zijn, krijg je vaker
    woorden via de methode die bij jou het beste werkt. De andere komen af en toe terug, voor het geval dat verandert.
 
@@ -48,13 +51,16 @@ vooruit".
 
 ## Woorden toevoegen
 
-Alle woorden staan in `lib/woordenbank.ts`, per vakgebied. Voor een nieuw woord kopieer je een bestaand blok en pas je
-de tekst aan. Een nieuw vakgebied voeg je toe als nieuw kopje; het verschijnt dan vanzelf in de app.
+Elk vakgebied heeft een eigen bestand in `lib/woorden/`, bijvoorbeeld `lib/woorden/economie.ts`. Voor een nieuw woord
+kopieer je een bestaand blok in dat bestand en pas je de tekst aan. Foute antwoorden hoef je niet te bedenken: die haalt
+de app zelf uit de andere woorden van het vakgebied.
 
-Let bij de **afleiders** op: dat zijn de drie foute antwoorden in de overhoring. Ze moeten geloofwaardig klinken voor
-iemand die het woord niet kent, en ongeveer even lang zijn als de echte definitie.
+Een tip voor de definitie: gebruik het woord zelf er niet in, anders verklap je het antwoord.
 
-Draai daarna `npm test`: die controleert of elk woord compleet is en of er geen dubbele woorden in staan.
+Een nieuw vakgebied maak je door een nieuw bestand in `lib/woorden/` te zetten en het toe te voegen bovenin
+`lib/woordenbank.ts`. Het verschijnt dan vanzelf in de app.
+
+Draai daarna `npm test`: die controleert onder meer of elk woord compleet is en of er geen dubbele woorden in staan.
 
 ## Hoe het in elkaar zit
 
@@ -62,7 +68,8 @@ Draai daarna `npm test`: die controleert of elk woord compleet is en of er geen 
 |---|---|
 | `app/` | De schermen (Next.js): start, kennismaken, leren, herhalen, leerprofiel |
 | `app/leren/methodes.tsx` | De vier leermethodes |
-| `lib/woordenbank.ts` | Alle woorden, en welke nieuwe woorden je krijgt |
+| `lib/woorden/` | De woorden, één bestand per vakgebied |
+| `lib/woordenbank.ts` | Welke nieuwe woorden je krijgt en welke foute antwoorden in de overhoring staan |
 | `lib/srs.ts` | Het herhaalschema |
 | `lib/experiment.ts` | Welke methode krijgt een woord, en welke werkt voor jou het best |
 | `lib/opslag.ts` | Bewaart alles in je browser (nog geen accounts) |
@@ -77,8 +84,7 @@ npm run build       # maakt een productieversie
 
 ## Bekende beperkingen van deze versie
 
-- De woordenlijst heeft 75 woorden (15 per vakgebied). Om echt te weten welke methode bij jou past, zijn per methode
-  minstens 8 gemeten woorden nodig. Dat zijn er 32 in totaal, dus de lijst is genoeg om het experiment af te ronden.
+- Om echt te weten welke methode bij jou past, zijn per methode minstens 8 gemeten woorden nodig: 32 in totaal.
 - Je gegevens staan alleen in de browser waarin je leert. Maak af en toe een back-up via het leerprofiel.
 - Voorlezen gebruikt de stem van je apparaat of browser; de kwaliteit verschilt per apparaat.
 - De overhoring is altijd meerkeuze op basis van tekst. Dat is eerlijk voor alle methodes, maar niet perfect.
