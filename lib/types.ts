@@ -45,8 +45,8 @@ export interface Kaart {
 export interface Profiel {
   domeinen: string[];
   niveau: Niveau;
-  /** Wat je zelf denkt dat het beste werkt; we vergelijken dit later met je resultaten. */
-  voorkeur: MethodeId | "weet-niet";
+  /** De leermethodes die je wilt gebruiken. Leeg betekent "ik weet het niet": alle methodes wisselen elkaar af. */
+  methodes: MethodeId[];
 }
 
 export interface Instellingen {

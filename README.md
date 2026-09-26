@@ -12,9 +12,10 @@ API-sleutel en geen internetverbinding met een externe dienst nodig.
 
 Je hoeft geen leerstijltest te doen. De app voert een klein persoonlijk experiment uit:
 
-1. Je kiest een vakgebied en een niveau. De app pakt 5 nieuwe woorden uit de woordenlijst, elk met uitleg,
-   voorbeeldzin, herkomst en een beeldende ezelsbrug.
-2. Elk woord krijgt één van vier leermethodes:
+1. Je kiest een vakgebied, of een mix van al je vakgebieden, en een niveau. De app pakt 5 nieuwe woorden uit de
+   woordenlijst, elk met uitleg, voorbeeldzinnen, herkomst en een beeldende ezelsbrug.
+2. Je kiest zelf met welke leermethodes je wilt leren; je krijgt alleen die te zien. Weet je het niet, dan wisselen
+   alle vier elkaar af:
    - **Lezen**: definitie, voorbeeldzin en herkomst doorlezen.
    - **Beeld**: een beeldende ezelsbrug die je je even voor de geest haalt.
    - **Luisteren**: het woord en de uitleg worden voorgelezen door je apparaat.
@@ -22,8 +23,9 @@ Je hoeft geen leerstijltest te doen. De app voert een klein persoonlijk experime
 3. Een dag later krijg je een korte meerkeuze-overhoring. Voor elk woord dezelfde test, zodat de methodes eerlijk
    vergeleken worden. De foute antwoorden zijn betekenissen van andere woorden uit hetzelfde vakgebied, van ongeveer
    dezelfde lengte. Zo kun je het goede antwoord niet raden door gewoon het langste te kiezen.
-4. In **Mijn leerprofiel** zie je per methode hoeveel je nog wist. Zodra er genoeg metingen zijn, krijg je vaker
-   woorden via de methode die bij jou het beste werkt. De andere komen af en toe terug, voor het geval dat verandert.
+4. In het **profiel** zie je per gekozen methode hoeveel je nog wist. Heb je meer dan één methode gekozen, dan krijg
+   je na genoeg metingen vaker woorden via de methode die bij jou het beste werkt. De andere komen af en toe terug,
+   voor het geval dat verandert.
 
 **Spellingoefening (optioneel):** zet je in *Profiel → Instellingen* de spellingoefening aan, dan begint elk nieuw
 woord met een dictee. Je hoort het woord, typt het zelf, en de app laat zien of het goed is en welke letters anders

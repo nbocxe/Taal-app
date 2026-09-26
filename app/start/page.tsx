@@ -19,7 +19,8 @@ export default function Start() {
   const [data, wijzig] = useAppData();
   const [domeinen, setDomeinen] = useState<string[]>([]);
   const [niveau, setNiveau] = useState<Niveau>("gevorderd");
-  const [voorkeur, setVoorkeur] = useState<MethodeId | "weet-niet">("weet-niet");
+  // Leeg betekent "ik weet het niet": dan wisselen alle methodes elkaar af.
+  const [methodes, setMethodes] = useState<MethodeId[]>([]);
 
   // Bij het aanpassen van je voorkeuren beginnen we met wat je eerder koos.
   const profiel = data?.profiel;
@@ -27,16 +28,21 @@ export default function Start() {
     if (!profiel) return;
     setDomeinen(profiel.domeinen.filter((d) => DOMEINEN.includes(d)));
     setNiveau(profiel.niveau);
-    setVoorkeur(profiel.voorkeur);
+    setMethodes(profiel.methodes);
   }, [profiel]);
 
   if (!data) return null;
+
+  const wisselMethode = (m: MethodeId) =>
+    setMethodes((huidig) => (huidig.includes(m) ? huidig.filter((x) => x !== m) : [...huidig, m]));
 
   const wissel = (d: string) =>
     setDomeinen((huidig) => (huidig.includes(d) ? huidig.filter((x) => x !== d) : [...huidig, d]));
 
   const opslaan = () => {
-    wijzig((d) => ({ ...d, profiel: { domeinen, niveau, voorkeur } }));
+    // Altijd in de vaste volgorde opslaan, ongeacht de volgorde van aanklikken.
+    const geordend = METHODE_IDS.filter((m) => methodes.includes(m));
+    wijzig((d) => ({ ...d, profiel: { domeinen, niveau, methodes: geordend } }));
     router.push(profiel ? "/profiel" : "/leren");
   };
 
@@ -83,19 +89,21 @@ export default function Start() {
       </section>
 
       <section className="sectie">
-        <h2>Hoe denk je zelf dat je het beste leert?</h2>
+        <h2>Hoe wil je leren?</h2>
         <p className="zacht klein">
-          Dit verandert niets aan de app. We vergelijken het later met wat je echt onthoudt, en dat is vaak verrassend.
+          Vink een of meer manieren aan; je krijgt dan alleen die te zien. Kies je er meer dan één, dan zoekt de app uit
+          welke daarvan voor jou het beste werkt.
         </p>
-        <div className="keuzes" role="radiogroup" aria-label="Eigen inschatting">
+        <div className="keuzes" role="group" aria-label="Leermethodes">
           {METHODE_IDS.map((m) => (
             <button
               key={m}
-              role="radio"
-              aria-checked={voorkeur === m}
-              className={`keuze ${voorkeur === m ? "gekozen" : ""}`}
-              onClick={() => setVoorkeur(m)}
+              role="checkbox"
+              aria-checked={methodes.includes(m)}
+              className={`keuze ${methodes.includes(m) ? "gekozen" : ""}`}
+              onClick={() => wisselMethode(m)}
             >
+              <span className="vinkje" aria-hidden="true" />
               <span>
                 <strong>{METHODES[m].naam}</strong>
                 <span className="zacht"> · {METHODES[m].korteUitleg}</span>
@@ -103,12 +111,16 @@ export default function Start() {
             </button>
           ))}
           <button
-            role="radio"
-            aria-checked={voorkeur === "weet-niet"}
-            className={`keuze ${voorkeur === "weet-niet" ? "gekozen" : ""}`}
-            onClick={() => setVoorkeur("weet-niet")}
+            role="checkbox"
+            aria-checked={methodes.length === 0}
+            className={`keuze ${methodes.length === 0 ? "gekozen" : ""}`}
+            onClick={() => setMethodes([])}
           >
-            Ik weet het echt niet
+            <span className="vinkje" aria-hidden="true" />
+            <span>
+              <strong>Ik weet het niet</strong>
+              <span className="zacht"> · wissel alle vier af en ontdek wat werkt</span>
+            </span>
           </button>
         </div>
       </section>

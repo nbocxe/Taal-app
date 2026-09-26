@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { analyseer, MIN_METINGEN } from "@/lib/experiment";
-import { METHODES } from "@/lib/methodes";
+import { gekozenMethodes, METHODES } from "@/lib/methodes";
 import { exporteer, nu, useAppData } from "@/lib/opslag";
 import { DAG } from "@/lib/srs";
 
@@ -15,8 +15,9 @@ export default function Profiel() {
   if (!data) return null;
 
   const kaarten = Object.values(data.kaarten);
-  const analyse = analyseer(kaarten);
-  const voorkeur = data.profiel?.voorkeur;
+  const methodes = gekozenMethodes(data.profiel);
+  const analyse = analyseer(kaarten, Math.random, methodes);
+  const eenMethode = methodes.length === 1;
   const verschuiving = Math.round(data.klokVerschuiving / DAG);
   const metSpelling = kaarten.filter((k) => k.spelling);
   const spelling = { totaal: metSpelling.length, goed: metSpelling.filter((k) => k.spelling === "goed").length };
@@ -38,26 +39,30 @@ export default function Profiel() {
       </div>
 
       <div className="kaart">
-        {analyse.beste ? (
-          <p className="citaat">
-            Woorden die je via <strong>{METHODES[analyse.beste].naam.toLowerCase()}</strong> leerde, wist je een dag
-            later het vaakst nog.
-          </p>
+        {eenMethode ? (
+          <>
+            <p className="citaat">Je leert nu alleen via {METHODES[methodes[0]].naam.toLowerCase()}.</p>
+            <p className="tekst-2 klein">
+              Er valt dus niets te vergelijken. Wil je ontdekken wat voor jou het beste werkt, vink dan in je{" "}
+              <Link href="/start">voorkeuren</Link> meer methodes aan.
+            </p>
+          </>
         ) : (
-          <p className="citaat">Nog te weinig gegevens voor een conclusie.</p>
-        )}
-        <p className="tekst-2 klein">
-          {analyse.beste
-            ? "Nieuwe woorden krijg je daarom vaker zo. De andere methodes blijven af en toe terugkomen, zodat de app merkt als er iets verandert."
-            : `Per methode zijn minstens ${MIN_METINGEN} woorden nodig die je een dag na het leren hebt herhaald. Blijf leren én herhalen.`}
-        </p>
-        {voorkeur && voorkeur !== "weet-niet" && analyse.beste && (
-          <p className="tekst-2 klein">
-            Je dacht zelf dat {METHODES[voorkeur].naam.toLowerCase()} het beste zou werken.{" "}
-            {voorkeur === analyse.beste
-              ? "Dat klopt dus."
-              : "Je resultaten wijzen iets anders uit. Onze eigen indruk van hoe we leren klopt vaak niet."}
-          </p>
+          <>
+            {analyse.beste ? (
+              <p className="citaat">
+                Woorden die je via <strong>{METHODES[analyse.beste].naam.toLowerCase()}</strong> leerde, wist je een dag
+                later het vaakst nog.
+              </p>
+            ) : (
+              <p className="citaat">Nog te weinig gegevens voor een conclusie.</p>
+            )}
+            <p className="tekst-2 klein">
+              {analyse.beste
+                ? "Nieuwe woorden krijg je daarom vaker zo. Je andere gekozen methodes blijven af en toe terugkomen, zodat de app merkt als er iets verandert."
+                : `We vergelijken ${methodes.map((m) => METHODES[m].naam.toLowerCase()).join(", ").replace(/, ([^,]*)$/, " en $1")}. Per methode zijn minstens ${MIN_METINGEN} woorden nodig die je een dag na het leren hebt herhaald.`}
+            </p>
+          </>
         )}
       </div>
 
@@ -112,7 +117,7 @@ export default function Profiel() {
           <Link className="regel" href="/start">
             <span className="groei">
               <span className="titel">Voorkeuren</span>
-              <span className="sub">Vakgebieden, niveau en je eigen inschatting</span>
+              <span className="sub">Vakgebieden, niveau en leermethodes</span>
             </span>
           </Link>
           <button className="regel" onClick={download}>

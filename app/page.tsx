@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { analyseer, MIN_METINGEN } from "@/lib/experiment";
-import { METHODES } from "@/lib/methodes";
+import { gekozenMethodes, METHODES } from "@/lib/methodes";
 import { nu, useAppData } from "@/lib/opslag";
 import { DAG, teHerhalen } from "@/lib/srs";
 import { aantalOver, DOMEINEN } from "@/lib/woordenbank";
@@ -42,7 +42,8 @@ export default function Vandaag() {
 
   const kaarten = Object.values(data.kaarten);
   const klaar = teHerhalen(kaarten, nu(data));
-  const analyse = analyseer(kaarten);
+  const methodes = gekozenMethodes(data.profiel);
+  const analyse = analyseer(kaarten, Math.random, methodes);
   const bekend = new Set(Object.keys(data.woorden));
   const domeinen = data.profiel.domeinen.filter((d) => DOMEINEN.includes(d));
   const gemeten = analyse.perMethode.reduce((som, s) => som + Math.min(s.gemeten, MIN_METINGEN), 0);
@@ -87,6 +88,7 @@ export default function Vandaag() {
             domeinen={domeinen}
             over={(d) => aantalOver(d, bekend)}
             kies={(d) => router.push(`/leren?vakgebied=${encodeURIComponent(d)}`)}
+            kiesMix={() => router.push("/leren?vakgebied=mix")}
           />
         ) : (
           <p className="tekst-2">
@@ -98,9 +100,11 @@ export default function Vandaag() {
       <section className="sectie">
         <h2>Jouw leerexperiment</h2>
         <p className="tekst-2 klein">
-          {analyse.beste
-            ? `Tot nu toe onthoud je woorden het best via ${METHODES[analyse.beste].naam.toLowerCase()}. Nieuwe woorden krijg je daarom vaker zo.`
-            : `Nog ${nodig - gemeten} metingen tot een eerste conclusie over hoe jij het beste leert.`}
+          {methodes.length === 1
+            ? `Je leert nu alleen via ${METHODES[methodes[0]].naam.toLowerCase()}. Vink meer methodes aan in je voorkeuren om te ontdekken wat het beste werkt.`
+            : analyse.beste
+              ? `Tot nu toe onthoud je woorden het best via ${METHODES[analyse.beste].naam.toLowerCase()}. Nieuwe woorden krijg je daarom vaker zo.`
+              : `Nog ${nodig - gemeten} metingen tot een eerste conclusie over hoe jij het beste leert.`}
         </p>
         <div className="balk" aria-label={`${gemeten} van ${nodig} metingen`}>
           <div style={{ width: `${(gemeten / nodig) * 100}%` }} />
