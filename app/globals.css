@@ -296,3 +296,31 @@ textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
 }
 .tabbalk a[aria-current="page"] { color: var(--accent); font-weight: 600; }
 .tabbalk a:hover { color: var(--inkt); }
+
+/* Spellingoefening */
+.invoer {
+  width: 100%; min-height: 54px; padding: 10px 14px;
+  font-family: var(--serif); font-size: 26px; color: var(--inkt);
+  background: var(--vlak); border: 1px solid var(--rand); border-radius: 12px;
+}
+.invoer:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.invoer[readonly] { background: var(--papier); }
+.uitslag-goed { background: var(--goed-zacht); border-color: var(--goed); }
+.uitslag-fout { background: var(--fout-zacht); border-color: var(--fout); }
+strong.goed { color: var(--goed); }
+strong.fout { color: var(--fout); }
+.doorgestreept { text-decoration: line-through; text-decoration-color: var(--fout); }
+.spelling { font-family: var(--serif); font-size: 30px; line-height: 1.2; letter-spacing: 0.01em; overflow-wrap: anywhere; }
+.spelling mark { background: transparent; color: var(--fout); text-decoration: underline 3px; text-underline-offset: 5px; }
+
+/* Schakelaar in de instellingen */
+.schakelaar {
+  flex-shrink: 0; position: relative; width: 50px; height: 30px; border-radius: 15px;
+  background: var(--rand); transition: background 0.15s;
+}
+.schakelaar::after {
+  content: ""; position: absolute; top: 3px; left: 3px; width: 24px; height: 24px; border-radius: 50%;
+  background: var(--vlak); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25); transition: transform 0.15s;
+}
+[aria-checked="true"] > .schakelaar { background: var(--accent); }
+[aria-checked="true"] > .schakelaar::after { transform: translateX(20px); }

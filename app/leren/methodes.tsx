@@ -2,6 +2,7 @@
 
 // De vier manieren om een nieuw woord te leren. Elke component roept `klaar` aan als je verder wilt.
 import { useEffect, useState } from "react";
+import { spreek } from "@/lib/spraak";
 import type { Woord } from "@/lib/types";
 import { IcoonLuister } from "../components/iconen";
 
@@ -98,19 +99,6 @@ export function Beeld({ woord, klaar, alGezien }: Props) {
       </button>
     </>
   );
-}
-
-function spreek(tekst: string, klaar: () => void) {
-  const synth = window.speechSynthesis;
-  synth.cancel();
-  const uiting = new SpeechSynthesisUtterance(tekst);
-  uiting.lang = "nl-NL";
-  uiting.rate = 0.95;
-  const stem = synth.getVoices().find((v) => v.lang.toLowerCase().startsWith("nl"));
-  if (stem) uiting.voice = stem;
-  uiting.onend = klaar;
-  uiting.onerror = klaar;
-  synth.speak(uiting);
 }
 
 export function Luisteren({ woord, klaar, alGezien }: Props) {

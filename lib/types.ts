@@ -38,6 +38,8 @@ export interface Kaart {
   /** Tijdstip (ms) waarop het woord weer herhaald moet worden. */
   volgende: number;
   herhalingen: Herhaling[];
+  /** Uitslag van de spellingoefening bij het leren, als die aan stond. */
+  spelling?: "goed" | "fout";
 }
 
 export interface Profiel {
@@ -47,11 +49,17 @@ export interface Profiel {
   voorkeur: MethodeId | "weet-niet";
 }
 
+export interface Instellingen {
+  /** Elk nieuw woord begint met een dictee: luisteren en zelf schrijven. */
+  spellingoefening: boolean;
+}
+
 export interface AppData {
   versie: 1;
   profiel: Profiel | null;
   woorden: Record<string, Woord>;
   kaarten: Record<string, Kaart>;
+  instellingen: Instellingen;
   /** Testmodus: verschuift de klok zodat je herhalingen kunt uitproberen zonder te wachten. */
   klokVerschuiving: number;
 }
