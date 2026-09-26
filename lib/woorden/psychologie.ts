@@ -9,7 +9,6 @@ export const psychologie: BankWoord[] = [
     voorbeeldzin: "Een goede huisarts toont empathie voor de zorgen van haar patiënten.",
     herkomst: "Grieks en (in) + pathos (gevoel).",
     beeld: "Iemand die zelf een traan laat terwijl een vriend verdrietig nieuws vertelt.",
-    emoji: "🤝💧",
   },
   {
     niveau: "basis",
@@ -19,7 +18,6 @@ export const psychologie: BankWoord[] = [
     voorbeeldzin: "Als introvert kind las ze liever een boek dan dat ze op het schoolplein speelde.",
     herkomst: "Latijn intro (naar binnen) + vertere (keren).",
     beeld: "Iemand die na een druk feest opgelucht met een deken en een boek op de bank ploft.",
-    emoji: "📖🛋️",
   },
   {
     niveau: "basis",
@@ -29,7 +27,6 @@ export const psychologie: BankWoord[] = [
     voorbeeldzin: "In medicijnonderzoek krijgt een controlegroep nepmedicijnen om rekening te houden met het placebo-effect.",
     herkomst: "Latijn placebo (ik zal behagen).",
     beeld: "Een suikerpilletje, verkleed als medicijn, dat de hoofdpijn laat verdwijnen.",
-    emoji: "💊🍬",
   },
   {
     niveau: "basis",
@@ -39,7 +36,6 @@ export const psychologie: BankWoord[] = [
     voorbeeldzin: "Na het ongeluk had hij een trauma en durfde hij niet meer in een auto te stappen.",
     herkomst: "Grieks trauma (wond).",
     beeld: "Een barst in een vaas die je jaren later nog ziet, ook al is hij gelijmd.",
-    emoji: "🏺💔",
   },
   {
     niveau: "basis",
@@ -49,7 +45,6 @@ export const psychologie: BankWoord[] = [
     voorbeeldzin: "Het idee dat alle Nederlanders gierig zijn is een stereotype.",
     herkomst: "Grieks stereos (vast, stijf) + typos (afdruk); oorspronkelijk een vaste drukplaat.",
     beeld: "Een koekjesvorm die van elk stuk deeg precies hetzelfde koekje maakt.",
-    emoji: "🍪🔁",
   },
   {
     niveau: "gevorderd",
@@ -59,7 +54,6 @@ export const psychologie: BankWoord[] = [
     voorbeeldzin: "Door een sterke behoefte aan affiliatie werken sommige mensen liever in een team dan alleen.",
     herkomst: "Latijn affiliare (als zoon aannemen), van filius (zoon).",
     beeld: "Een nieuwkomer die een clubjasje krijgt en door de hele groep met een high five wordt ontvangen.",
-    emoji: "🧥🙌",
   },
   {
     niveau: "gevorderd",
@@ -69,7 +63,6 @@ export const psychologie: BankWoord[] = [
     voorbeeldzin: "Een roker die weet dat roken ongezond is, ervaart cognitieve dissonantie.",
     herkomst: "Latijn cognitio (kennis) + dissonantia (wanklank); theorie van Leon Festinger (1957).",
     beeld: "Twee orkesten die tegelijk een ander lied spelen in je hoofd.",
-    emoji: "🎻🎺",
   },
   {
     niveau: "gevorderd",
@@ -79,7 +72,6 @@ export const psychologie: BankWoord[] = [
     voorbeeldzin: "Door bevestigingsbias lezen mensen vooral nieuws dat hun eigen mening ondersteunt.",
     herkomst: "Vertaling van het Engelse confirmation bias; bias betekent vooringenomenheid.",
     beeld: "Iemand die met een zaklamp alleen de plekken in een donkere kamer beschijnt waar hij al iets verwacht.",
-    emoji: "🔦🙈",
   },
   {
     niveau: "gevorderd",
@@ -89,7 +81,6 @@ export const psychologie: BankWoord[] = [
     voorbeeldzin: "In de bekende experimenten van Solomon Asch gaven proefpersonen door conformisme soms bewust een fout antwoord.",
     herkomst: "Latijn conformare (gelijkvormig maken).",
     beeld: "Een school vissen die tegelijk dezelfde kant op draait, ook de vis die eigenlijk links wilde.",
-    emoji: "🐟🐟",
   },
   {
     niveau: "gevorderd",
@@ -99,7 +90,6 @@ export const psychologie: BankWoord[] = [
     voorbeeldzin: "Dat hij zijn collega steeds jaloers noemde, was misschien projectie van zijn eigen jaloezie.",
     herkomst: "Latijn proicere (vooruitwerpen).",
     beeld: "Een diaprojector die jouw eigen gezicht op het hoofd van iemand anders projecteert.",
-    emoji: "📽️🎭",
   },
   {
     niveau: "gevorderd",
@@ -109,7 +99,6 @@ export const psychologie: BankWoord[] = [
     voorbeeldzin: "Dankzij neuroplasticiteit kunnen patiënten na een beroerte soms weer leren praten.",
     herkomst: "Grieks neuron (zenuw) + plastikos (vormbaar).",
     beeld: "Een bospad dat ontstaat doordat mensen er steeds opnieuw overheen lopen.",
-    emoji: "🌲🥾",
   },
   {
     niveau: "gevorderd",
@@ -119,7 +108,6 @@ export const psychologie: BankWoord[] = [
     voorbeeldzin: "Door conditionering begonnen de honden van Pavlov al te kwijlen bij het signaal dat eten aankondigde.",
     herkomst: "Latijn condicio (voorwaarde).",
     beeld: "Een hond die al begint te kwijlen zodra hij het geluid van de blikopener hoort.",
-    emoji: "🐕🔔",
   },
   {
     niveau: "gevorderd",
@@ -129,7 +117,6 @@ export const psychologie: BankWoord[] = [
     voorbeeldzin: "Als iedereen verwacht dat een bank omvalt en zijn geld opneemt, wordt dat een selffulfilling prophecy.",
     herkomst: "Engels: zichzelf vervullende voorspelling; term van socioloog Robert K. Merton (1948).",
     beeld: "Iemand die denkt dat hij gaat struikelen, zo nerveus naar zijn voeten kijkt en daardoor struikelt.",
-    emoji: "🦶🔮",
   },
   {
     niveau: "gevorderd",
@@ -139,7 +126,6 @@ export const psychologie: BankWoord[] = [
     voorbeeldzin: "Vrijwilligerswerk is een vorm van prosociaal gedrag.",
     herkomst: "Latijn pro (voor) + socialis (maatschappelijk).",
     beeld: "Iemand die bij de bushalte zijn paraplu deelt met een onbekende.",
-    emoji: "☂️🤝",
   },
   {
     niveau: "gevorderd",
@@ -149,7 +135,6 @@ export const psychologie: BankWoord[] = [
     voorbeeldzin: "Een veilige hechting in de eerste levensjaren helpt kinderen om vertrouwen in anderen te ontwikkelen.",
     herkomst: "Van hechten (vastmaken).",
     beeld: "Een bootje dat met een stevig touw aan de steiger ligt en daardoor rustig het water op durft.",
-    emoji: "⛵⚓",
   },
   {
     niveau: "expert",
@@ -159,7 +144,6 @@ export const psychologie: BankWoord[] = [
     voorbeeldzin: "Door het Dunning-Krugereffect denken beginnende schakers soms dat ze het spel al goed beheersen.",
     herkomst: "Naar de psychologen David Dunning en Justin Kruger (1999).",
     beeld: "Iemand die na één kookvideo denkt dat hij een sterrenrestaurant kan runnen.",
-    emoji: "👨‍🍳🌟",
   },
   {
     niveau: "expert",
@@ -169,7 +153,6 @@ export const psychologie: BankWoord[] = [
     voorbeeldzin: "Deze app traint ook je metacognitie: je ontdekt hoe jij het beste leert.",
     herkomst: "Grieks meta (over, boven) + Latijn cognitio (kennis).",
     beeld: "Een klein mannetje op je schouder dat meekijkt terwijl je studeert en aantekeningen maakt over hoe het gaat.",
-    emoji: "🧠🔍",
   },
   {
     niveau: "expert",
@@ -179,7 +162,6 @@ export const psychologie: BankWoord[] = [
     voorbeeldzin: "Bij een plotselinge schrik reageert de amygdala al voordat je bewust begrijpt wat er gebeurt.",
     herkomst: "Grieks amygdalè (amandel).",
     beeld: "Een amandel met grote ogen die bij elk geritsel in de bosjes alarm slaat.",
-    emoji: "🌰🚨",
   },
   {
     niveau: "expert",
@@ -189,6 +171,5 @@ export const psychologie: BankWoord[] = [
     voorbeeldzin: "Denken dat een collega lui is omdat hij te laat komt, zonder aan de file te denken, is de fundamentele attributiefout.",
     herkomst: "Latijn attribuere (toekennen).",
     beeld: "Iemand die een automobilist uitscheldt voor wegpiraat, terwijl die met spoed naar het ziekenhuis rijdt.",
-    emoji: "🚗🚑",
   },
 ];

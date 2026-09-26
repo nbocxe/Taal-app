@@ -9,7 +9,6 @@ export const politiekeStromingen: BankWoord[] = [
     voorbeeldzin: "Liberalisme, socialisme en conservatisme worden vaak de drie klassieke politieke ideologieën genoemd.",
     herkomst: "Grieks idea (denkbeeld) + logos (leer).",
     beeld: "Een bouwtekening die laat zien hoe het huis van de samenleving eruit moet komen te zien.",
-    emoji: "📐🏠",
   },
   {
     niveau: "basis",
@@ -19,7 +18,6 @@ export const politiekeStromingen: BankWoord[] = [
     voorbeeldzin: "Vrijheid van meningsuiting en een vrije markt zijn kernwaarden van het liberalisme.",
     herkomst: "Latijn liber (vrij).",
     beeld: "Een open vogelkooi waaruit vogels vrij hun eigen kant op vliegen.",
-    emoji: "🕊️🔓",
   },
   {
     niveau: "basis",
@@ -29,7 +27,6 @@ export const politiekeStromingen: BankWoord[] = [
     voorbeeldzin: "Het conservatisme wantrouwt snelle, radicale hervormingen.",
     herkomst: "Latijn conservare (bewaren).",
     beeld: "Een tuinman die een eeuwenoude eik zorgvuldig snoeit in plaats van hem om te hakken.",
-    emoji: "🌳✂️",
   },
   {
     niveau: "basis",
@@ -39,7 +36,6 @@ export const politiekeStromingen: BankWoord[] = [
     voorbeeldzin: "De opkomst van het socialisme in de 19e eeuw hing samen met de slechte omstandigheden van fabrieksarbeiders.",
     herkomst: "Latijn socius (makker, bondgenoot).",
     beeld: "Een grote pan soep waaruit iedereen een even grote kom krijgt.",
-    emoji: "🍲🥣",
   },
   {
     niveau: "basis",
@@ -49,7 +45,6 @@ export const politiekeStromingen: BankWoord[] = [
     voorbeeldzin: "In de 20e eeuw werd het communisme de staatsideologie van onder meer de Sovjet-Unie en China.",
     herkomst: "Latijn communis (gemeenschappelijk).",
     beeld: "Een fabriek met boven de poort een bordje: 'Van ons allemaal'.",
-    emoji: "🏭⚒️",
   },
   {
     niveau: "basis",
@@ -59,7 +54,6 @@ export const politiekeStromingen: BankWoord[] = [
     voorbeeldzin: "Het fascisme kwam in 1922 in Italië aan de macht onder Benito Mussolini.",
     herkomst: "Italiaans fascio (bundel), naar de Romeinse fasces: een bundel roeden als symbool van gezag.",
     beeld: "Een bundel stokken die samengebonden onbreekbaar is, vastgehouden door één man die alle touwtjes in handen heeft.",
-    emoji: "🪵👊",
   },
   {
     niveau: "basis",
@@ -69,7 +63,6 @@ export const politiekeStromingen: BankWoord[] = [
     voorbeeldzin: "Het nationalisme speelde een grote rol bij het uiteenvallen van Joegoslavië.",
     herkomst: "Latijn natio (volk, geboorte).",
     beeld: "Een menigte die alleen vlaggen van het eigen land zwaait, terwijl de grenzen met hekken worden afgebakend.",
-    emoji: "🚩🧱",
   },
   {
     niveau: "basis",
@@ -79,7 +72,6 @@ export const politiekeStromingen: BankWoord[] = [
     voorbeeldzin: "De progressieve partijen pleitten al vroeg voor het openstellen van het huwelijk voor paren van hetzelfde geslacht.",
     herkomst: "Latijn progredi (voortschrijden).",
     beeld: "Een groep mensen die een oude muur afbreekt en er een brug voor in de plaats bouwt.",
-    emoji: "🧱🌉",
   },
   {
     niveau: "gevorderd",
@@ -89,7 +81,6 @@ export const politiekeStromingen: BankWoord[] = [
     voorbeeldzin: "Anarchisme wordt vaak verward met chaos, maar veel anarchisten streven juist naar georganiseerd zelfbestuur.",
     herkomst: "Grieks an (zonder) + archè (heerschappij).",
     beeld: "Een dorp zonder burgemeester of politie, waar de bewoners samen aan één lange tafel beslissen.",
-    emoji: "🏘️🪑",
   },
   {
     niveau: "gevorderd",
@@ -99,7 +90,6 @@ export const politiekeStromingen: BankWoord[] = [
     voorbeeldzin: "De Scandinavische landen gelden vaak als voorbeeld van sociaaldemocratie.",
     herkomst: "Samenstelling van sociaal en democratie.",
     beeld: "Een marktplein vol kraampjes, waar de gemeente ervoor zorgt dat niemand zonder boodschappen naar huis gaat.",
-    emoji: "🏪🛟",
   },
   {
     niveau: "gevorderd",
@@ -109,7 +99,6 @@ export const politiekeStromingen: BankWoord[] = [
     voorbeeldzin: "Het CDA is de bekendste partij van de christendemocratie in Nederland.",
     herkomst: "Samenstelling van christelijk en democratie.",
     beeld: "Een huis waarvan gezinnen, verenigingen en kerken samen de dragende muren vormen.",
-    emoji: "🏠✝️",
   },
   {
     niveau: "gevorderd",
@@ -119,7 +108,6 @@ export const politiekeStromingen: BankWoord[] = [
     voorbeeldzin: "In het kapitalisme bepaalt de concurrentie tussen bedrijven grotendeels wat er geproduceerd wordt.",
     herkomst: "Via kapitaal (vermogen), van Latijn capitalis (hoofd-).",
     beeld: "Een drukke markt waar iedereen zijn eigen kraam heeft en de klanten bepalen wie blijft.",
-    emoji: "🏪💶",
   },
   {
     niveau: "gevorderd",
@@ -129,7 +117,6 @@ export const politiekeStromingen: BankWoord[] = [
     voorbeeldzin: "Na de staatsgreep gleed het land steeds verder af richting autoritarisme.",
     herkomst: "Latijn auctoritas (gezag).",
     beeld: "Een klaslokaal waar alleen de leraar mag praten en elke vraag verboden is.",
-    emoji: "🏫🤐",
   },
   {
     niveau: "gevorderd",
@@ -139,7 +126,6 @@ export const politiekeStromingen: BankWoord[] = [
     voorbeeldzin: "George Orwells roman 1984 beschrijft een totalitaire staat.",
     herkomst: "Italiaans totalitario, van Latijn totus (geheel).",
     beeld: "Een camera in elke kamer en een luidspreker die voorschrijft wat je moet denken.",
-    emoji: "📹📢",
   },
   {
     niveau: "gevorderd",
@@ -149,7 +135,6 @@ export const politiekeStromingen: BankWoord[] = [
     voorbeeldzin: "Na de revolutie probeerden reactionaire krachten de oude monarchie te herstellen.",
     herkomst: "Frans réaction (terugwerking).",
     beeld: "Iemand die met beide handen de wijzers van de klok terugdraait.",
-    emoji: "🕰️↩️",
   },
   {
     niveau: "expert",
@@ -159,7 +144,6 @@ export const politiekeStromingen: BankWoord[] = [
     voorbeeldzin: "Veel aanhangers van het libertarisme zien belastingen als een inbreuk op het eigendomsrecht.",
     herkomst: "Engels libertarian, van Latijn libertas (vrijheid).",
     beeld: "Een nachtwaker die alleen rondloopt om inbrekers te weren en zich verder nergens mee bemoeit.",
-    emoji: "🔦🌙",
   },
   {
     niveau: "expert",
@@ -169,7 +153,6 @@ export const politiekeStromingen: BankWoord[] = [
     voorbeeldzin: "Het beleid van Thatcher en Reagan wordt vaak als neoliberalisme omschreven.",
     herkomst: "Grieks neos (nieuw) + liberalisme.",
     beeld: "Een overheid die de sleutels van het spoor, de post en de energiebedrijven overhandigt aan private ondernemers.",
-    emoji: "🔑🚆",
   },
   {
     niveau: "expert",
@@ -179,7 +162,6 @@ export const politiekeStromingen: BankWoord[] = [
     voorbeeldzin: "Het marxisme ziet de tegenstelling tussen arbeiders en kapitaalbezitters als drijvende kracht van de geschiedenis.",
     herkomst: "Naar Karl Marx (1818-1883).",
     beeld: "Een touwtrekwedstrijd die door de eeuwen heen doorgaat, tussen fabriekseigenaren en arbeiders.",
-    emoji: "🪢⚒️",
   },
   {
     niveau: "expert",
@@ -189,6 +171,5 @@ export const politiekeStromingen: BankWoord[] = [
     voorbeeldzin: "Een vrije pers met kranten van links tot rechts is een teken van pluralisme.",
     herkomst: "Latijn pluralis (meervoudig).",
     beeld: "Een tuin met honderden verschillende bloemen die allemaal evenveel zon krijgen.",
-    emoji: "🌷🌻",
   },
 ];

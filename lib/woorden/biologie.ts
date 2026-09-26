@@ -9,7 +9,6 @@ export const biologie: BankWoord[] = [
     voorbeeldzin: "Zonder fotosynthese zou er nauwelijks zuurstof in de atmosfeer zijn.",
     herkomst: "Grieks phoos (licht) + synthesis (samenstelling).",
     beeld: "Een blad met een klein zonnepaneel dat suikerklontjes en zuurstofbelletjes uitspuugt.",
-    emoji: "🌿☀️",
   },
   {
     niveau: "basis",
@@ -19,7 +18,6 @@ export const biologie: BankWoord[] = [
     voorbeeldzin: "Clownvissen leven in symbiose met zeeanemonen.",
     herkomst: "Grieks sym (samen) + bios (leven).",
     beeld: "Een clownvis die veilig tussen de prikkende tentakels van een anemoon woont en ze schoonhoudt.",
-    emoji: "🐠🪸",
   },
   {
     niveau: "basis",
@@ -29,7 +27,6 @@ export const biologie: BankWoord[] = [
     voorbeeldzin: "Een enkele mutatie kan ervoor zorgen dat een bacterie ongevoelig wordt voor antibiotica.",
     herkomst: "Latijn mutare (veranderen).",
     beeld: "Iemand die een lang recept overschrijft, per ongeluk één letter verandert, en nu wordt de taart blauw.",
-    emoji: "⌨️🎂",
   },
   {
     niveau: "basis",
@@ -39,7 +36,6 @@ export const biologie: BankWoord[] = [
     voorbeeldzin: "De Waddenzee is een uniek ecosysteem.",
     herkomst: "Grieks oikos (huis) + systema (geheel).",
     beeld: "Een afgesloten glazen pot waarin planten, slakjes, water en licht samen een klein wereldje vormen.",
-    emoji: "🫙🐌",
   },
   {
     niveau: "basis",
@@ -49,7 +45,6 @@ export const biologie: BankWoord[] = [
     voorbeeldzin: "Kolibries hebben een extreem snel metabolisme.",
     herkomst: "Grieks metabolè (verandering).",
     beeld: "Een drukke fabriek in je buik waar voedsel binnenkomt en energie in batterijen de deur uit gaat.",
-    emoji: "🏭🔋",
   },
   {
     niveau: "gevorderd",
@@ -59,7 +54,6 @@ export const biologie: BankWoord[] = [
     voorbeeldzin: "Zweten is een manier waarop het lichaam de homeostase van de lichaamstemperatuur bewaart.",
     herkomst: "Grieks homoios (gelijk) + stasis (stilstand).",
     beeld: "Een thermostaat in je hoofd die de verwarming aan- en uitzet om precies 37 graden te houden.",
-    emoji: "🌡️🧠",
   },
   {
     niveau: "gevorderd",
@@ -69,7 +63,6 @@ export const biologie: BankWoord[] = [
     voorbeeldzin: "De dodo was endemisch op Mauritius.",
     herkomst: "Grieks endèmos (inheems), van en (in) + dèmos (volk).",
     beeld: "Een schildpad met een paspoort waarin staat: 'Mag dit eiland nooit verlaten'.",
-    emoji: "🐢🏝️",
   },
   {
     niveau: "gevorderd",
@@ -79,7 +72,6 @@ export const biologie: BankWoord[] = [
     voorbeeldzin: "Het enzym amylase in speeksel begint al in je mond met het afbreken van zetmeel.",
     herkomst: "Grieks en (in) + zymè (zuurdesem, gist).",
     beeld: "Een klein schaartje dat razendsnel lange kettingen doorknipt en daarna onbeschadigd verdergaat met de volgende.",
-    emoji: "✂️⛓️",
   },
   {
     niveau: "gevorderd",
@@ -89,7 +81,6 @@ export const biologie: BankWoord[] = [
     voorbeeldzin: "Eeneiige tweelingen hebben dezelfde genen, maar hun fenotype kan door hun leefstijl verschillen.",
     herkomst: "Grieks phainein (tonen) + typos (vorm).",
     beeld: "Twee identieke fietsen uit dezelfde fabriek: de een glanst in de schuur, de ander roest na jaren in de regen.",
-    emoji: "🚲🌧️",
   },
   {
     niveau: "gevorderd",
@@ -99,7 +90,6 @@ export const biologie: BankWoord[] = [
     voorbeeldzin: "Mitochondriën hebben hun eigen DNA, dat je alleen van je moeder erft.",
     herkomst: "Grieks mitos (draad) + chondrion (korreltje).",
     beeld: "Kleine energiecentrales in de vorm van boontjes die in elke cel staan te zoemen.",
-    emoji: "⚡🫘",
   },
   {
     niveau: "expert",
@@ -109,7 +99,6 @@ export const biologie: BankWoord[] = [
     voorbeeldzin: "Bij een embryo zorgt apoptose ervoor dat de vliezen tussen de vingers verdwijnen.",
     herkomst: "Grieks apoptosis (het afvallen, zoals bladeren van een boom).",
     beeld: "Herfstbladeren die keurig één voor één loslaten, zodat de boom gezond de winter in gaat.",
-    emoji: "🍂🌳",
   },
   {
     niveau: "expert",
@@ -119,7 +108,6 @@ export const biologie: BankWoord[] = [
     voorbeeldzin: "Onderzoek naar kinderen van moeders uit de Hongerwinter laat zien hoe epigenetica de gezondheid kan beïnvloeden.",
     herkomst: "Grieks epi (bovenop) + genetica.",
     beeld: "Een pianopartituur (het DNA) waarop met potlood staat welke passages zacht of helemaal niet gespeeld worden.",
-    emoji: "🎹✏️",
   },
   {
     niveau: "expert",
@@ -129,7 +117,6 @@ export const biologie: BankWoord[] = [
     voorbeeldzin: "Wanneer een bergketen een populatie in tweeën splitst, kan allopatrische soortvorming optreden.",
     herkomst: "Grieks allos (ander) + patris (vaderland).",
     beeld: "Een groep muizen die door een nieuwe rivier in tweeën wordt gesplitst en aan beide oevers anders evolueert.",
-    emoji: "🐭🌊",
   },
   {
     niveau: "expert",
@@ -139,7 +126,6 @@ export const biologie: BankWoord[] = [
     voorbeeldzin: "Bij elke stap naar een hoger trofisch niveau gaat ongeveer negentig procent van de energie verloren.",
     herkomst: "Grieks trophè (voeding).",
     beeld: "Een piramide met etages: gras onderin, konijnen daarboven en een vos helemaal bovenop.",
-    emoji: "🌾🐇🦊",
   },
   {
     niveau: "expert",
@@ -149,7 +135,6 @@ export const biologie: BankWoord[] = [
     voorbeeldzin: "De vleugels van vleermuizen en vogels zijn een voorbeeld van convergente evolutie.",
     herkomst: "Latijn convergere (naar elkaar toe buigen, samenkomen).",
     beeld: "Een haai en een dolfijn die geen familie zijn, maar toch in hetzelfde gestroomlijnde pak op een feest verschijnen.",
-    emoji: "🦈🐬",
   },
   {
     niveau: "basis",
@@ -159,7 +144,6 @@ export const biologie: BankWoord[] = [
     voorbeeldzin: "Door natuurlijke selectie werden donkere berkenspanners algemener in gebieden vol roet.",
     herkomst: "Begrip uitgewerkt door Charles Darwin (1859).",
     beeld: "Een bos met donkere bomen, waar lichte motten opvallen en worden opgegeten en donkere motten overleven.",
-    emoji: "🦋🌳",
   },
   {
     niveau: "basis",
@@ -169,7 +153,6 @@ export const biologie: BankWoord[] = [
     voorbeeldzin: "Mensen met het syndroom van Down hebben een extra kopie van chromosoom 21.",
     herkomst: "Grieks chroma (kleur) + soma (lichaam), omdat ze goed kleuren onder de microscoop.",
     beeld: "Een rij opgerolde boekdelen in een bibliotheek, elk vol bouwinstructies voor het lichaam.",
-    emoji: "📚🧬",
   },
   {
     niveau: "basis",
@@ -179,7 +162,6 @@ export const biologie: BankWoord[] = [
     voorbeeldzin: "Het tropisch regenwoud heeft een enorme biodiversiteit.",
     herkomst: "Grieks bios (leven) + Latijn diversitas (verscheidenheid).",
     beeld: "Een regenwoud vol kikkers, papegaaien, orchideeën en insecten in alle kleuren.",
-    emoji: "🦜🐸",
   },
   {
     niveau: "gevorderd",
@@ -189,7 +171,6 @@ export const biologie: BankWoord[] = [
     voorbeeldzin: "De arm van een mens en de vleugel van een vleermuis zijn homologe organen.",
     herkomst: "Grieks homologos (overeenstemmend).",
     beeld: "Hetzelfde bouwpakket botjes dat bij de ene soort een hand wordt, bij de andere een vin en bij een derde een vleugel.",
-    emoji: "🦴🦇",
   },
   {
     niveau: "gevorderd",
@@ -199,7 +180,6 @@ export const biologie: BankWoord[] = [
     voorbeeldzin: "Onderzoekers vinden steeds meer verbanden tussen het darmmicrobioom en onze gezondheid.",
     herkomst: "Grieks mikros (klein) + bios (leven).",
     beeld: "Een drukke stad van miljarden bacteriën in je darmen, met eigen wijken en bewoners.",
-    emoji: "🦠🏙️",
   },
   {
     niveau: "expert",
@@ -209,6 +189,5 @@ export const biologie: BankWoord[] = [
     voorbeeldzin: "Met CRISPR kunnen onderzoekers genen uitschakelen om hun functie te bestuderen.",
     herkomst: "Engelse afkorting (Clustered Regularly Interspaced Short Palindromic Repeats); oorspronkelijk een afweersysteem van bacteriën.",
     beeld: "Een tekstverwerker die met zoeken-en-vervangen één letter in het boek van het leven verandert.",
-    emoji: "✂️🧬",
   },
 ];

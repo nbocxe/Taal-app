@@ -9,7 +9,7 @@ test("elk woord in de bank is compleet en uniek", () => {
       const id = woordId(domein, w.woord);
       assert.ok(!ids.has(id), `dubbel woord: ${id}`);
       ids.add(id);
-      for (const veld of ["woord", "woordsoort", "definitie", "voorbeeldzin", "herkomst", "beeld", "emoji"] as const) {
+      for (const veld of ["woord", "woordsoort", "definitie", "voorbeeldzin", "herkomst", "beeld"] as const) {
         assert.ok(w[veld].trim().length > 0, `${id}: ${veld} is leeg`);
       }
       assert.ok(

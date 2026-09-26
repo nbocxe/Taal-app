@@ -17,6 +17,7 @@ export default function Profiel() {
   const kaarten = Object.values(data.kaarten);
   const analyse = analyseer(kaarten);
   const voorkeur = data.profiel?.voorkeur;
+  const verschuiving = Math.round(data.klokVerschuiving / DAG);
 
   const download = () => {
     const blob = new Blob([exporteer(data)], { type: "application/json" });
@@ -29,103 +30,101 @@ export default function Profiel() {
 
   return (
     <>
-      <h1>Mijn leerprofiel</h1>
+      <div className="kop">
+        <span className="label">Profiel</span>
+        <h1>Hoe jij leert</h1>
+      </div>
 
       <div className="kaart">
-        <p className="label">Wat werkt voor jou?</p>
         {analyse.beste ? (
-          <p>
-            Woorden die je via <strong>{METHODES[analyse.beste].naam}</strong> leerde, wist je een dag later het
-            vaakst nog. De app biedt nieuwe woorden daarom vaker zo aan, maar blijft de andere methodes af en toe
-            proberen. Zo merkt hij het als er iets verandert.
+          <p className="citaat">
+            Woorden die je via <strong>{METHODES[analyse.beste].naam.toLowerCase()}</strong> leerde, wist je een dag
+            later het vaakst nog.
           </p>
         ) : (
-          <p>
-            Nog te weinig gegevens. Per methode zijn minstens {MIN_METINGEN} woorden nodig die je een dag later
-            herhaald hebt. Blijf leren én herhalen!
-          </p>
+          <p className="citaat">Nog te weinig gegevens voor een conclusie.</p>
         )}
+        <p className="tekst-2 klein">
+          {analyse.beste
+            ? "Nieuwe woorden krijg je daarom vaker zo. De andere methodes blijven af en toe terugkomen, zodat de app merkt als er iets verandert."
+            : `Per methode zijn minstens ${MIN_METINGEN} woorden nodig die je een dag na het leren hebt herhaald. Blijf leren én herhalen.`}
+        </p>
         {voorkeur && voorkeur !== "weet-niet" && analyse.beste && (
-          <p>
-            Je dacht zelf dat <strong>{METHODES[voorkeur].naam}</strong> het beste zou werken.{" "}
+          <p className="tekst-2 klein">
+            Je dacht zelf dat {METHODES[voorkeur].naam.toLowerCase()} het beste zou werken.{" "}
             {voorkeur === analyse.beste
-              ? "Dat klopt dus!"
+              ? "Dat klopt dus."
               : "Je resultaten wijzen iets anders uit. Onze eigen indruk van hoe we leren klopt vaak niet."}
           </p>
         )}
       </div>
 
-      <div className="kaart">
-        <p className="label">Per methode</p>
-        <div className="tabel">
-        <table>
-          <thead>
-            <tr>
-              <th>Methode</th>
-              <th>Geleerd</th>
-              <th>Gemeten</th>
-              <th>Geweten</th>
-              <th>Kans beste</th>
-            </tr>
-          </thead>
-          <tbody>
-            {analyse.perMethode.map((s) => (
-              <tr key={s.methode}>
-                <td>{METHODES[s.methode].naam}</td>
-                <td>{s.geleerd}</td>
-                <td>{s.gemeten}</td>
-                <td>{procent(s.score)}</td>
-                <td>{s.gemeten > 0 ? procent(s.kansBeste) : "–"}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <section className="sectie">
+        <h2>Per methode</h2>
+        <div className="kaart" style={{ gap: 16 }}>
+          {analyse.perMethode.map((s) => (
+            <div key={s.methode} className="sectie" style={{ gap: 4 }}>
+              <div className="methoderij">
+                <span>{METHODES[s.methode].naam}</span>
+                <div className="balk" aria-hidden="true">
+                  <div style={{ width: `${(s.score ?? 0) * 100}%` }} />
+                </div>
+                <span className="waarde">{procent(s.score)}</span>
+              </div>
+              <span className="zacht" style={{ fontSize: 13 }}>
+                {s.gemeten} van {s.geleerd} gemeten
+                {s.gemeten > 0 && ` · kans dat dit je beste methode is: ${procent(s.kansBeste)}`}
+              </span>
+            </div>
+          ))}
         </div>
-        <p className="zacht">
-          “Gemeten” telt woorden die je minstens een dag na het leren voor het eerst herhaalde. “Geweten” is
-          hoeveel daarvan je toen nog wist. “Kans beste” is
-          een schatting van hoe zeker het is dat die methode echt je beste is. Met weinig metingen ligt dat nog
-          dicht bij elkaar.
+        <p className="zacht klein">
+          “Gemeten” zijn woorden die je minstens een dag na het leren voor het eerst herhaalde. Het percentage is hoeveel
+          je daarvan nog wist.
         </p>
-      </div>
+      </section>
 
-      <div className="kaart">
-        <p className="label">Testmodus</p>
-        <p className="zacht">
-          Wil je de herhalingen uitproberen zonder te wachten? Laat de app denken dat er een dag voorbij is.
-          {data.klokVerschuiving > 0 &&
-            ` De klok staat nu ${Math.round(data.klokVerschuiving / DAG)} ${data.klokVerschuiving === DAG ? "dag" : "dagen"} vooruit.`}
+      <section className="sectie">
+        <h2>Instellingen</h2>
+        <div className="lijst">
+          <Link className="regel" href="/start">
+            <span className="groei">
+              <span className="titel">Voorkeuren</span>
+              <span className="sub">Vakgebieden, niveau en je eigen inschatting</span>
+            </span>
+          </Link>
+          <button className="regel" onClick={download}>
+            <span className="groei">
+              <span className="titel">Back-up downloaden</span>
+              <span className="sub">Alles staat alleen in deze browser</span>
+            </span>
+          </button>
+        </div>
+      </section>
+
+      <section className="sectie">
+        <h2>Testmodus</h2>
+        <p className="zacht klein">
+          Probeer de herhalingen uit zonder te wachten: laat de app denken dat er een dag voorbij is.
+          {verschuiving > 0 && ` De klok staat nu ${verschuiving} ${verschuiving === 1 ? "dag" : "dagen"} vooruit.`}
         </p>
-        <div className="rij">
+        <div className="knoprij">
           <button
-            className="tweede"
+            className="knop tweede"
             onClick={() => wijzig((d) => ({ ...d, klokVerschuiving: d.klokVerschuiving + DAG }))}
           >
             Spring 1 dag vooruit
           </button>
-          {data.klokVerschuiving > 0 && (
-            <button className="tweede" onClick={() => wijzig((d) => ({ ...d, klokVerschuiving: 0 }))}>
+          {verschuiving > 0 && (
+            <button className="knop tweede" onClick={() => wijzig((d) => ({ ...d, klokVerschuiving: 0 }))}>
               Klok terugzetten
             </button>
           )}
         </div>
-        <p className="zacht">Huidige app-tijd: {new Date(nu(data)).toLocaleString("nl-NL")}</p>
-      </div>
-
-      <div className="kaart">
-        <p className="label">Gegevens</p>
-        <p className="zacht">
-          Alles staat alleen in deze browser. Maak af en toe een back-up.
+        <p className="zacht" style={{ fontSize: 13 }}>
+          App-tijd: {new Date(nu(data)).toLocaleString("nl-NL")}
         </p>
-        <div className="rij">
-          <button className="tweede" onClick={download}>
-            Download back-up
-          </button>
-          <Link className="knop tweede" href="/start">
-            Voorkeuren aanpassen
-          </Link>
-        </div>
-      </div>
+      </section>
     </>
   );
 }

@@ -9,7 +9,6 @@ export const tech: BankWoord[] = [
     voorbeeldzin: "Het algoritme van de streamingdienst bepaalt welke series je te zien krijgt.",
     herkomst: "Naar de Perzische wiskundige al-Chwarizmi (9e eeuw).",
     beeld: "Een kok die stap voor stap een recept volgt zonder ook maar één regel over te slaan.",
-    emoji: "👨‍🍳📋",
   },
   {
     niveau: "basis",
@@ -19,7 +18,6 @@ export const tech: BankWoord[] = [
     voorbeeldzin: "Dankzij end-to-end-encryptie kan zelfs de chatdienst je berichten niet lezen.",
     herkomst: "Grieks kryptos (verborgen).",
     beeld: "Een brief die in een kluisje gaat waarvan alleen de ontvanger de code kent.",
-    emoji: "🔐✉️",
   },
   {
     niveau: "basis",
@@ -29,7 +27,6 @@ export const tech: BankWoord[] = [
     voorbeeldzin: "Als het hele gezin tegelijk video's streamt, raakt de bandbreedte op.",
     herkomst: "Oorspronkelijk uit de radiotechniek: de breedte van een frequentieband.",
     beeld: "Een snelweg waarvan het aantal rijstroken bepaalt hoeveel auto's er tegelijk doorheen kunnen.",
-    emoji: "🛣️🚗",
   },
   {
     niveau: "basis",
@@ -39,7 +36,6 @@ export const tech: BankWoord[] = [
     voorbeeldzin: "Firefox en Linux zijn bekende voorbeelden van open source software.",
     herkomst: "Engels: open bron(code).",
     beeld: "Een restaurant waar het recept naast de kassa hangt en iedereen het mag meenemen en verbeteren.",
-    emoji: "📖🍝",
   },
   {
     niveau: "basis",
@@ -49,7 +45,6 @@ export const tech: BankWoord[] = [
     voorbeeldzin: "De mail van 'de bank' die vroeg om je pincode te bevestigen, was phishing.",
     herkomst: "Engels, afgeleid van fishing (vissen), met de 'ph' uit hackerjargon.",
     beeld: "Een hengel met een nep-bankpas als aas die in je inbox bungelt.",
-    emoji: "🎣💳",
   },
   {
     niveau: "gevorderd",
@@ -59,7 +54,6 @@ export const tech: BankWoord[] = [
     voorbeeldzin: "Bij online gamen is een lage latentie belangrijker dan een hoge downloadsnelheid.",
     herkomst: "Latijn latere (verborgen zijn).",
     beeld: "Een echo in de bergen: je roept, en pas even later hoor je antwoord.",
-    emoji: "🏔️📣",
   },
   {
     niveau: "gevorderd",
@@ -69,7 +63,6 @@ export const tech: BankWoord[] = [
     voorbeeldzin: "De weer-app haalt zijn voorspellingen op via de API van een weerdienst.",
     herkomst: "Afkorting van het Engelse Application Programming Interface.",
     beeld: "Een ober die bestellingen van de gasten naar de keuken brengt en de gerechten weer terugbrengt.",
-    emoji: "🧑‍🍳🍽️",
   },
   {
     niveau: "gevorderd",
@@ -79,7 +72,6 @@ export const tech: BankWoord[] = [
     voorbeeldzin: "Door cloud computing hoeft een start-up geen eigen serverruimte meer te bouwen.",
     herkomst: "Engels; een wolk was het gebruikelijke symbool voor internet in netwerkschema's.",
     beeld: "Een computer die als wolk boven de stad hangt, waar iedereen met een draadje op kan inpluggen.",
-    emoji: "☁️🔌",
   },
   {
     niveau: "gevorderd",
@@ -89,7 +81,6 @@ export const tech: BankWoord[] = [
     voorbeeldzin: "Spamfilters gebruiken machine learning om nieuwe soorten ongewenste mail te herkennen.",
     herkomst: "Engels: machinaal leren.",
     beeld: "Een robot die na het bekijken van duizenden foto's zelf het verschil tussen katten en honden leert zien.",
-    emoji: "🤖🐱",
   },
   {
     niveau: "gevorderd",
@@ -99,7 +90,6 @@ export const tech: BankWoord[] = [
     voorbeeldzin: "Zet tweefactorauthenticatie aan, zodat een gestolen wachtwoord alleen niet genoeg is.",
     herkomst: "Grieks authentikos (echt, betrouwbaar).",
     beeld: "Een voordeur met twee sloten: de sleutel zit in je zak, de code staat op je telefoon.",
-    emoji: "🚪📱",
   },
   {
     niveau: "expert",
@@ -109,7 +99,6 @@ export const tech: BankWoord[] = [
     voorbeeldzin: "Bitcoin gebruikt een blockchain om alle transacties bij te houden.",
     herkomst: "Engels block (blok) + chain (ketting).",
     beeld: "Een ketting van glazen kluisjes waarin elk kluisje een afdruk van het vorige bevat, zodat knoeien meteen opvalt.",
-    emoji: "⛓️📦",
   },
   {
     niveau: "expert",
@@ -119,7 +108,6 @@ export const tech: BankWoord[] = [
     voorbeeldzin: "Dankzij containerisatie werkt de applicatie op de server precies zoals op de laptop van de ontwikkelaar.",
     herkomst: "Naar de zeecontainer, die goederenvervoer wereldwijd standaardiseerde.",
     beeld: "Een zeecontainer met een complete keuken erin, die je op elk schip kunt zetten en overal meteen kunt koken.",
-    emoji: "🚢📦",
   },
   {
     niveau: "expert",
@@ -129,7 +117,6 @@ export const tech: BankWoord[] = [
     voorbeeldzin: "Criminelen betalen soms grote bedragen voor een zero-day in een populaire browser.",
     herkomst: "Engels: de maker heeft 'nul dagen' gehad om het lek te dichten.",
     beeld: "Een inbreker die een geheime achterdeur vindt waarvan de bewoners niet eens weten dat die bestaat.",
-    emoji: "🚪🕵️",
   },
   {
     niveau: "expert",
@@ -139,7 +126,6 @@ export const tech: BankWoord[] = [
     voorbeeldzin: "Na jaren van haastwerk was de technische schuld zo groot dat elke kleine aanpassing weken kostte.",
     herkomst: "Vertaling van technical debt, een term van programmeur Ward Cunningham.",
     beeld: "Een stapel afwas die je steeds laat staan, tot je geen schoon bord meer hebt.",
-    emoji: "🍽️📈",
   },
   {
     niveau: "expert",
@@ -149,7 +135,6 @@ export const tech: BankWoord[] = [
     voorbeeldzin: "Moderne chatbots zijn gebaseerd op een groot taalmodel.",
     herkomst: "Vertaling van het Engelse language model.",
     beeld: "Een reusachtige bibliotheek met een stem die elke zin die je begint kan afmaken.",
-    emoji: "📚🗣️",
   },
   {
     niveau: "basis",
@@ -159,7 +144,6 @@ export const tech: BankWoord[] = [
     voorbeeldzin: "Door cookies te weigeren krijg je minder gepersonaliseerde advertenties.",
     herkomst: "Engels: koekje; afgeleid van het programmeursbegrip 'magic cookie'.",
     beeld: "Een koekje dat een kruimelspoor achterlaat van alle websites die je hebt bezocht.",
-    emoji: "🍪👣",
   },
   {
     niveau: "basis",
@@ -169,7 +153,6 @@ export const tech: BankWoord[] = [
     voorbeeldzin: "Via een besmette bijlage kwam er malware op de computers van het bedrijf.",
     herkomst: "Engels malicious (kwaadaardig) + software.",
     beeld: "Een Trojaans paard vol kleine digitale inbrekers dat door de poort van je laptop rolt.",
-    emoji: "🐴💻",
   },
   {
     niveau: "gevorderd",
@@ -179,7 +162,6 @@ export const tech: BankWoord[] = [
     voorbeeldzin: "De universiteit betaalde losgeld nadat ransomware alle systemen had platgelegd.",
     herkomst: "Engels ransom (losgeld) + software.",
     beeld: "Een hangslot op al je fotoalbums met een briefje: 'Betaal, of je ziet ze nooit meer terug.'",
-    emoji: "🔒💰",
   },
   {
     niveau: "gevorderd",
@@ -189,7 +171,6 @@ export const tech: BankWoord[] = [
     voorbeeldzin: "Nu veel overheidszaken online gaan, groeit de zorg over de digitale kloof bij ouderen.",
     herkomst: "Samenstelling van digitaal en kloof.",
     beeld: "Een diepe kloof met aan de ene kant mensen met smartphones en aan de andere kant mensen die niet weten hoe ze moeten oversteken.",
-    emoji: "📱🏔️",
   },
   {
     niveau: "expert",
@@ -199,6 +180,5 @@ export const tech: BankWoord[] = [
     voorbeeldzin: "Een krachtige quantumcomputer zou de huidige versleuteling van internetverkeer kunnen kraken.",
     herkomst: "Latijn quantum (hoeveel), via de kwantummechanica.",
     beeld: "Een munt die tijdens het draaien tegelijk kop én munt is, en zo alle mogelijkheden in één keer probeert.",
-    emoji: "🪙🌀",
   },
 ];

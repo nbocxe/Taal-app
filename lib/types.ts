@@ -16,7 +16,6 @@ export interface Woord {
   herkomst: string;
   /** Een beeldende ezelsbrug: een scène die je voor je ziet. */
   beeld: string;
-  emoji: string;
 }
 
 export interface Herhaling {

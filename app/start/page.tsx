@@ -6,6 +6,13 @@ import { METHODES, METHODE_IDS } from "@/lib/methodes";
 import { useAppData } from "@/lib/opslag";
 import type { MethodeId, Niveau } from "@/lib/types";
 import { DOMEINEN } from "@/lib/woordenbank";
+import { Illustratie } from "../components/Illustratie";
+
+const NIVEAUS: { id: Niveau; naam: string; uitleg: string }[] = [
+  { id: "basis", naam: "Basis", uitleg: "Woorden uit de krant en populaire artikelen" },
+  { id: "gevorderd", naam: "Gevorderd", uitleg: "Kwaliteitskrant en inleidende studieboeken" },
+  { id: "expert", naam: "Expert", uitleg: "Vaktermen voor professionals" },
+];
 
 export default function Start() {
   const router = useRouter();
@@ -30,63 +37,84 @@ export default function Start() {
 
   const opslaan = () => {
     wijzig((d) => ({ ...d, profiel: { domeinen, niveau, voorkeur } }));
-    router.push("/leren");
+    router.push(profiel ? "/profiel" : "/leren");
   };
 
   return (
     <>
-      <h1>Even kennismaken</h1>
+      <div className="kop">
+        <span className="label">{profiel ? "Voorkeuren" : "Welkom"}</span>
+        <h1>Even kennismaken</h1>
+      </div>
 
-      <div className="kaart">
-        <h2>1. Welke vakgebieden interesseren je?</h2>
-        <div className="rij">
+      <section className="sectie">
+        <h2>Welke vakgebieden interesseren je?</h2>
+        <p className="zacht klein">Kies er zoveel als je wilt.</p>
+        <div className="raster">
           {DOMEINEN.map((d) => (
-            <button
-              key={d}
-              className={domeinen.includes(d) ? "" : "tweede"}
-              onClick={() => wissel(d)}
-              aria-pressed={domeinen.includes(d)}
-            >
+            <button key={d} className="tegel" onClick={() => wissel(d)} aria-pressed={domeinen.includes(d)}>
+              <span className="illustratie">
+                <Illustratie domein={d} />
+              </span>
               {d}
             </button>
           ))}
         </div>
-      </div>
+      </section>
 
-      <div className="kaart">
-        <h2>2. Welk niveau?</h2>
-        <select value={niveau} onChange={(e) => setNiveau(e.target.value as Niveau)}>
-          <option value="basis">Basis: woorden uit de krant en populaire artikelen</option>
-          <option value="gevorderd">Gevorderd: kwaliteitskrant en inleidende studieboeken</option>
-          <option value="expert">Expert: vaktermen voor professionals</option>
-        </select>
-      </div>
+      <section className="sectie">
+        <h2>Welk niveau?</h2>
+        <div className="keuzes" role="radiogroup" aria-label="Niveau">
+          {NIVEAUS.map((n) => (
+            <button
+              key={n.id}
+              role="radio"
+              aria-checked={niveau === n.id}
+              className={`keuze ${niveau === n.id ? "gekozen" : ""}`}
+              onClick={() => setNiveau(n.id)}
+            >
+              <span>
+                <strong>{n.naam}</strong>
+                <span className="zacht"> · {n.uitleg}</span>
+              </span>
+            </button>
+          ))}
+        </div>
+      </section>
 
-      <div className="kaart">
-        <h2>3. Hoe denk je zelf dat je het beste leert?</h2>
-        <p className="zacht">
-          Dit verandert niets aan de app. We vergelijken het later met wat je echt onthoudt. Dat is vaak
-          verrassend!
+      <section className="sectie">
+        <h2>Hoe denk je zelf dat je het beste leert?</h2>
+        <p className="zacht klein">
+          Dit verandert niets aan de app. We vergelijken het later met wat je echt onthoudt, en dat is vaak verrassend.
         </p>
-        {METHODE_IDS.map((m) => (
+        <div className="keuzes" role="radiogroup" aria-label="Eigen inschatting">
+          {METHODE_IDS.map((m) => (
+            <button
+              key={m}
+              role="radio"
+              aria-checked={voorkeur === m}
+              className={`keuze ${voorkeur === m ? "gekozen" : ""}`}
+              onClick={() => setVoorkeur(m)}
+            >
+              <span>
+                <strong>{METHODES[m].naam}</strong>
+                <span className="zacht"> · {METHODES[m].korteUitleg}</span>
+              </span>
+            </button>
+          ))}
           <button
-            key={m}
-            className={`keuze ${voorkeur === m ? "gekozen" : ""}`}
-            onClick={() => setVoorkeur(m)}
+            role="radio"
+            aria-checked={voorkeur === "weet-niet"}
+            className={`keuze ${voorkeur === "weet-niet" ? "gekozen" : ""}`}
+            onClick={() => setVoorkeur("weet-niet")}
           >
-            <strong>{METHODES[m].naam}</strong>: {METHODES[m].korteUitleg}
+            Ik weet het echt niet
           </button>
-        ))}
-        <button
-          className={`keuze ${voorkeur === "weet-niet" ? "gekozen" : ""}`}
-          onClick={() => setVoorkeur("weet-niet")}
-        >
-          Ik weet het echt niet
-        </button>
-      </div>
+        </div>
+      </section>
 
-      <button onClick={opslaan} disabled={domeinen.length === 0}>
-        Beginnen
+      <button className="knop breed" onClick={opslaan} disabled={domeinen.length === 0}>
+        {profiel ? "Opslaan" : "Beginnen"}
       </button>
     </>
   );

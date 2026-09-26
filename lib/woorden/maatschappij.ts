@@ -9,7 +9,6 @@ export const maatschappij: BankWoord[] = [
     voorbeeldzin: "Op internet voelen sommige mensen zich door hun anonimiteit vrij om grof te reageren.",
     herkomst: "Grieks anōnymos (naamloos), van an (zonder) + onoma (naam).",
     beeld: "Iemand met een masker in een grote menigte, waar niemand zijn gezicht kent.",
-    emoji: "🎭👥",
   },
   {
     niveau: "basis",
@@ -19,7 +18,6 @@ export const maatschappij: BankWoord[] = [
     voorbeeldzin: "Door de individualisering bepalen mensen zelf of ze trouwen, en met wie.",
     herkomst: "Latijn individuum (het ondeelbare).",
     beeld: "Een koor waarvan de zangers een voor een uit de rij stappen om hun eigen lied te zingen.",
-    emoji: "🎤🎶",
   },
   {
     niveau: "basis",
@@ -29,7 +27,6 @@ export const maatschappij: BankWoord[] = [
     voorbeeldzin: "Door het stigma rond psychische klachten zoeken veel mensen pas laat hulp.",
     herkomst: "Grieks stigma (brandmerk).",
     beeld: "Iemand met een rode stempel op zijn voorhoofd in een zaal waar iedereen wegkijkt.",
-    emoji: "🔴👀",
   },
   {
     niveau: "basis",
@@ -39,7 +36,6 @@ export const maatschappij: BankWoord[] = [
     voorbeeldzin: "In sommige steden zie je segregatie tussen scholen: kinderen met verschillende achtergronden komen elkaar nauwelijks tegen.",
     herkomst: "Latijn segregare (afzonderen van de kudde).",
     beeld: "Een schoolplein met een onzichtbare lijn waar de kinderen van de ene groep nooit overheen lopen.",
-    emoji: "🏫➖",
   },
   {
     niveau: "gevorderd",
@@ -49,7 +45,6 @@ export const maatschappij: BankWoord[] = [
     voorbeeldzin: "Volgens de socioloog Émile Durkheim kan snelle maatschappelijke verandering tot anomie leiden.",
     herkomst: "Grieks anomia (wetteloosheid), van a (zonder) + nomos (wet).",
     beeld: "Een voetbalwedstrijd zonder scheidsrechter, lijnen of regels, waar iedereen maar wat doet.",
-    emoji: "⚽❓",
   },
   {
     niveau: "gevorderd",
@@ -59,7 +54,6 @@ export const maatschappij: BankWoord[] = [
     voorbeeldzin: "Ouders, school en vrienden spelen een grote rol in de socialisatie van kinderen.",
     herkomst: "Latijn socius (makker, bondgenoot).",
     beeld: "Een jong katje dat van de oudere katten in de straat leert hoe het hoort.",
-    emoji: "🐈🐾",
   },
   {
     niveau: "gevorderd",
@@ -69,7 +63,6 @@ export const maatschappij: BankWoord[] = [
     voorbeeldzin: "Een buurtfeest kan de sociale cohesie in de wijk versterken.",
     herkomst: "Latijn cohaerere (samenhangen).",
     beeld: "Een web van touwtjes tussen de huizen in een straat, waar alle bewoners aan meetrekken.",
-    emoji: "🕸️🏘️",
   },
   {
     niveau: "gevorderd",
@@ -79,7 +72,6 @@ export const maatschappij: BankWoord[] = [
     voorbeeldzin: "Gratis onderwijs wordt vaak gezien als een motor van sociale mobiliteit.",
     herkomst: "Latijn mobilis (beweeglijk).",
     beeld: "Een lift in een flatgebouw waarmee kinderen hoger of lager uitstappen dan waar hun ouders wonen.",
-    emoji: "🛗🏢",
   },
   {
     niveau: "gevorderd",
@@ -89,7 +81,6 @@ export const maatschappij: BankWoord[] = [
     voorbeeldzin: "Door de secularisatie zijn veel kerken in Nederland omgebouwd tot woningen of boekhandels.",
     herkomst: "Latijn saeculum (tijdperk, wereld), als tegenstelling tot het geestelijke.",
     beeld: "Een kerk waarin nu boekenkasten en een koffiebar staan.",
-    emoji: "⛪☕",
   },
   {
     niveau: "gevorderd",
@@ -99,7 +90,6 @@ export const maatschappij: BankWoord[] = [
     voorbeeldzin: "Critici stellen dat een meritocratie mensen zonder diploma het gevoel geeft dat ze tekortschieten.",
     herkomst: "Latijn meritum (verdienste) + Grieks kratos (macht).",
     beeld: "Een ladder waarop je alleen hoger komt door een examen te halen, ongeacht wie je ouders zijn.",
-    emoji: "🪜🎓",
   },
   {
     niveau: "expert",
@@ -109,7 +99,6 @@ export const maatschappij: BankWoord[] = [
     voorbeeldzin: "Door de verzuiling ging een katholiek gezin naar een katholieke school, voetbalclub en omroep.",
     herkomst: "Van zuil: elke groep vormde een zuil die samen met de andere het dak van de staat droeg.",
     beeld: "Een tempeltje met vier zuilen, katholiek, protestants, socialistisch en liberaal, die samen één dak dragen.",
-    emoji: "🏛️🏛️",
   },
   {
     niveau: "expert",
@@ -119,7 +108,6 @@ export const maatschappij: BankWoord[] = [
     voorbeeldzin: "Door gentrificatie zijn de huizenprijzen in de oude arbeiderswijk verdubbeld.",
     herkomst: "Engels gentry (lage adel, welgestelde burgerij).",
     beeld: "Een oud buurtcafé dat plaatsmaakt voor een koffiebar met havermelk voor zes euro.",
-    emoji: "☕🏚️",
   },
   {
     niveau: "expert",
@@ -129,6 +117,5 @@ export const maatschappij: BankWoord[] = [
     voorbeeldzin: "In de troonrede van 2013 werd de participatiesamenleving aangekondigd.",
     herkomst: "Latijn participare (deelnemen).",
     beeld: "Een buurman die het gras van een zieke buurvrouw maait, omdat de gemeente dat niet meer doet.",
-    emoji: "🌱🤲",
   },
 ];

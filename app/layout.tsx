@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import Link from "next/link";
+import { TabBalk } from "./components/TabBalk";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -10,21 +10,19 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f6f1e7" },
+    { media: "(prefers-color-scheme: dark)", color: "#1a1714" },
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="nl">
       <body>
-        <header className="kop">
-          <Link href="/">Taal-app</Link>
-          <nav>
-            <Link href="/leren">Leren</Link>
-            <Link href="/herhalen">Herhalen</Link>
-            <Link href="/profiel">Mijn leerprofiel</Link>
-          </nav>
-        </header>
         <main>{children}</main>
+        <TabBalk />
       </body>
     </html>
   );

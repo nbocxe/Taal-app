@@ -9,7 +9,6 @@ export const natuurkunde: BankWoord[] = [
     voorbeeldzin: "Door inertie schiet je naar voren als de bus plotseling remt.",
     herkomst: "Latijn iners (traag, inactief).",
     beeld: "Een ijshockeypuck die over het ijs blijft glijden en weigert te stoppen.",
-    emoji: "🏒🧊",
   },
   {
     niveau: "basis",
@@ -19,7 +18,6 @@ export const natuurkunde: BankWoord[] = [
     voorbeeldzin: "Een geluid met een hogere frequentie hoor je als een hogere toon.",
     herkomst: "Latijn frequens (talrijk, vaak voorkomend).",
     beeld: "Een kolibrie die zo vaak per seconde met zijn vleugels slaat dat ze zoemen.",
-    emoji: "🐦〰️",
   },
   {
     niveau: "basis",
@@ -29,7 +27,6 @@ export const natuurkunde: BankWoord[] = [
     voorbeeldzin: "Door condensatie verschijnen er druppels op de buitenkant van een koud glas.",
     herkomst: "Latijn condensare (verdichten).",
     beeld: "Een badkamerspiegel die na een warme douche langzaam beslaat.",
-    emoji: "🚿🪞",
   },
   {
     niveau: "basis",
@@ -39,7 +36,6 @@ export const natuurkunde: BankWoord[] = [
     voorbeeldzin: "Koper is een goede geleider en wordt daarom in elektriciteitskabels gebruikt.",
     herkomst: "Van het werkwoord geleiden (doorvoeren, leiden).",
     beeld: "Een brede snelweg waarover elektronen zonder file voortrazen.",
-    emoji: "🛣️⚡",
   },
   {
     niveau: "basis",
@@ -49,7 +45,6 @@ export const natuurkunde: BankWoord[] = [
     voorbeeldzin: "Met een vergrootglas kun je zonlicht in het brandpunt zo sterk bundelen dat papier gaat smeulen.",
     herkomst: "Letterlijk: het punt waar het brandt.",
     beeld: "Een vergrootglas dat een felle stip zonlicht op een blad papier laat roken.",
-    emoji: "🔍🔥",
   },
   {
     niveau: "gevorderd",
@@ -59,7 +54,6 @@ export const natuurkunde: BankWoord[] = [
     voorbeeldzin: "Dat een gebroken kopje nooit vanzelf weer heel wordt, heeft te maken met entropie.",
     herkomst: "Grieks en (in) + tropè (verandering); bedacht door de Duitse natuurkundige Rudolf Clausius.",
     beeld: "Een opgeruimde kamer die zonder dat iemand iets doet steeds rommeliger lijkt te worden.",
-    emoji: "🧹🌀",
   },
   {
     niveau: "gevorderd",
@@ -69,7 +63,6 @@ export const natuurkunde: BankWoord[] = [
     voorbeeldzin: "Bij een botsing blijft de totale impuls van de biljartballen behouden.",
     herkomst: "Latijn impellere (voortstuwen).",
     beeld: "Een zware vrachtwagen en een razendsnelle tennisbal die allebei lastig te stoppen zijn.",
-    emoji: "🚚🎾",
   },
   {
     niveau: "gevorderd",
@@ -79,7 +72,6 @@ export const natuurkunde: BankWoord[] = [
     voorbeeldzin: "Koolstof-14 heeft een halfwaardetijd van ongeveer 5730 jaar.",
     herkomst: "Samenstelling van half, waarde en tijd.",
     beeld: "Een zak snoep waaruit elke vijf minuten de helft verdwijnt, maar die nooit helemaal leeg raakt.",
-    emoji: "🍬⏳",
   },
   {
     niveau: "gevorderd",
@@ -89,7 +81,6 @@ export const natuurkunde: BankWoord[] = [
     voorbeeldzin: "De kleuren op een zeepbel ontstaan door interferentie van licht.",
     herkomst: "Latijn inter (tussen) + ferire (slaan).",
     beeld: "Twee stenen in een vijver waarvan de kringen elkaar kruisen, zodat het water op sommige plekken hoger en op andere vlak wordt.",
-    emoji: "🪨💧",
   },
   {
     niveau: "gevorderd",
@@ -99,7 +90,6 @@ export const natuurkunde: BankWoord[] = [
     voorbeeldzin: "MRI-scanners gebruiken supergeleidende magneten die met vloeibaar helium worden gekoeld.",
     herkomst: "Ontdekt in 1911 door de Nederlandse natuurkundige Heike Kamerlingh Onnes in Leiden.",
     beeld: "Een ijskoude glijbaan waarop elektronen eindeloos doorglijden zonder ooit af te remmen.",
-    emoji: "🛝❄️",
   },
   {
     niveau: "expert",
@@ -109,7 +99,6 @@ export const natuurkunde: BankWoord[] = [
     voorbeeldzin: "Onderzoekers in Delft toonden in 2015 kwantumverstrengeling aan tussen deeltjes die ruim een kilometer uit elkaar lagen.",
     herkomst: "Vertaling van het Duitse Verschränkung, een term van Erwin Schrödinger.",
     beeld: "Twee dobbelstenen in verschillende steden die, als je ze gooit, altijd bij elkaar passende uitkomsten geven.",
-    emoji: "🎲🎲",
   },
   {
     niveau: "expert",
@@ -119,7 +108,6 @@ export const natuurkunde: BankWoord[] = [
     voorbeeldzin: "Het dubbelspleetexperiment met elektronen laat de golf-deeltjedualiteit zien.",
     herkomst: "Latijn dualis (tweeledig).",
     beeld: "Een kameleon die de ene keer als rimpeling door het water gaat en de andere keer als knikker over de vloer rolt.",
-    emoji: "🦎〰️",
   },
   {
     niveau: "expert",
@@ -129,7 +117,6 @@ export const natuurkunde: BankWoord[] = [
     voorbeeldzin: "Gps-satellieten moeten corrigeren voor tijddilatatie, anders wordt de plaatsbepaling snel onnauwkeurig.",
     herkomst: "Latijn dilatare (uitrekken).",
     beeld: "Een astronaut die na een razendsnelle ruimtereis terugkomt en jonger is dan zijn tweelingbroer.",
-    emoji: "🚀👴",
   },
   {
     niveau: "expert",
@@ -139,7 +126,6 @@ export const natuurkunde: BankWoord[] = [
     voorbeeldzin: "De James Webb-ruimtetelescoop draait rond het tweede lagrangepunt van de zon en de aarde.",
     herkomst: "Naar de wiskundige Joseph-Louis Lagrange (18e eeuw).",
     beeld: "Een ballon die precies tussen twee magneten blijft zweven.",
-    emoji: "🎈🧲",
   },
   {
     niveau: "expert",
@@ -149,7 +135,6 @@ export const natuurkunde: BankWoord[] = [
     voorbeeldzin: "Elke seconde gaan er miljarden neutrino's van de zon dwars door je lichaam heen.",
     herkomst: "Italiaans voor 'klein neutraaltje'; de naam komt van Enrico Fermi.",
     beeld: "Een onzichtbaar spookje dat dwars door muren, mensen en zelfs de hele aarde heen vliegt.",
-    emoji: "👻🌍",
   },
   {
     niveau: "basis",
@@ -159,7 +144,6 @@ export const natuurkunde: BankWoord[] = [
     voorbeeldzin: "Een koorddanser houdt zijn zwaartepunt precies boven het touw.",
     herkomst: "Samenstelling van zwaarte en punt.",
     beeld: "Een bord dat op de punt van één vinger balanceert.",
-    emoji: "🍽️☝️",
   },
   {
     niveau: "basis",
@@ -169,7 +153,6 @@ export const natuurkunde: BankWoord[] = [
     voorbeeldzin: "Water kan in drie aggregatietoestanden voorkomen: ijs, water en waterdamp.",
     herkomst: "Latijn aggregare (samenvoegen, tot een kudde bijeenbrengen).",
     beeld: "Een ijsblokje, een glas water en een wolkje stoom die als drie familieleden naast elkaar staan.",
-    emoji: "🧊💧",
   },
   {
     niveau: "gevorderd",
@@ -179,7 +162,6 @@ export const natuurkunde: BankWoord[] = [
     voorbeeldzin: "Een magnetron verwarmt eten met elektromagnetische straling.",
     herkomst: "Grieks èlektron (barnsteen) + magnès (magneetsteen).",
     beeld: "Een regenboog die aan beide kanten doorloopt in onzichtbare kleuren, van radiogolven tot röntgenstraling.",
-    emoji: "🌈📡",
   },
   {
     niveau: "gevorderd",
@@ -189,7 +171,6 @@ export const natuurkunde: BankWoord[] = [
     voorbeeldzin: "De zon haalt haar energie uit kernfusie van waterstof tot helium.",
     herkomst: "Latijn fusio (het smelten).",
     beeld: "Twee druppels die met een lichtflits tegen elkaar botsen en één grotere druppel worden.",
-    emoji: "💥☀️",
   },
   {
     niveau: "expert",
@@ -199,6 +180,5 @@ export const natuurkunde: BankWoord[] = [
     voorbeeldzin: "Wat eenmaal de waarnemingshorizon passeert, is voor de buitenwereld voorgoed onzichtbaar.",
     herkomst: "Samenstelling van waarneming en horizon (Grieks horizōn: begrenzend).",
     beeld: "De rand van een reusachtige waterval waarachter geen enkele boot ooit nog terug stroomopwaarts kan.",
-    emoji: "🕳️🌊",
   },
 ];

@@ -3,6 +3,7 @@
 // De vier manieren om een nieuw woord te leren. Elke component roept `klaar` aan als je verder wilt.
 import { useEffect, useState } from "react";
 import type { Woord } from "@/lib/types";
+import { IcoonLuister } from "../components/iconen";
 
 interface Props {
   woord: Woord;
@@ -11,23 +12,33 @@ interface Props {
 
 function Kop({ woord }: { woord: Woord }) {
   return (
-    <>
-      <p className="groot">{woord.woord}</p>
-      <p className="zacht">{woord.woordsoort}</p>
-    </>
+    <div className="kop">
+      <h1 className="woord">{woord.woord}</h1>
+      <span className="woordsoort">{woord.woordsoort}</span>
+    </div>
   );
+}
+
+function Voorbeeld({ woord }: { woord: Woord }) {
+  return <p className="citaat">“{woord.voorbeeldzin}”</p>;
 }
 
 export function Lezen({ woord, klaar }: Props) {
   return (
     <>
       <Kop woord={woord} />
-      <p>{woord.definitie}</p>
-      <p>
-        <em>“{woord.voorbeeldzin}”</em>
+      <p className="definitie">{woord.definitie}</p>
+      <Voorbeeld woord={woord} />
+      <p className="zacht klein">
+        <span className="label" style={{ marginRight: 8 }}>
+          Herkomst
+        </span>
+        {woord.herkomst}
       </p>
-      <p className="zacht">Herkomst: {woord.herkomst}</p>
-      <button onClick={klaar}>Gelezen, volgende</button>
+      <div className="duw" />
+      <button className="knop breed" onClick={klaar}>
+        Gelezen, volgende
+      </button>
     </>
   );
 }
@@ -45,18 +56,16 @@ export function Beeld({ woord, klaar }: Props) {
 
   return (
     <>
-      <p style={{ fontSize: "4rem", margin: 0 }} aria-hidden>
-        {woord.emoji}
-      </p>
       <Kop woord={woord} />
-      <p>{woord.definitie}</p>
-      <div className="kaart">
-        <p className="label">Stel je voor</p>
-        <p>{woord.beeld}</p>
+      <p className="definitie">{woord.definitie}</p>
+      <div className="kaart" style={{ gap: 6 }}>
+        <span className="label">Stel je voor</span>
+        <p className="citaat">{woord.beeld}</p>
       </div>
-      <p className="zacht">Sluit even je ogen en zie deze scène zo levendig mogelijk voor je.</p>
-      <button onClick={klaar} disabled={over > 0}>
-        {over > 0 ? `Beeld je het in… ${over}` : "Ik zie het voor me, volgende"}
+      <p className="zacht klein">Sluit even je ogen en zie deze scène zo levendig mogelijk voor je.</p>
+      <div className="duw" />
+      <button className="knop breed" onClick={klaar} disabled={over > 0}>
+        {over > 0 ? `Beeld je het in… ${over}` : "Ik zie het voor me"}
       </button>
     </>
   );
@@ -104,7 +113,7 @@ export function Luisteren({ woord, klaar }: Props) {
   if (!kanSpreken) {
     return (
       <>
-        <p className="fout">Je browser kan geen tekst voorlezen. Daarom zie je hier de tekst.</p>
+        <p className="zacht klein">Je browser kan geen tekst voorlezen. Daarom zie je hier de tekst.</p>
         <Lezen woord={woord} klaar={klaar} />
       </>
     );
@@ -112,34 +121,38 @@ export function Luisteren({ woord, klaar }: Props) {
 
   return (
     <>
-      <p className="zacht">Luister goed. De tekst blijft eerst verborgen.</p>
-      <div className="rij">
-        <button onClick={luister} disabled={bezig}>
-          {bezig ? "Aan het voorlezen…" : beluisterd ? "Nog een keer luisteren" : "▶ Luister"}
-        </button>
-        {beluisterd && !toonTekst && (
-          <button className="tweede" onClick={() => setToonTekst(true)}>
-            Toon tekst
-          </button>
-        )}
-      </div>
-      {toonTekst && (
+      {toonTekst ? (
         <>
           <Kop woord={woord} />
-          <p>{woord.definitie}</p>
-          <p>
-            <em>“{woord.voorbeeldzin}”</em>
-          </p>
+          <p className="definitie">{woord.definitie}</p>
+          <Voorbeeld woord={woord} />
         </>
+      ) : (
+        <div className="kaart" style={{ alignItems: "center", textAlign: "center", padding: "28px 18px" }}>
+          <p className="serif" style={{ fontSize: 22 }}>
+            Luister goed
+          </p>
+          <p className="zacht klein">Het woord, de betekenis en een voorbeeld worden voorgelezen. De tekst blijft eerst verborgen.</p>
+          <button className="knop" onClick={luister} disabled={bezig}>
+            <IcoonLuister />
+            {bezig ? "Aan het voorlezen…" : beluisterd ? "Nog een keer" : "Luister"}
+          </button>
+          {beluisterd && (
+            <button className="knop tweede" onClick={() => setToonTekst(true)}>
+              Toon tekst
+            </button>
+          )}
+        </div>
       )}
-      <button onClick={klaar} disabled={!beluisterd}>
+      <div className="duw" />
+      <button className="knop breed" onClick={klaar} disabled={!beluisterd}>
         Volgende
       </button>
     </>
   );
 }
 
-// Zelf een zin maken is de actiefste manier van leren. Zonder AI vergelijk je je zin daarna zelf met het voorbeeld.
+// Zelf een zin maken is de actiefste manier van leren. Je vergelijkt je zin daarna zelf met het voorbeeld.
 export function Doen({ woord, klaar }: Props) {
   const [zin, setZin] = useState("");
   const [vergelijk, setVergelijk] = useState(false);
@@ -147,28 +160,27 @@ export function Doen({ woord, klaar }: Props) {
   return (
     <>
       <Kop woord={woord} />
-      <p>{woord.definitie}</p>
-      <label>
-        <span className="zacht">Maak zelf een zin met dit woord, het liefst over iets uit je eigen leven:</span>
+      <p className="definitie">{woord.definitie}</p>
+      <label className="sectie" style={{ gap: 6 }}>
+        <span className="tekst-2 klein">Maak zelf een zin met dit woord, het liefst over iets uit je eigen leven.</span>
         <textarea rows={3} value={zin} onChange={(e) => setZin(e.target.value)} maxLength={500} />
       </label>
-      {!vergelijk ? (
-        <div className="rij">
-          <button onClick={() => setVergelijk(true)} disabled={zin.trim().length === 0}>
-            Klaar, laat het voorbeeld zien
-          </button>
+      {vergelijk && (
+        <div className="kaart" style={{ gap: 6 }}>
+          <span className="label">Voorbeeld</span>
+          <Voorbeeld woord={woord} />
+          <p className="zacht klein">Gebruik je het woord in dezelfde betekenis? Zo niet, pas je zin gerust nog aan.</p>
         </div>
+      )}
+      <div className="duw" />
+      {vergelijk ? (
+        <button className="knop breed" onClick={klaar}>
+          Volgende
+        </button>
       ) : (
-        <div className="kaart">
-          <p className="label">Voorbeeld</p>
-          <p>
-            <em>“{woord.voorbeeldzin}”</em>
-          </p>
-          <p className="zacht">
-            Gebruik je het woord in dezelfde betekenis? Zo niet, pas je zin hierboven gerust nog aan.
-          </p>
-          <button onClick={klaar}>Volgende</button>
-        </div>
+        <button className="knop breed" onClick={() => setVergelijk(true)} disabled={zin.trim().length === 0}>
+          Vergelijk met het voorbeeld
+        </button>
       )}
     </>
   );

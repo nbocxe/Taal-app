@@ -9,7 +9,6 @@ export const taalEnRetorica: BankWoord[] = [
     voorbeeldzin: "De advocaat stond bekend om zijn indrukwekkende retorica.",
     herkomst: "Grieks rhètorikè (technè): de kunst van de redenaar.",
     beeld: "Een spreker op een podium die met één handgebaar een hele zaal laat knikken.",
-    emoji: "🎤🙌",
   },
   {
     niveau: "basis",
@@ -19,7 +18,6 @@ export const taalEnRetorica: BankWoord[] = [
     voorbeeldzin: "Hij verbeterde op pedante toon elke taalfout in de mails van zijn collega's.",
     herkomst: "Via Frans pédant van Italiaans pedante (schoolmeester).",
     beeld: "Iemand die op een verjaardag met opgeheven wijsvinger een lezing geeft over de juiste uitspraak van 'croissant'.",
-    emoji: "☝️🥐",
   },
   {
     niveau: "basis",
@@ -29,7 +27,6 @@ export const taalEnRetorica: BankWoord[] = [
     voorbeeldzin: "'Iedereen doet het, dus het is goed' is een bekende drogreden.",
     herkomst: "Nederlands drog (bedrog, schijn) + reden.",
     beeld: "Een brug van karton die er stevig uitziet, maar instort zodra je erop stapt.",
-    emoji: "🌉📦",
   },
   {
     niveau: "basis",
@@ -39,7 +36,6 @@ export const taalEnRetorica: BankWoord[] = [
     voorbeeldzin: "In 'Zij is het zonnetje in huis' is 'zonnetje' een metafoor.",
     herkomst: "Grieks metaphora (overdracht).",
     beeld: "Een zonnetje met armpjes en beentjes dat door de woonkamer huppelt.",
-    emoji: "☀️🏠",
   },
   {
     niveau: "basis",
@@ -49,7 +45,6 @@ export const taalEnRetorica: BankWoord[] = [
     voorbeeldzin: "'Ik heb je al duizend keer gezegd dat je je jas moet ophangen' is een hyperbool.",
     herkomst: "Grieks hyperbolè (het voorbijschieten).",
     beeld: "Een visser die met zijn armen steeds wijder aangeeft hoe groot zijn vis was, tot hij er bijna zelf van omvalt.",
-    emoji: "🎣🐋",
   },
   {
     niveau: "basis",
@@ -59,7 +54,6 @@ export const taalEnRetorica: BankWoord[] = [
     voorbeeldzin: "'Wie wil er nou niet gezond oud worden?' is een retorische vraag.",
     herkomst: "Grieks rhètorikos (van de redenaar).",
     beeld: "Een quizmaster die een vraag stelt en meteen de zoemers van tafel haalt.",
-    emoji: "🎙️🚫",
   },
   {
     niveau: "gevorderd",
@@ -69,7 +63,6 @@ export const taalEnRetorica: BankWoord[] = [
     voorbeeldzin: "Met cijfers over de dalende criminaliteit deed de burgemeester een beroep op logos.",
     herkomst: "Grieks logos (woord, rede); een van de drie overtuigingsmiddelen van Aristoteles.",
     beeld: "Een spreker die een grafiek aanwijst en zegt: 'Kijk maar naar de cijfers.'",
-    emoji: "📊🧠",
   },
   {
     niveau: "gevorderd",
@@ -79,7 +72,6 @@ export const taalEnRetorica: BankWoord[] = [
     voorbeeldzin: "'Jij wilt minder vlees eten? Dus jij wilt alle boeren failliet laten gaan!' is een stropopredenering.",
     herkomst: "Vertaling van het Engelse straw man (stropop).",
     beeld: "Iemand die triomfantelijk een zelfgemaakte stropop omverduwt in plaats van zijn echte tegenstander.",
-    emoji: "🌾🥊",
   },
   {
     niveau: "gevorderd",
@@ -89,7 +81,6 @@ export const taalEnRetorica: BankWoord[] = [
     voorbeeldzin: "'Oorverdovende stilte' is een bekend oxymoron.",
     herkomst: "Grieks oxys (scherp) + mōros (dom): 'scherpzinnig-dom', zelf ook een oxymoron.",
     beeld: "Een ijskoude vlam die vrolijk in de open haard knettert.",
-    emoji: "🔥🧊",
   },
   {
     niveau: "gevorderd",
@@ -99,7 +90,6 @@ export const taalEnRetorica: BankWoord[] = [
     voorbeeldzin: "'Goedkoop' en 'voordelig' betekenen ongeveer hetzelfde, maar hebben een andere connotatie.",
     herkomst: "Latijn con (mee) + notare (aanduiden).",
     beeld: "Twee identieke cadeautjes: het ene verpakt in krantenpapier, het andere in goudfolie.",
-    emoji: "🎁✨",
   },
   {
     niveau: "gevorderd",
@@ -109,7 +99,6 @@ export const taalEnRetorica: BankWoord[] = [
     voorbeeldzin: "'Mijn opa rookte en werd 95' is anekdotisch bewijs dat niets zegt over de risico's van roken.",
     herkomst: "Grieks anekdota (niet uitgegeven), via het Franse anecdote.",
     beeld: "Iemand die met één zonnige vakantiefoto probeert te bewijzen dat het in Schotland altijd mooi weer is.",
-    emoji: "📸☀️",
   },
   {
     niveau: "expert",
@@ -119,7 +108,6 @@ export const taalEnRetorica: BankWoord[] = [
     voorbeeldzin: "'Alle mensen zijn sterfelijk; Socrates is een mens; dus Socrates is sterfelijk' is het bekendste syllogisme.",
     herkomst: "Grieks syllogismos (samenrekening); uitgewerkt door Aristoteles.",
     beeld: "Een trap met drie treden: de eerste twee leiden onvermijdelijk naar de derde.",
-    emoji: "🪜3️⃣",
   },
   {
     niveau: "expert",
@@ -129,7 +117,6 @@ export const taalEnRetorica: BankWoord[] = [
     voorbeeldzin: "'Dat was geen kleine prestatie' is een litotes.",
     herkomst: "Grieks litotès (eenvoud, soberheid).",
     beeld: "Iemand die net de loterij heeft gewonnen en droog zegt: 'Nou, het is niet verkeerd.'",
-    emoji: "🎰😐",
   },
   {
     niveau: "expert",
@@ -139,6 +126,5 @@ export const taalEnRetorica: BankWoord[] = [
     voorbeeldzin: "'Een ronde cirkel' is een pleonasme.",
     herkomst: "Grieks pleonasmos (overdaad).",
     beeld: "Een natte vis die in een natte plas nat water zwemt.",
-    emoji: "💧🐟",
   },
 ];

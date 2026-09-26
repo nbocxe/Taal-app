@@ -62,12 +62,27 @@ Een nieuw vakgebied maak je door een nieuw bestand in `lib/woorden/` te zetten e
 
 Draai daarna `npm test`: die controleert onder meer of elk woord compleet is en of er geen dubbele woorden in staan.
 
+## Ontwerp
+
+Richting "Woordenboek": warm papierkleurig, een klassieke schreefletter (Newsreader) voor de woorden en koppen, een
+rustige schreefloze letter (Source Sans 3) voor de rest, en één terracotta accentkleur. Staat je telefoon in donkere
+modus, dan kleurt de app mee naar een warme donkere variant. Elk vakgebied heeft een eigen lijntekening. De
+lettertypes zitten in de app zelf, dus er gaat geen verkeer naar Google.
+
+## Online zetten
+
+De app bestaat uit losse bestanden en draait gratis op GitHub Pages. Bij elke wijziging op de `main`-branch bouwt
+GitHub de app opnieuw en zet hem online (zie `.github/workflows/pages.yml`). Eenmalig moet je in de repository bij
+*Settings → Pages* onder *Build and deployment* de bron op **GitHub Actions** zetten.
+
 ## Hoe het in elkaar zit
 
 | Map/bestand | Wat het doet |
 |---|---|
-| `app/` | De schermen (Next.js): start, kennismaken, leren, herhalen, leerprofiel |
+| `app/` | De schermen: Vandaag, Leren, Herhalen, Profiel en Kennismaken |
+| `app/components/` | Gedeelde onderdelen: tabbalk, tekeningen per vakgebied, iconen |
 | `app/leren/methodes.tsx` | De vier leermethodes |
+| `app/globals.css` | Kleuren, lettertypes en de vormgeving van alle onderdelen |
 | `lib/woorden/` | De woorden, één bestand per vakgebied |
 | `lib/woordenbank.ts` | Welke nieuwe woorden je krijgt en welke foute antwoorden in de overhoring staan |
 | `lib/srs.ts` | Het herhaalschema |
@@ -79,7 +94,7 @@ Andere commando's:
 ```bash
 npm test            # test de woordenlijst, het herhaalschema en het experiment
 npm run typecheck   # controleert de code op typefouten
-npm run build       # maakt een productieversie
+npm run build       # maakt de online versie in de map out/
 ```
 
 ## Bekende beperkingen van deze versie
@@ -88,4 +103,3 @@ npm run build       # maakt een productieversie
 - Je gegevens staan alleen in de browser waarin je leert. Maak af en toe een back-up via het leerprofiel.
 - Voorlezen gebruikt de stem van je apparaat of browser; de kwaliteit verschilt per apparaat.
 - De overhoring is altijd meerkeuze op basis van tekst. Dat is eerlijk voor alle methodes, maar niet perfect.
-- Het ontwerp is bewust kaal; dat komt later.

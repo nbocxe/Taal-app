@@ -1,13 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useState } from "react";
 import { kiesMethodes } from "@/lib/experiment";
 import { METHODES } from "@/lib/methodes";
 import { nu, useAppData } from "@/lib/opslag";
 import { nieuweKaart } from "@/lib/srs";
-import type { MethodeId, Woord } from "@/lib/types";
+import type { AppData, MethodeId, Woord } from "@/lib/types";
 import { aantalOver, DOMEINEN, kiesNieuweWoorden } from "@/lib/woordenbank";
+import { DomeinLijst } from "../components/DomeinLijst";
+import { Illustratie } from "../components/Illustratie";
+import { METHODE_ICONEN } from "../components/iconen";
+import { Sessiekop } from "../components/Sessiekop";
+import { useSessieModus } from "../components/TabBalk";
 import { Beeld, Doen, Lezen, Luisteren } from "./methodes";
 
 const PER_RONDE = 5;
@@ -20,15 +26,31 @@ interface Ronde {
   positie: number;
 }
 
-export default function Leren() {
+function nieuweRonde(data: AppData, domein: string): Ronde {
+  const bekend = new Set(Object.keys(data.woorden));
+  const woorden = kiesNieuweWoorden(domein, data.profiel!.niveau, bekend, PER_RONDE);
+  return { woorden, methodes: kiesMethodes(Object.values(data.kaarten), woorden.length), positie: 0 };
+}
+
+function LerenScherm() {
   const [data, wijzig] = useAppData();
-  const [domein, setDomein] = useState<string | null>(null);
   const [ronde, setRonde] = useState<Ronde | null>(null);
+  const gevraagd = useSearchParams().get("vakgebied");
+  const bezig = ronde !== null && ronde.positie < ronde.woorden.length;
+  useSessieModus(bezig);
+
+  // Vanaf het startscherm kun je direct een vakgebied kiezen: dan begint de ronde meteen.
+  useEffect(() => {
+    if (data?.profiel && gevraagd && DOMEINEN.includes(gevraagd) && ronde === null) {
+      setRonde(nieuweRonde(data, gevraagd));
+      window.history.replaceState(null, "", window.location.pathname);
+    }
+  }, [data, gevraagd, ronde]);
 
   if (!data) return null;
   if (!data.profiel) {
     return (
-      <p>
+      <p className="tekst-2">
         Vertel eerst wat je wilt leren: <Link href="/start">aan de slag</Link>.
       </p>
     );
@@ -36,21 +58,7 @@ export default function Leren() {
 
   // Alleen vakgebieden die in de woordenbank staan (oudere voorkeuren kunnen andere bevatten).
   const domeinen = data.profiel.domeinen.filter((d) => DOMEINEN.includes(d));
-  if (domeinen.length === 0) {
-    return (
-      <p>
-        Kies eerst een of meer vakgebieden: <Link href="/start">voorkeuren aanpassen</Link>.
-      </p>
-    );
-  }
-
-  const gekozenDomein = domein ?? domeinen[0];
   const bekend = new Set(Object.keys(data.woorden));
-
-  const start = () => {
-    const woorden = kiesNieuweWoorden(gekozenDomein, data.profiel!.niveau, bekend, PER_RONDE);
-    setRonde({ woorden, methodes: kiesMethodes(Object.values(data.kaarten), woorden.length), positie: 0 });
-  };
 
   // Pas als je een woord helemaal doorlopen hebt, komt het in je herhaallijst.
   const woordKlaar = () => {
@@ -65,42 +73,54 @@ export default function Leren() {
     setRonde({ ...ronde, positie: ronde.positie + 1 });
   };
 
-  if (ronde && ronde.positie >= ronde.woorden.length) {
-    return (
-      <div className="kaart">
-        <h1>Klaar!</h1>
-        <p>Je hebt {ronde.woorden.length} nieuwe woorden geleerd:</p>
-        <ul>
-          {ronde.woorden.map((w, i) => (
-            <li key={w.id}>
-              <strong>{w.woord}</strong> <span className="zacht">via {METHODES[ronde.methodes[i]].naam}</span>
-            </li>
-          ))}
-        </ul>
-        <p>
-          Morgen komen ze terug in een korte overhoring. Dan zien we welke methode het beste bleef hangen.
-        </p>
-        <div className="rij">
-          <button onClick={() => setRonde(null)}>Nog een ronde</button>
-          <Link className="knop tweede" href="/">
-            Naar start
-          </Link>
-        </div>
-      </div>
-    );
-  }
-
-  if (ronde) {
+  if (ronde && bezig) {
     const woord = ronde.woorden[ronde.positie];
     const methode = ronde.methodes[ronde.positie];
     const Component = COMPONENTEN[methode];
     return (
       <>
-        <p className="zacht">
-          Woord {ronde.positie + 1} van {ronde.woorden.length} · methode: <strong>{METHODES[methode].naam}</strong>
+        <Sessiekop positie={ronde.positie} totaal={ronde.woorden.length} stop={() => setRonde(null)} />
+        <span className="label accent" style={{ display: "flex", alignItems: "center", gap: 6 }}>
+          {METHODE_ICONEN[methode]}
+          {METHODES[methode].naam}
+        </span>
+        <div className="illustratie">
+          <Illustratie domein={woord.domein} />
+        </div>
+        <Component key={woord.id} woord={woord} klaar={woordKlaar} />
+      </>
+    );
+  }
+
+  if (ronde) {
+    return (
+      <>
+        <div className="kop">
+          <span className="label">Ronde klaar</span>
+          <h1>Goed gedaan</h1>
+        </div>
+        <p className="tekst-2">
+          Morgen komen deze woorden terug in een korte overhoring. Dan zie je welke methode het beste bleef hangen.
         </p>
-        <div className="kaart">
-          <Component key={woord.id} woord={woord} klaar={woordKlaar} />
+        <div className="lijst">
+          {ronde.woorden.map((w, i) => (
+            <div key={w.id} className="regel" style={{ cursor: "default" }}>
+              <span className="groei">
+                <span className="titel serif" style={{ fontSize: 20 }}>
+                  {w.woord}
+                </span>
+                <span className="sub">via {METHODES[ronde.methodes[i]].naam.toLowerCase()}</span>
+              </span>
+            </div>
+          ))}
+        </div>
+        <div className="knoprij">
+          <button className="knop" onClick={() => setRonde(null)}>
+            Nog een ronde
+          </button>
+          <Link className="knop tweede" href="/">
+            Naar Vandaag
+          </Link>
         </div>
       </>
     );
@@ -108,28 +128,33 @@ export default function Leren() {
 
   return (
     <>
-      <h1>Nieuwe woorden leren</h1>
-      <div className="kaart">
-        <p>Kies een vakgebied. Je krijgt {PER_RONDE} nieuwe woorden, elk op een andere manier aangeboden.</p>
-        <div className="rij">
-          {domeinen.map((d) => (
-            <button key={d} className={d === gekozenDomein ? "" : "tweede"} onClick={() => setDomein(d)}>
-              {d}
-            </button>
-          ))}
-        </div>
-        {aantalOver(gekozenDomein, bekend) > 0 ? (
-          <>
-            <p className="zacht">Nog {aantalOver(gekozenDomein, bekend)} nieuwe woorden in dit vakgebied.</p>
-            <button onClick={start}>Start</button>
-          </>
-        ) : (
-          <p>Je hebt alle woorden in dit vakgebied al geleerd. Kies een ander vakgebied.</p>
-        )}
-        <p className="zacht">
-          Andere vakgebieden of een ander niveau? <Link href="/start">Pas je voorkeuren aan</Link>.
-        </p>
+      <div className="kop">
+        <span className="label">Leren</span>
+        <h1>Nieuwe woorden</h1>
       </div>
+      <p className="tekst-2">
+        Kies een vakgebied. Je krijgt {PER_RONDE} nieuwe woorden, elk op een eigen manier aangeboden.
+      </p>
+      {domeinen.length > 0 ? (
+        <DomeinLijst
+          domeinen={domeinen}
+          over={(d) => aantalOver(d, bekend)}
+          kies={(d) => setRonde(nieuweRonde(data, d))}
+        />
+      ) : (
+        <p className="tekst-2">Je hebt nog geen vakgebieden gekozen.</p>
+      )}
+      <p className="zacht klein">
+        Andere vakgebieden of een ander niveau? <Link href="/start">Pas je voorkeuren aan</Link>.
+      </p>
     </>
+  );
+}
+
+export default function Leren() {
+  return (
+    <Suspense>
+      <LerenScherm />
+    </Suspense>
   );
 }

@@ -1,10 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { nu, useAppData } from "@/lib/opslag";
 import { teHerhalen, verwerkAntwoord } from "@/lib/srs";
 import { kiesAfleiders } from "@/lib/woordenbank";
+import { Sessiekop } from "../components/Sessiekop";
+import { useSessieModus } from "../components/TabBalk";
 
 function schud<T>(lijst: T[]): T[] {
   const kopie = [...lijst];
@@ -25,6 +28,8 @@ export default function Herhalen() {
   const [opties, setOpties] = useState<string[]>([]);
   const [gekozen, setGekozen] = useState<string | null>(null);
   const [score, setScore] = useState(0);
+  const router = useRouter();
+  useSessieModus(rij !== null && positie < rij.length);
 
   useEffect(() => {
     if (data && rij === null) {
@@ -45,32 +50,40 @@ export default function Herhalen() {
 
   if (rij.length === 0) {
     return (
-      <div className="kaart">
-        <h1>Niets te herhalen</h1>
-        <p>Nieuwe woorden komen een dag nadat je ze leerde terug.</p>
-        <Link className="knop" href="/leren">
+      <>
+        <div className="kop">
+          <span className="label">Herhalen</span>
+          <h1>Niets te herhalen</h1>
+        </div>
+        <p className="tekst-2">Nieuwe woorden komen een dag nadat je ze leerde terug in een korte overhoring.</p>
+        <Link className="knop breed" href="/leren">
           Nieuwe woorden leren
         </Link>
-      </div>
+      </>
     );
   }
 
   if (positie >= rij.length || !woord) {
     return (
-      <div className="kaart">
-        <h1>Herhaling klaar</h1>
-        <p>
-          Je wist er {score} van de {rij.length}.
+      <>
+        <div className="kop">
+          <span className="label">Herhaling klaar</span>
+          <h1>
+            {score} van de {rij.length} goed
+          </h1>
+        </div>
+        <p className="tekst-2">
+          Woorden die je wist, zie je pas later terug. Woorden die je niet wist, komen morgen opnieuw langs.
         </p>
-        <div className="rij">
+        <div className="knoprij">
           <Link className="knop" href="/profiel">
             Bekijk je leerprofiel
           </Link>
           <Link className="knop tweede" href="/">
-            Naar start
+            Naar Vandaag
           </Link>
         </div>
-      </div>
+      </>
     );
   }
 
@@ -92,14 +105,17 @@ export default function Herhalen() {
     return "keuze";
   };
 
+  const goed = gekozen === woord.definitie;
+
   return (
     <>
-      <p className="zacht">
-        {positie + 1} van {rij.length}
-      </p>
-      <div className="kaart">
-        <p className="groot">{woord.woord}</p>
-        <p className="zacht">Wat betekent dit?</p>
+      <Sessiekop positie={positie} totaal={rij.length} stop={() => router.push("/")} />
+      <div className="kop">
+        <span className="label">{woord.domein}</span>
+        <h1 className="woord">{woord.woord}</h1>
+        <span className="woordsoort">Wat betekent dit?</span>
+      </div>
+      <div className="keuzes">
         {opties.map((optie) => (
           <button key={optie} className={klasse(optie)} onClick={() => beantwoord(optie)} disabled={!!gekozen}>
             {optie}
@@ -109,20 +125,24 @@ export default function Herhalen() {
           className={`keuze ${gekozen === WEET_NIET ? "onjuist" : ""}`}
           onClick={() => beantwoord(WEET_NIET)}
           disabled={!!gekozen}
+          style={{ color: "var(--tekst-2)" }}
         >
           Ik weet het niet
         </button>
-
-        {gekozen && (
-          <>
-            <p className={gekozen === woord.definitie ? "goed" : "fout"}>
-              <strong>{gekozen === woord.definitie ? "Goed!" : "Helaas."}</strong>{" "}
-              <em>“{woord.voorbeeldzin}”</em>
-            </p>
-            <button onClick={() => setPositie((p) => p + 1)}>Volgende</button>
-          </>
-        )}
       </div>
+
+      <div className="duw" />
+      {gekozen && (
+        <div className="onderbalk">
+          <div className={`melding ${goed ? "goed" : "fout"}`} role="status">
+            <strong>{goed ? "Goed!" : "Helaas."}</strong>
+            <p className="citaat">“{woord.voorbeeldzin}”</p>
+          </div>
+          <button className="knop breed" onClick={() => setPositie((p) => p + 1)}>
+            {positie + 1 < rij.length ? "Volgende" : "Afronden"}
+          </button>
+        </div>
+      )}
     </>
   );
 }

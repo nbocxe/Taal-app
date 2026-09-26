@@ -9,7 +9,6 @@ export const politiek: BankWoord[] = [
     voorbeeldzin: "Na de verkiezingen duurde het maanden voordat er een coalitie was gevormd.",
     herkomst: "Latijn coalescere (samengroeien).",
     beeld: "Vier roeiers in verschillend gekleurde shirts die in één bootje proberen dezelfde kant op te roeien.",
-    emoji: "🚣🤝",
   },
   {
     niveau: "basis",
@@ -19,7 +18,6 @@ export const politiek: BankWoord[] = [
     voorbeeldzin: "De Kamer nam een motie aan die het kabinet vraagt de huurverhoging te bevriezen.",
     herkomst: "Latijn motio (beweging).",
     beeld: "Een Kamerlid dat een papieren vliegtuigje met 'Graag regelen!' erop naar de ministers gooit.",
-    emoji: "✈️📝",
   },
   {
     niveau: "basis",
@@ -29,7 +27,6 @@ export const politiek: BankWoord[] = [
     voorbeeldzin: "Politicologen discussiëren over de vraag of populisme een ideologie is of vooral een stijl.",
     herkomst: "Latijn populus (volk).",
     beeld: "Een spreker op een zeepkist die met zijn vinger naar een glazen paleis vol mensen in pakken wijst.",
-    emoji: "📢🏛️",
   },
   {
     niveau: "basis",
@@ -39,7 +36,6 @@ export const politiek: BankWoord[] = [
     voorbeeldzin: "Critici vinden dat Europese regels de nationale soevereiniteit aantasten.",
     herkomst: "Oudfrans souverain, van Latijn super (boven).",
     beeld: "Een kasteel met een ophaalbrug waarvan alleen de eigen koning de hendel mag bedienen.",
-    emoji: "🏰👑",
   },
   {
     niveau: "basis",
@@ -49,7 +45,6 @@ export const politiek: BankWoord[] = [
     voorbeeldzin: "De tabakslobby probeerde jarenlang strengere regels tegen te houden.",
     herkomst: "Engels lobby (hal), naar de hal van het parlement waar belangenbehartigers politici aanspraken.",
     beeld: "Een drukke hal waar mensen met aktetassen Kamerleden bij hun mouw grijpen.",
-    emoji: "🏢💼",
   },
   {
     niveau: "gevorderd",
@@ -59,7 +54,6 @@ export const politiek: BankWoord[] = [
     voorbeeldzin: "Sociale media worden vaak genoemd als oorzaak van de toenemende polarisatie.",
     herkomst: "Latijn polus (pool), zoals de twee tegenovergestelde polen van een magneet.",
     beeld: "Twee groepen mensen op ijsschotsen die steeds verder van elkaar af drijven.",
-    emoji: "🧊↔️",
   },
   {
     niveau: "gevorderd",
@@ -69,7 +63,6 @@ export const politiek: BankWoord[] = [
     voorbeeldzin: "Een demissionair kabinet neemt doorgaans geen omstreden besluiten.",
     herkomst: "Frans démission (ontslag).",
     beeld: "Een minister met een verhuisdoos op het bureau, die alleen nog de post afhandelt.",
-    emoji: "📦🗂️",
   },
   {
     niveau: "gevorderd",
@@ -79,7 +72,6 @@ export const politiek: BankWoord[] = [
     voorbeeldzin: "Volgens het subsidiariteitsbeginsel moet de EU zich niet bemoeien met wat lidstaten zelf goed kunnen regelen.",
     herkomst: "Latijn subsidium (hulp, reserve).",
     beeld: "Een reus die pas komt helpen als het kleine dorpje het echt niet zelf kan.",
-    emoji: "🏘️🗿",
   },
   {
     niveau: "gevorderd",
@@ -89,7 +81,6 @@ export const politiek: BankWoord[] = [
     voorbeeldzin: "Critici noemden het kabinet van experts een vorm van technocratie.",
     herkomst: "Grieks technè (vakmanschap) + kratos (macht).",
     beeld: "Een parlement vol mensen in witte laboratoriumjassen met rekenmachines in plaats van stembiljetten.",
-    emoji: "🥼🧮",
   },
   {
     niveau: "gevorderd",
@@ -99,7 +90,6 @@ export const politiek: BankWoord[] = [
     voorbeeldzin: "Volgens de trias politica mag een minister zich niet met lopende rechtszaken bemoeien.",
     herkomst: "Latijn voor 'politieke driedeling'; bekend geworden door de Franse filosoof Montesquieu.",
     beeld: "Een krukje met drie poten: haal er één weg en alles valt om.",
-    emoji: "🪑⚖️",
   },
   {
     niveau: "expert",
@@ -109,7 +99,6 @@ export const politiek: BankWoord[] = [
     voorbeeldzin: "Na de Koude Oorlog spraken velen van de Amerikaanse hegemonie.",
     herkomst: "Grieks hègemonia (leiderschap).",
     beeld: "Eén reusachtige boom waarvan de kruin alle kleinere bomen in de schaduw zet.",
-    emoji: "🌳🌱",
   },
   {
     niveau: "expert",
@@ -119,7 +108,6 @@ export const politiek: BankWoord[] = [
     voorbeeldzin: "Uit realpolitik bleef het land handel drijven met het regime, ondanks de mensenrechtenschendingen.",
     herkomst: "Duits, 19e eeuw; vaak verbonden met het beleid van de Pruisische staatsman Bismarck.",
     beeld: "Een diplomaat die met één hand een vredesduif vasthoudt en met de andere een oliecontract tekent.",
-    emoji: "🕊️🛢️",
   },
   {
     niveau: "expert",
@@ -129,7 +117,6 @@ export const politiek: BankWoord[] = [
     voorbeeldzin: "Een Amerikaanse senator hield in 1957 een filibuster van meer dan 24 uur.",
     herkomst: "Via het Spaanse filibustero (vrijbuiter, piraat).",
     beeld: "Een piraat achter het spreekgestoelte die urenlang blijft voorlezen uit het telefoonboek.",
-    emoji: "🏴‍☠️🎤",
   },
   {
     niveau: "expert",
@@ -139,7 +126,6 @@ export const politiek: BankWoord[] = [
     voorbeeldzin: "Door gerrymandering kon de partij met minder stemmen toch de meeste zetels winnen.",
     herkomst: "Naar de Amerikaanse gouverneur Elbridge Gerry (1812), wiens nieuwe kiesdistrict op een salamander leek.",
     beeld: "Een landkaart waarop een kiesdistrict als een kronkelende salamander is ingetekend.",
-    emoji: "🦎🗺️",
   },
   {
     niveau: "expert",
@@ -149,7 +135,6 @@ export const politiek: BankWoord[] = [
     voorbeeldzin: "In België houden de meeste partijen al sinds 1989 een cordon sanitaire in stand rond extreemrechts.",
     herkomst: "Frans: 'hygiënische afzetting'; oorspronkelijk een quarantainegordel tegen besmettelijke ziektes.",
     beeld: "Een partij binnen een kring van rood-wit afzetlint, terwijl iedereen op veilige afstand blijft.",
-    emoji: "🚧🔴",
   },
   {
     niveau: "basis",
@@ -159,7 +144,6 @@ export const politiek: BankWoord[] = [
     voorbeeldzin: "In 2005 stemde een meerderheid van de Nederlanders in een referendum tegen de Europese grondwet.",
     herkomst: "Latijn referre (terugbrengen, voorleggen).",
     beeld: "Een hele stad die met een groene of rode kaart in de lucht één vraag beantwoordt.",
-    emoji: "🟩🟥",
   },
   {
     niveau: "basis",
@@ -169,7 +153,6 @@ export const politiek: BankWoord[] = [
     voorbeeldzin: "De oppositie diende een motie van wantrouwen in tegen de minister.",
     herkomst: "Latijn opponere (tegenover stellen).",
     beeld: "Een groep mensen aan de overkant van de tafel die elk plan van de regering met rode pen nakijkt.",
-    emoji: "🖍️📑",
   },
   {
     niveau: "basis",
@@ -179,7 +162,6 @@ export const politiek: BankWoord[] = [
     voorbeeldzin: "De kabinetsformatie van 2021 duurde 299 dagen, een Nederlands record.",
     herkomst: "Latijn formare (vormen).",
     beeld: "Partijleiders die met puzzelstukjes schuiven tot er eindelijk een plaatje past.",
-    emoji: "🧩🤝",
   },
   {
     niveau: "gevorderd",
@@ -189,7 +171,6 @@ export const politiek: BankWoord[] = [
     voorbeeldzin: "Toen de motie van wantrouwen een meerderheid kreeg, trad de minister af.",
     herkomst: "Samenstelling van motie en wantrouwen.",
     beeld: "Een Kamerlid dat een rode kaart omhooghoudt naar de ministersbank.",
-    emoji: "🟥🏛️",
   },
   {
     niveau: "expert",
@@ -199,6 +180,5 @@ export const politiek: BankWoord[] = [
     voorbeeldzin: "De parlementaire enquête naar de gaswinning in Groningen verhoorde tientallen getuigen onder ede.",
     herkomst: "Frans enquête (onderzoek).",
     beeld: "Een lange tafel met Kamerleden tegenover een getuige die met opgestoken hand de eed aflegt.",
-    emoji: "✋📜",
   },
 ];

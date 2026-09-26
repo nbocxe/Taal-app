@@ -9,7 +9,6 @@ export const economie: BankWoord[] = [
     voorbeeldzin: "Door de hoge inflatie werden de boodschappen in één jaar flink duurder.",
     herkomst: "Latijn inflare (opblazen).",
     beeld: "Een ballon met een bankbiljet erop die steeds groter wordt, terwijl het biljet steeds minder waard lijkt.",
-    emoji: "🎈💶",
   },
   {
     niveau: "basis",
@@ -19,7 +18,6 @@ export const economie: BankWoord[] = [
     voorbeeldzin: "Tijdens de recessie verloren veel mensen hun baan.",
     herkomst: "Latijn recedere (terugwijken).",
     beeld: "Een rivier die langzaam droogvalt, zodat de bootjes een voor een vast komen te liggen.",
-    emoji: "🏞️⛵",
   },
   {
     niveau: "basis",
@@ -29,7 +27,6 @@ export const economie: BankWoord[] = [
     voorbeeldzin: "Omdat het bedrijf een monopolie had, kon het de prijzen naar believen verhogen.",
     herkomst: "Grieks monos (alleen) + pōlein (verkopen).",
     beeld: "Eén kraam op een verder lege markt, met een lange rij klanten en een verkoper die de prijzen steeds hoger zet.",
-    emoji: "🏪📈",
   },
   {
     niveau: "basis",
@@ -39,7 +36,6 @@ export const economie: BankWoord[] = [
     voorbeeldzin: "Economen gebruiken het bruto binnenlands product om de omvang van economieën te vergelijken.",
     herkomst: "Bruto (zonder aftrek) + binnenlands + product.",
     beeld: "Een reusachtige kassabon waarop alles staat wat een land in een jaar maakt, van kaas tot software.",
-    emoji: "🧾🌍",
   },
   {
     niveau: "basis",
@@ -49,7 +45,6 @@ export const economie: BankWoord[] = [
     voorbeeldzin: "Het bedrijf keerde dit jaar een hoger dividend uit dan verwacht.",
     herkomst: "Latijn dividendum (wat verdeeld moet worden).",
     beeld: "Een taart, de winst, waarvan elke aandeelhouder een punt krijgt.",
-    emoji: "🥧🍰",
   },
   {
     niveau: "basis",
@@ -59,7 +54,6 @@ export const economie: BankWoord[] = [
     voorbeeldzin: "Doordat de lonen minder stegen dan de prijzen, daalde de koopkracht.",
     herkomst: "Samenstelling van kopen en kracht.",
     beeld: "Een portemonnee met spierballen die steeds slapper worden naarmate de prijzen stijgen.",
-    emoji: "👛💪",
   },
   {
     niveau: "gevorderd",
@@ -69,7 +63,6 @@ export const economie: BankWoord[] = [
     voorbeeldzin: "Deflatie klinkt gunstig, maar kan ertoe leiden dat mensen aankopen uitstellen en de economie stilvalt.",
     herkomst: "Latijn deflare (wegblazen).",
     beeld: "Een ballon die langzaam leegloopt, terwijl mensen wachten tot hij nog kleiner wordt.",
-    emoji: "🎈⬇️",
   },
   {
     niveau: "gevorderd",
@@ -79,7 +72,6 @@ export const economie: BankWoord[] = [
     voorbeeldzin: "Grote supermarktketens profiteren van schaalvoordelen bij hun inkoop.",
     herkomst: "Samenstelling van schaal (omvang) en voordeel.",
     beeld: "Een bakker die de oven voor één taart net zo lang moet opwarmen als voor honderd taarten.",
-    emoji: "🍰🔥",
   },
   {
     niveau: "gevorderd",
@@ -89,7 +81,6 @@ export const economie: BankWoord[] = [
     voorbeeldzin: "Omdat de prijselasticiteit van brood laag is, kopen mensen na een prijsstijging bijna evenveel brood.",
     herkomst: "Samenstelling van prijs en elasticiteit (Grieks elastos: rekbaar).",
     beeld: "Een elastiekje dat bij het ene product ver uitrekt als de prijs verandert en bij het andere nauwelijks beweegt.",
-    emoji: "📏🍞",
   },
   {
     niveau: "gevorderd",
@@ -99,7 +90,6 @@ export const economie: BankWoord[] = [
     voorbeeldzin: "De opportuniteitskosten van studeren zijn onder meer het salaris dat je in die jaren had kunnen verdienen.",
     herkomst: "Vertaling van het Engelse opportunity cost.",
     beeld: "Een kind met één euro dat een ijsje kiest en weemoedig naar de zak snoep kijkt die het nu misloopt.",
-    emoji: "🍦🍬",
   },
   {
     niveau: "gevorderd",
@@ -109,7 +99,6 @@ export const economie: BankWoord[] = [
     voorbeeldzin: "De bouwbedrijven kregen een hoge boete omdat ze een kartel hadden gevormd.",
     herkomst: "Via Duits Kartell van Italiaans cartello (briefje, schriftelijke afspraak).",
     beeld: "Drie kraamhouders die achter de markt fluisterend afspreken dat niemand zijn appels goedkoper verkoopt.",
-    emoji: "🍎🤫",
   },
   {
     niveau: "gevorderd",
@@ -119,7 +108,6 @@ export const economie: BankWoord[] = [
     voorbeeldzin: "Door de crisis steeg de staatsschuld tot boven de zestig procent van het bbp.",
     herkomst: "Samenstelling van staat en schuld.",
     beeld: "Een reusachtige rekening aan de muur van het ministerie die elk jaar een stukje langer wordt.",
-    emoji: "🧾🏛️",
   },
   {
     niveau: "gevorderd",
@@ -129,7 +117,6 @@ export const economie: BankWoord[] = [
     voorbeeldzin: "De luchtvervuiling door vliegverkeer is een negatieve externaliteit.",
     herkomst: "Latijn externus (uitwendig).",
     beeld: "Een fabriek die goedkope schoenen maakt, terwijl de rook over de tuinen van de buren waait.",
-    emoji: "🏭💨",
   },
   {
     niveau: "expert",
@@ -139,7 +126,6 @@ export const economie: BankWoord[] = [
     voorbeeldzin: "Vanaf 2015 zette de Europese Centrale Bank kwantitatieve verruiming in om de economie te stimuleren.",
     herkomst: "Vertaling van het Engelse quantitative easing.",
     beeld: "Een brandweerwagen die geld in plaats van water over een uitgedroogde economie spuit.",
-    emoji: "🚒💶",
   },
   {
     niveau: "expert",
@@ -149,7 +135,6 @@ export const economie: BankWoord[] = [
     voorbeeldzin: "Na de oliecrisis van de jaren zeventig kampten veel westerse landen met stagflatie.",
     herkomst: "Samentrekking van stagnatie en inflatie.",
     beeld: "Een auto die stilstaat in de file, terwijl de benzineprijs op het bord blijft stijgen.",
-    emoji: "🚗⛽",
   },
   {
     niveau: "expert",
@@ -159,7 +144,6 @@ export const economie: BankWoord[] = [
     voorbeeldzin: "Als banken weten dat de overheid ze altijd redt, ontstaat moral hazard.",
     herkomst: "Engels: moreel risico; oorspronkelijk een term uit de verzekeringswereld.",
     beeld: "Iemand met een allriskverzekering die zijn fiets ineens nergens meer op slot zet.",
-    emoji: "🚲🔓",
   },
   {
     niveau: "expert",
@@ -169,7 +153,6 @@ export const economie: BankWoord[] = [
     voorbeeldzin: "Het grensnut van het vijfde stuk taart is een stuk lager dan dat van het eerste.",
     herkomst: "Samenstelling van grens (marge) en nut; vertaling van het Engelse marginal utility.",
     beeld: "Het eerste glas water na een woestijntocht voelt als goud; het tiende laat je staan.",
-    emoji: "💧🏜️",
   },
   {
     niveau: "expert",
@@ -179,7 +162,6 @@ export const economie: BankWoord[] = [
     voorbeeldzin: "Handelaars gebruiken computers om binnen milliseconden aan arbitrage tussen beurzen te doen.",
     herkomst: "Frans arbitrage, van arbitre (scheidsrechter); in het recht betekent het ook geschilbeslechting door een scheidsrechter.",
     beeld: "Iemand die in het ene dorp appels koopt voor een euro en ze in het buurdorp meteen voor twee euro verkoopt.",
-    emoji: "🍎🔁",
   },
   {
     niveau: "expert",
@@ -189,6 +171,5 @@ export const economie: BankWoord[] = [
     voorbeeldzin: "Het grote investeringsprogramma tijdens de crisis was puur keynesianisme.",
     herkomst: "Naar de Britse econoom John Maynard Keynes (1883-1946).",
     beeld: "Een overheid die in slechte tijden zelf bouwvakkers inhuurt om bruggen te bouwen.",
-    emoji: "🌉👷",
   },
 ];

@@ -9,7 +9,6 @@ export const algemeneKennis: BankWoord[] = [
     voorbeeldzin: "Het polshorloge van de Romeinse soldaat in de film was een opvallend anachronisme.",
     herkomst: "Grieks ana (tegen, terug) + chronos (tijd).",
     beeld: "Een ridder in harnas die midden op het slagveld een selfie maakt met zijn smartphone.",
-    emoji: "🏰📱",
   },
   {
     niveau: "basis",
@@ -19,7 +18,6 @@ export const algemeneKennis: BankWoord[] = [
     voorbeeldzin: "Het is een paradox dat meer keuze mensen soms juist ongelukkiger maakt.",
     herkomst: "Grieks para (tegen) + doxa (mening): tegen de verwachting in.",
     beeld: "Een bordje met de tekst 'Negeer dit bordje', waar iedereen verward naar blijft staren.",
-    emoji: "🪧🤔",
   },
   {
     niveau: "basis",
@@ -29,7 +27,6 @@ export const algemeneKennis: BankWoord[] = [
     voorbeeldzin: "In plaats van eindeloos te vergaderen, koos de directeur voor een pragmatische oplossing.",
     herkomst: "Grieks pragma (handeling, zaak).",
     beeld: "Iemand die een wiebelende tafel niet repareert, maar er gewoon een bierviltje onder schuift.",
-    emoji: "🪑🍺",
   },
   {
     niveau: "basis",
@@ -39,7 +36,6 @@ export const algemeneKennis: BankWoord[] = [
     voorbeeldzin: "De nieuwe versie van de app verhelpt het euvel met de batterij.",
     herkomst: "Middelnederlands evel (kwaad), verwant aan het Engelse evil.",
     beeld: "Een klein grijs duiveltje dat in je fietsketting zit te knagen.",
-    emoji: "🚲😈",
   },
   {
     niveau: "basis",
@@ -49,7 +45,6 @@ export const algemeneKennis: BankWoord[] = [
     voorbeeldzin: "Na jaren van gebroken beloftes keek ze cynisch naar elke nieuwe verkiezingscampagne.",
     herkomst: "Grieks kynikos (hondachtig), naar Oudgriekse filosofen die maatschappelijke normen minachtten.",
     beeld: "Een hond die met opgetrokken wenkbrauw naar een glimlachende verkoper kijkt.",
-    emoji: "🐕🤨",
   },
   {
     niveau: "gevorderd",
@@ -59,7 +54,6 @@ export const algemeneKennis: BankWoord[] = [
     voorbeeldzin: "'Heengaan' is een eufemisme voor sterven.",
     herkomst: "Grieks eu (goed) + phèmi (spreken).",
     beeld: "Een ontslagbrief verpakt in roze cadeaupapier met een strik erom.",
-    emoji: "🎁📄",
   },
   {
     niveau: "gevorderd",
@@ -69,7 +63,6 @@ export const algemeneKennis: BankWoord[] = [
     voorbeeldzin: "Ik sta ambivalent tegenover de verhuizing: ik heb er zin in, maar zie er ook tegen op.",
     herkomst: "Latijn ambo (beide) + valere (waard zijn, gelden).",
     beeld: "Iemand die met één voet in een warm bad en met de andere in een emmer ijswater staat.",
-    emoji: "🛁🧊",
   },
   {
     niveau: "gevorderd",
@@ -79,7 +72,6 @@ export const algemeneKennis: BankWoord[] = [
     voorbeeldzin: "Als we deze uitzondering toestaan, scheppen we een precedent.",
     herkomst: "Latijn praecedere (voorafgaan).",
     beeld: "Eén schaap springt over een hek, en de hele kudde springt er daarna achteraan.",
-    emoji: "🐑🐑",
   },
   {
     niveau: "gevorderd",
@@ -89,7 +81,6 @@ export const algemeneKennis: BankWoord[] = [
     voorbeeldzin: "De dichotomie tussen stad en platteland speelde een grote rol in de verkiezingen.",
     herkomst: "Grieks dicha (in tweeën) + temnein (snijden).",
     beeld: "Een taart die met één messnede in een zwarte en een witte helft wordt verdeeld.",
-    emoji: "🎂🔪",
   },
   {
     niveau: "gevorderd",
@@ -99,7 +90,6 @@ export const algemeneKennis: BankWoord[] = [
     voorbeeldzin: "De punkmuziek van eind jaren zeventig paste perfect bij de zeitgeist.",
     herkomst: "Duits Zeit (tijd) + Geist (geest).",
     beeld: "Een doorzichtige geest in een tijdmachine die bij elk decennium de mode van dat moment aantrekt.",
-    emoji: "👻⏳",
   },
   {
     niveau: "expert",
@@ -109,7 +99,6 @@ export const algemeneKennis: BankWoord[] = [
     voorbeeldzin: "In de epistemologie is de vraag of zintuiglijke waarneming betrouwbaar is een klassiek probleem.",
     herkomst: "Grieks epistèmè (kennis) + logos (leer).",
     beeld: "Een filosoof die met een vergrootglas naar zijn eigen hersenen tuurt en zich afvraagt: 'Weet ik dit echt?'",
-    emoji: "🔍🧠",
   },
   {
     niveau: "expert",
@@ -119,7 +108,6 @@ export const algemeneKennis: BankWoord[] = [
     voorbeeldzin: "Wie een grondwetsartikel uitlegt, bedrijft eigenlijk hermeneutiek.",
     herkomst: "Grieks hermèneuein (uitleggen, vertalen), vaak in verband gebracht met Hermes, de boodschapper van de goden.",
     beeld: "Hermes met gevleugelde sandalen die gebogen zit over een oude perkamentrol om die te ontcijferen.",
-    emoji: "📜🪽",
   },
   {
     niveau: "expert",
@@ -129,7 +117,6 @@ export const algemeneKennis: BankWoord[] = [
     voorbeeldzin: "'De giraf heeft een lange nek om bij de bladeren te kunnen' is een teleologische verklaring.",
     herkomst: "Grieks telos (doel, einde) + logos (leer).",
     beeld: "Een pijl die al in de roos steekt en tevreden terugkijkt naar de boog.",
-    emoji: "🎯🏹",
   },
   {
     niveau: "expert",
@@ -139,7 +126,6 @@ export const algemeneKennis: BankWoord[] = [
     voorbeeldzin: "Het verhaal dat Einstein slecht was in wiskunde is apocrief.",
     herkomst: "Grieks apokryphos (verborgen).",
     beeld: "Een stoffig boek dat uit de kloosterbibliotheek is verbannen en stiekem onder een deken wordt bewaard.",
-    emoji: "📕🕯️",
   },
   {
     niveau: "expert",
@@ -149,7 +135,6 @@ export const algemeneKennis: BankWoord[] = [
     voorbeeldzin: "De ontdekking van penicilline wordt vaak genoemd als voorbeeld van serendipiteit.",
     herkomst: "Engels serendipity, bedacht door Horace Walpole naar het sprookje 'De drie prinsen van Serendip' (een oude naam voor Sri Lanka).",
     beeld: "Iemand die in de tuin naar zijn kwijtgeraakte sleutels graaft en een schatkist vindt.",
-    emoji: "🔑💰",
   },
   {
     niveau: "basis",
@@ -159,7 +144,6 @@ export const algemeneKennis: BankWoord[] = [
     voorbeeldzin: "Het debat werd in zwart-wit gevoerd, zonder enig oog voor nuance.",
     herkomst: "Frans nuance (schakering), van nue (wolk).",
     beeld: "Een verfkaart met twintig bijna identieke tinten blauw.",
-    emoji: "🎨🔵",
   },
   {
     niveau: "basis",
@@ -169,7 +153,6 @@ export const algemeneKennis: BankWoord[] = [
     voorbeeldzin: "Onder klimaatwetenschappers bestaat brede consensus dat de aarde opwarmt door menselijk handelen.",
     herkomst: "Latijn consentire (overeenstemmen).",
     beeld: "Een vergadertafel waar iedereen tegelijk zijn duim opsteekt.",
-    emoji: "👍👍",
   },
   {
     niveau: "basis",
@@ -179,7 +162,6 @@ export const algemeneKennis: BankWoord[] = [
     voorbeeldzin: "Het is hypocriet om over het milieu te preken en elke maand een vliegvakantie te boeken.",
     herkomst: "Grieks hypokritès (toneelspeler).",
     beeld: "Een acteur die op het podium tegen snoep predikt en achter de coulissen een zak drop leegeet.",
-    emoji: "🎭🍬",
   },
   {
     niveau: "gevorderd",
@@ -189,7 +171,6 @@ export const algemeneKennis: BankWoord[] = [
     voorbeeldzin: "Het antwoord van de minister was zo ambigu dat beide partijen dachten dat ze gelijk kregen.",
     herkomst: "Latijn ambiguus (twijfelachtig, naar twee kanten neigend).",
     beeld: "Een tekening die je zowel als een eend als een konijn kunt zien.",
-    emoji: "🦆🐇",
   },
   {
     niveau: "gevorderd",
@@ -199,7 +180,6 @@ export const algemeneKennis: BankWoord[] = [
     voorbeeldzin: "Na de zware nederlaag hing er een sfeer van lethargie in de kleedkamer.",
     herkomst: "Grieks lèthè (vergetelheid) + argos (traag).",
     beeld: "Een kat die op een warme middag niet eens de moeite neemt om een vlieg weg te slaan.",
-    emoji: "🐈💤",
   },
   {
     niveau: "expert",
@@ -209,6 +189,5 @@ export const algemeneKennis: BankWoord[] = [
     voorbeeldzin: "De Europese Unie wordt vaak sui generis genoemd: geen staat, maar ook geen gewone internationale organisatie.",
     herkomst: "Latijn: 'van zijn eigen soort'.",
     beeld: "Een vogelbekdier dat in de dierentuin bij geen enkel verblijf naar binnen mag.",
-    emoji: "🦆🦫",
   },
 ];

@@ -9,7 +9,6 @@ export const recht: BankWoord[] = [
     voorbeeldzin: "De verdachte ontving een dagvaarding om over drie weken voor de rechtbank te verschijnen.",
     herkomst: "Middelnederlands dachvaerden: een dag vaststellen voor een zitting.",
     beeld: "Een brief met een grote rode stempel en een datum erop die door de brievenbus valt.",
-    emoji: "✉️⚖️",
   },
   {
     niveau: "basis",
@@ -19,7 +18,6 @@ export const recht: BankWoord[] = [
     voorbeeldzin: "Het vonnis wordt over twee weken uitgesproken.",
     herkomst: "Middelnederlands vonnesse, verwant aan vinden in de betekenis 'oordelen'.",
     beeld: "Een rechter die met een hamer op tafel slaat, terwijl iedereen in de zaal de adem inhoudt.",
-    emoji: "🔨⚖️",
   },
   {
     niveau: "basis",
@@ -29,7 +27,6 @@ export const recht: BankWoord[] = [
     voorbeeldzin: "Zijn alibi was sterk: op het moment van de inbraak zat hij in het vliegtuig.",
     herkomst: "Latijn alibi (elders).",
     beeld: "Een vliegticket en een strandfoto die naast de plaats van het misdrijf op tafel worden gelegd.",
-    emoji: "🎫🏖️",
   },
   {
     niveau: "basis",
@@ -39,7 +36,6 @@ export const recht: BankWoord[] = [
     voorbeeldzin: "De eigenaar van de hond is aansprakelijk voor de schade aan de fiets.",
     herkomst: "Van aanspreken: iemand ergens op kunnen aanspreken.",
     beeld: "Een voetballer die een ruit kapotschiet en door de buurman bij zijn kraag wordt gegrepen: 'Jij betaalt!'",
-    emoji: "⚽🪟",
   },
   {
     niveau: "basis",
@@ -49,7 +45,6 @@ export const recht: BankWoord[] = [
     voorbeeldzin: "Hij kreeg drie maanden voorwaardelijk met een proeftijd van twee jaar.",
     herkomst: "Samenstelling van voorwaarde en straf.",
     beeld: "Een zwaard dat aan een dun draadje boven iemands hoofd hangt en pas valt als hij de fout ingaat.",
-    emoji: "⚔️🧵",
   },
   {
     niveau: "basis",
@@ -59,7 +54,6 @@ export const recht: BankWoord[] = [
     voorbeeldzin: "Het Openbaar Ministerie ging in hoger beroep tegen de vrijspraak.",
     herkomst: "Van zich beroepen op: zich richten tot een hogere instantie.",
     beeld: "Een speler die het oneens is met de scheidsrechter en zijn zaak voorlegt aan de voetbalbond.",
-    emoji: "🏟️📨",
   },
   {
     niveau: "gevorderd",
@@ -69,7 +63,6 @@ export const recht: BankWoord[] = [
     voorbeeldzin: "De regering probeerde de noodmaatregelen te legitimeren met een beroep op de volksgezondheid.",
     herkomst: "Latijn legitimus (wettig), van lex (wet).",
     beeld: "Een koning die eerst een stempel van goedkeuring van het volk krijgt voordat hij zijn kroon mag opzetten.",
-    emoji: "👑✅",
   },
   {
     niveau: "gevorderd",
@@ -79,7 +72,6 @@ export const recht: BankWoord[] = [
     voorbeeldzin: "De advocaat ging in cassatie omdat het hof de wet volgens hem verkeerd had uitgelegd.",
     herkomst: "Frans casser (breken, vernietigen).",
     beeld: "Een hoge rechter die niet naar de getuigen kijkt, maar alleen met een vergrootglas het wetboek naleest.",
-    emoji: "🔍📕",
   },
   {
     niveau: "gevorderd",
@@ -89,7 +81,6 @@ export const recht: BankWoord[] = [
     voorbeeldzin: "De advocaat verwees naar jurisprudentie van de Hoge Raad om zijn standpunt te onderbouwen.",
     herkomst: "Latijn iuris prudentia (kennis van het recht).",
     beeld: "Een dikke stapel oude vonnissen waar elke nieuwe rechter eerst doorheen bladert.",
-    emoji: "📚⚖️",
   },
   {
     niveau: "gevorderd",
@@ -99,7 +90,6 @@ export const recht: BankWoord[] = [
     voorbeeldzin: "De rechter oordeelde dat het plaatsen van de valse recensies een onrechtmatige daad was.",
     herkomst: "Juridisch begrip uit artikel 6:162 van het Burgerlijk Wetboek.",
     beeld: "Iemand die de schutting van de buren omverrijdt en daarna de rekening krijgt.",
-    emoji: "🚗🪵",
   },
   {
     niveau: "gevorderd",
@@ -109,7 +99,6 @@ export const recht: BankWoord[] = [
     voorbeeldzin: "Omdat de aannemer de verbouwing niet afmaakte, sprak de klant hem aan op wanprestatie.",
     herkomst: "Wan- (slecht, verkeerd) + prestatie.",
     beeld: "Een bakker die een bruidstaart belooft en op de trouwdag met een pak beschuit aan komt zetten.",
-    emoji: "🎂🍞",
   },
   {
     niveau: "gevorderd",
@@ -119,7 +108,6 @@ export const recht: BankWoord[] = [
     voorbeeldzin: "Vanwege de presumptie van onschuld moeten media voorzichtig zijn met het neerzetten van een verdachte als dader.",
     herkomst: "Latijn praesumptio (vermoeden).",
     beeld: "Een weegschaal die bij het begin van elke rechtszaak al naar 'onschuldig' doorslaat.",
-    emoji: "⚖️🤍",
   },
   {
     niveau: "gevorderd",
@@ -129,7 +117,6 @@ export const recht: BankWoord[] = [
     voorbeeldzin: "Omdat de diefstal meer dan twaalf jaar geleden was gepleegd, was het feit verjaard.",
     herkomst: "Ver- + jaar: jaren laten verstrijken.",
     beeld: "Een opsporingsbericht aan de muur dat langzaam vergeelt tot het er vanzelf afvalt.",
-    emoji: "📜⏳",
   },
   {
     niveau: "gevorderd",
@@ -139,7 +126,6 @@ export const recht: BankWoord[] = [
     voorbeeldzin: "Een stichting is een rechtspersoon en kan dus zelf contracten sluiten.",
     herkomst: "Samenstelling van recht en persoon.",
     beeld: "Een kantoorgebouw met een eigen handtekening, een eigen bankrekening en een eigen advocaat.",
-    emoji: "🏢✍️",
   },
   {
     niveau: "expert",
@@ -149,7 +135,6 @@ export const recht: BankWoord[] = [
     voorbeeldzin: "Omdat hij al was vrijgesproken, kon hij op grond van ne bis in idem niet opnieuw worden vervolgd.",
     herkomst: "Latijn: 'niet tweemaal over hetzelfde'.",
     beeld: "Een scheidsrechter die weigert dezelfde overtreding twee keer te bestraffen.",
-    emoji: "🟨✋",
   },
   {
     niveau: "expert",
@@ -159,7 +144,6 @@ export const recht: BankWoord[] = [
     voorbeeldzin: "Het legaliteitsbeginsel staat in het eerste artikel van het Wetboek van Strafrecht.",
     herkomst: "Latijn legalis (wettelijk); ook bekend als nullum crimen sine lege: geen misdrijf zonder wet.",
     beeld: "Een agent die iemand wil bekeuren, door het wetboek bladert en ontdekt dat er nog geen regel voor bestaat.",
-    emoji: "👮📖",
   },
   {
     niveau: "expert",
@@ -169,7 +153,6 @@ export const recht: BankWoord[] = [
     voorbeeldzin: "Het Nederlandse gedoogbeleid voor softdrugs steunt op het opportuniteitsbeginsel.",
     herkomst: "Latijn opportunitas (gunstige gelegenheid).",
     beeld: "Een officier van justitie met een stapel dossiers die sommige mapjes bewust in de la laat liggen.",
-    emoji: "🗂️🤔",
   },
   {
     niveau: "expert",
@@ -179,7 +162,6 @@ export const recht: BankWoord[] = [
     voorbeeldzin: "Het habeas corpus beschermt burgers tegen willekeurige opsluiting door de staat.",
     herkomst: "Latijn: 'dat je het lichaam hebt', de beginwoorden van een middeleeuws Engels bevelschrift.",
     beeld: "Een rechter die eist: 'Breng de gevangene hier, en laat zien waarom hij vastzit!'",
-    emoji: "⛓️🏛️",
   },
   {
     niveau: "expert",
@@ -189,6 +171,5 @@ export const recht: BankWoord[] = [
     voorbeeldzin: "De zaak eindigde in een sepot wegens gebrek aan bewijs.",
     herkomst: "Van seponeren, Latijn seponere (terzijde leggen).",
     beeld: "Een dossier dat met een zucht achter in de archiefkast wordt geschoven.",
-    emoji: "🗄️📁",
   },
 ];

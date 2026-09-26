@@ -9,7 +9,6 @@ export const filosofie: BankWoord[] = [
     voorbeeldzin: "Het inzicht dat de aarde om de zon draait, zorgde voor een paradigmaverschuiving in de sterrenkunde.",
     herkomst: "Grieks paradeigma (voorbeeld, model); populair geworden door de wetenschapsfilosoof Thomas Kuhn.",
     beeld: "Een zaal waarin iedereen dezelfde gekleurde bril draagt, tot iemand hem afzet en de wereld ineens in andere kleuren ziet.",
-    emoji: "👓🌈",
   },
   {
     niveau: "basis",
@@ -19,7 +18,6 @@ export const filosofie: BankWoord[] = [
     voorbeeldzin: "Als het determinisme klopt, is het de vraag of we eigenlijk wel een vrije wil hebben.",
     herkomst: "Latijn determinare (begrenzen, vastleggen).",
     beeld: "Een biljarttafel waarop je, als je alle krachten kent, precies kunt voorspellen waar elke bal eindigt.",
-    emoji: "🎱🎯",
   },
   {
     niveau: "basis",
@@ -29,7 +27,6 @@ export const filosofie: BankWoord[] = [
     voorbeeldzin: "Zijn vakantie van uitslapen, lekker eten en niets moeten was puur hedonisme.",
     herkomst: "Grieks hèdonè (genot).",
     beeld: "Iemand in een hangmat met een ijsje in de ene hand en een zonnebril op, die nergens anders aan denkt.",
-    emoji: "🍦🏖️",
   },
   {
     niveau: "basis",
@@ -39,7 +36,6 @@ export const filosofie: BankWoord[] = [
     voorbeeldzin: "Bij de ontwikkeling van zelfrijdende auto's spelen ook vragen uit de ethiek een rol.",
     herkomst: "Grieks èthos (gewoonte, karakter).",
     beeld: "Een weegschaal met een engeltje op de ene schaal en een duiveltje op de andere.",
-    emoji: "⚖️😇",
   },
   {
     niveau: "basis",
@@ -49,7 +45,6 @@ export const filosofie: BankWoord[] = [
     voorbeeldzin: "Ze stond voor een dilemma: de goedbetaalde baan of het werk dat ze echt leuk vond.",
     herkomst: "Grieks di (twee) + lèmma (aanname).",
     beeld: "Een wandelaar bij een splitsing: links een modderpad, rechts een pad vol brandnetels.",
-    emoji: "🛤️🤷",
   },
   {
     niveau: "gevorderd",
@@ -59,7 +54,6 @@ export const filosofie: BankWoord[] = [
     voorbeeldzin: "Volgens de klassieke waarheidstheorie is waarheid de adequatie van het verstand aan de dingen.",
     herkomst: "Latijn adaequatio (gelijkmaking), van ad (naar) + aequus (gelijk); verwant aan adequaat.",
     beeld: "Een sleutel die precies in het slot past en soepel omdraait.",
-    emoji: "🔑🔒",
   },
   {
     niveau: "gevorderd",
@@ -69,7 +63,6 @@ export const filosofie: BankWoord[] = [
     voorbeeldzin: "Volgens het empirisme van John Locke is de geest bij de geboorte een onbeschreven blad.",
     herkomst: "Grieks empeiria (ervaring).",
     beeld: "Een onderzoeker die niets gelooft tot ze het zelf heeft gezien, geroken en aangeraakt.",
-    emoji: "👀👃",
   },
   {
     niveau: "gevorderd",
@@ -79,7 +72,6 @@ export const filosofie: BankWoord[] = [
     voorbeeldzin: "Descartes' uitspraak 'Ik denk, dus ik ben' is een schoolvoorbeeld van rationalisme.",
     herkomst: "Latijn ratio (rede, verstand).",
     beeld: "Een denker in een donkere kamer met de ogen dicht, die met alleen zijn verstand een hele wereld uitrekent.",
-    emoji: "🧠💡",
   },
   {
     niveau: "gevorderd",
@@ -89,7 +81,6 @@ export const filosofie: BankWoord[] = [
     voorbeeldzin: "In zijn somberste periode neigde de schrijver naar nihilisme: niets leek er nog toe te doen.",
     herkomst: "Latijn nihil (niets).",
     beeld: "Iemand die voor een prachtig schilderij staat en schouderophalend zegt: 'Het zijn maar vlekken verf.'",
-    emoji: "🖼️🤷",
   },
   {
     niveau: "gevorderd",
@@ -99,7 +90,6 @@ export const filosofie: BankWoord[] = [
     voorbeeldzin: "Volgens het utilitarisme zou je kunnen verdedigen dat je één persoon opoffert om er vijf te redden.",
     herkomst: "Latijn utilitas (nut); uitgewerkt door Jeremy Bentham en John Stuart Mill.",
     beeld: "Een rekenmachine die bij elke keuze optelt hoeveel mensen er gelukkiger van worden.",
-    emoji: "🧮😊",
   },
   {
     niveau: "gevorderd",
@@ -109,7 +99,6 @@ export const filosofie: BankWoord[] = [
     voorbeeldzin: "De dialectiek van Hegel had grote invloed op het denken van Karl Marx.",
     herkomst: "Grieks dialektikè (de kunst van het gesprek).",
     beeld: "Twee rivieren die tegen elkaar in stromen en samen een nieuw meer vormen.",
-    emoji: "🌊🌊",
   },
   {
     niveau: "gevorderd",
@@ -119,7 +108,6 @@ export const filosofie: BankWoord[] = [
     voorbeeldzin: "Sartres uitspraak dat de mens 'veroordeeld is tot vrijheid' is een kernidee van het existentialisme.",
     herkomst: "Latijn existentia (bestaan).",
     beeld: "Iemand die een leeg notitieboek krijgt met op de eerste bladzijde: 'Schrijf zelf je doel op.'",
-    emoji: "📓✍️",
   },
   {
     niveau: "gevorderd",
@@ -129,7 +117,6 @@ export const filosofie: BankWoord[] = [
     voorbeeldzin: "De Romeinse keizer Marcus Aurelius schreef zijn stoïcijnse gedachten op in een persoonlijk dagboek.",
     herkomst: "Grieks stoa (zuilengang), naar de zuilenhal in Athene waar Zeno lesgaf.",
     beeld: "Iemand die rustig zijn thee drinkt terwijl buiten een storm raast.",
-    emoji: "☕⛈️",
   },
   {
     niveau: "expert",
@@ -139,7 +126,6 @@ export const filosofie: BankWoord[] = [
     voorbeeldzin: "Of getallen echt bestaan of alleen in ons hoofd, is een vraag uit de ontologie.",
     herkomst: "Grieks on (zijnde) + logos (leer).",
     beeld: "Een filosoof die op een tafel klopt en vraagt: 'Maar bestáá je eigenlijk wel?'",
-    emoji: "🪵❓",
   },
   {
     niveau: "expert",
@@ -149,7 +135,6 @@ export const filosofie: BankWoord[] = [
     voorbeeldzin: "In de fenomenologie van Edmund Husserl staat de beleefde ervaring centraal.",
     herkomst: "Grieks phainomenon (wat zich vertoont) + logos (leer).",
     beeld: "Iemand die een aardbei eet en alleen beschrijft hoe die voelt, ruikt en smaakt, zonder te vragen waar hij vandaan komt.",
-    emoji: "🍓📝",
   },
   {
     niveau: "expert",
@@ -159,7 +144,6 @@ export const filosofie: BankWoord[] = [
     voorbeeldzin: "Volgens de categorische imperatief mag je niet liegen, ook niet als het je goed uitkomt.",
     herkomst: "Latijn imperativus (bevelend); geformuleerd door Immanuel Kant in 1785.",
     beeld: "Iemand die voor elke keuze eerst vraagt: 'En als de hele wereld dit nou deed?'",
-    emoji: "🌍❓",
   },
   {
     niveau: "expert",
@@ -169,7 +153,6 @@ export const filosofie: BankWoord[] = [
     voorbeeldzin: "Dat een vrijgezel ongetrouwd is, weet je a priori: daarvoor hoef je niemand te onderzoeken.",
     herkomst: "Latijn: 'vanuit het eerdere'.",
     beeld: "Iemand met een blinddoek om die zonder rond te kijken zeker weet dat een driehoek drie hoeken heeft.",
-    emoji: "🙈🔺",
   },
   {
     niveau: "expert",
@@ -179,7 +162,6 @@ export const filosofie: BankWoord[] = [
     voorbeeldzin: "Een consequente solipsist zou zelfs twijfelen of zijn gesprekspartner wel echt bestaat.",
     herkomst: "Latijn solus (alleen) + ipse (zelf).",
     beeld: "Iemand alleen in een bioscoopzaal die zich afvraagt of de film, de stoelen en de zaal niet allemaal door hemzelf worden bedacht.",
-    emoji: "🎬🧍",
   },
   {
     niveau: "expert",
@@ -189,7 +171,6 @@ export const filosofie: BankWoord[] = [
     voorbeeldzin: "Volgens het scheermes van Ockham is een tochtig raam een betere verklaring voor de klapperende deur dan een spook.",
     herkomst: "Naar de Engelse monnik en filosoof Willem van Ockham (14e eeuw).",
     beeld: "Een scheermes dat alle overbodige haren van een theorie afschraapt, tot alleen het nodige overblijft.",
-    emoji: "🪒✂️",
   },
   {
     niveau: "expert",
@@ -199,6 +180,5 @@ export const filosofie: BankWoord[] = [
     voorbeeldzin: "'Alle zwanen zijn wit' voldoet aan falsifieerbaarheid: één zwarte zwaan kan de bewering weerleggen.",
     herkomst: "Latijn falsus (onwaar) + facere (maken).",
     beeld: "Een zwarte zwaan die triomfantelijk tussen honderd witte zwanen zwemt.",
-    emoji: "🦢🖤",
   },
 ];
