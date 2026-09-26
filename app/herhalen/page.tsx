@@ -25,9 +25,11 @@ export default function Herhalen() {
   // De lijst wordt één keer vastgelegd, zodat woorden niet verspringen terwijl je bezig bent.
   const [rij, setRij] = useState<string[] | null>(null);
   const [positie, setPositie] = useState(0);
-  const [opties, setOpties] = useState<string[]>([]);
-  const [gekozen, setGekozen] = useState<string | null>(null);
-  const [score, setScore] = useState(0);
+  // Per vraag bewaren we de antwoordvolgorde en je keuze, zodat je terug kunt bladeren.
+  // Een vraag die je al beantwoord hebt, kun je bekijken maar niet opnieuw beantwoorden:
+  // anders zou de meting voor het experiment niet meer kloppen.
+  const [opties, setOpties] = useState<Record<number, string[]>>({});
+  const [antwoorden, setAntwoorden] = useState<Record<number, string>>({});
   const router = useRouter();
   useSessieModus(rij !== null && positie < rij.length);
 
@@ -40,11 +42,16 @@ export default function Herhalen() {
   const woordId = rij?.[positie];
   const woord = woordId && data ? data.woorden[woordId] : undefined;
 
-  // Nieuwe antwoordvolgorde per woord; afhankelijk van het id zodat opslaan niet opnieuw schudt.
   useEffect(() => {
-    if (woord) setOpties(schud([woord.definitie, ...kiesAfleiders(woord)]));
-    setGekozen(null);
-  }, [woordId]);
+    if (woord && !opties[positie]) {
+      setOpties((o) => ({ ...o, [positie]: schud([woord.definitie, ...kiesAfleiders(woord)]) }));
+    }
+  }, [woord, positie, opties]);
+
+  const gekozen = antwoorden[positie] ?? null;
+  const score =
+    rij?.filter((id, i) => data && antwoorden[i] !== undefined && antwoorden[i] === data.woorden[id]?.definitie)
+      .length ?? 0;
 
   if (!data || rij === null) return null;
 
@@ -90,8 +97,7 @@ export default function Herhalen() {
   const beantwoord = (keuze: string) => {
     if (gekozen) return;
     const goed = keuze === woord.definitie;
-    setGekozen(keuze);
-    if (goed) setScore((s) => s + 1);
+    setAntwoorden((a) => ({ ...a, [positie]: keuze }));
     wijzig((d) => ({
       ...d,
       kaarten: { ...d.kaarten, [woord.id]: verwerkAntwoord(d.kaarten[woord.id], goed, nu(d)) },
@@ -109,14 +115,19 @@ export default function Herhalen() {
 
   return (
     <>
-      <Sessiekop positie={positie} totaal={rij.length} stop={() => router.push("/")} />
+      <Sessiekop
+        positie={positie}
+        totaal={rij.length}
+        stop={() => router.push("/")}
+        terug={() => setPositie((p) => Math.max(0, p - 1))}
+      />
       <div className="kop">
         <span className="label">{woord.domein}</span>
         <h1 className="woord">{woord.woord}</h1>
         <span className="woordsoort">Wat betekent dit?</span>
       </div>
       <div className="keuzes">
-        {opties.map((optie) => (
+        {(opties[positie] ?? []).map((optie) => (
           <button key={optie} className={klasse(optie)} onClick={() => beantwoord(optie)} disabled={!!gekozen}>
             {optie}
           </button>

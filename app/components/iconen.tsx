@@ -39,6 +39,11 @@ export const IcoonSluit = () => (
     <path d="M6 6l12 12M18 6 6 18" />
   </svg>
 );
+export const IcoonTerug = () => (
+  <svg {...basis} strokeWidth={2}>
+    <path d="M19 12H5M11 6l-6 6 6 6" />
+  </svg>
+);
 export const IcoonPijl = () => (
   <svg {...basis} width={18} height={18} strokeWidth={2}>
     <path d="m9 6 6 6-6 6" />

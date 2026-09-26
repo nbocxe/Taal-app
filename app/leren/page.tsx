@@ -65,11 +65,16 @@ function LerenScherm() {
     if (!ronde) return;
     const woord = ronde.woorden[ronde.positie];
     const methode = ronde.methodes[ronde.positie];
-    wijzig((d) => ({
-      ...d,
-      woorden: { ...d.woorden, [woord.id]: woord },
-      kaarten: { ...d.kaarten, [woord.id]: nieuweKaart(woord.id, methode, nu(d)) },
-    }));
+    // Ben je teruggegaan naar een woord dat al is opgeslagen, dan laten we de meting ongemoeid.
+    wijzig((d) =>
+      d.kaarten[woord.id]
+        ? d
+        : {
+            ...d,
+            woorden: { ...d.woorden, [woord.id]: woord },
+            kaarten: { ...d.kaarten, [woord.id]: nieuweKaart(woord.id, methode, nu(d)) },
+          },
+    );
     setRonde({ ...ronde, positie: ronde.positie + 1 });
   };
 
@@ -79,7 +84,12 @@ function LerenScherm() {
     const Component = COMPONENTEN[methode];
     return (
       <>
-        <Sessiekop positie={ronde.positie} totaal={ronde.woorden.length} stop={() => setRonde(null)} />
+        <Sessiekop
+          positie={ronde.positie}
+          totaal={ronde.woorden.length}
+          stop={() => setRonde(null)}
+          terug={() => setRonde({ ...ronde, positie: Math.max(0, ronde.positie - 1) })}
+        />
         <span className="label accent" style={{ display: "flex", alignItems: "center", gap: 6 }}>
           {METHODE_ICONEN[methode]}
           {METHODES[methode].naam}
@@ -87,7 +97,7 @@ function LerenScherm() {
         <div className="illustratie">
           <Illustratie domein={woord.domein} />
         </div>
-        <Component key={woord.id} woord={woord} klaar={woordKlaar} />
+        <Component key={woord.id} woord={woord} klaar={woordKlaar} alGezien={woord.id in data.kaarten} />
       </>
     );
   }

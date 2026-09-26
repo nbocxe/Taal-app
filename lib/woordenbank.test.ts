@@ -16,6 +16,13 @@ test("elk woord in de bank is compleet en uniek", () => {
         !w.definitie.toLowerCase().includes(w.woord.toLowerCase()),
         `${id}: de definitie verklapt het woord zelf`,
       );
+      // Elke voorbeeldzin moet het woord (of een vervoeging ervan) echt gebruiken.
+      const stam = w.woord.toLowerCase().slice(0, 5);
+      assert.ok(w.voorbeelden.length >= 2, `${id}: minstens twee extra voorbeelden nodig`);
+      for (const zin of [w.voorbeeldzin, ...w.voorbeelden]) {
+        assert.ok(zin.toLowerCase().includes(stam), `${id}: voorbeeld zonder het woord: "${zin}"`);
+      }
+      assert.equal(new Set([w.voorbeeldzin, ...w.voorbeelden]).size, w.voorbeelden.length + 1, `${id}: dubbel voorbeeld`);
     }
   }
 });
@@ -45,6 +52,16 @@ test("het goede antwoord valt niet op door zijn lengte", () => {
     }
   }
   assert.ok(langste / totaal < 0.4, `goede antwoord is in ${Math.round((100 * langste) / totaal)}% het langste`);
+});
+
+test("de woorden die de gebruiker zelf aandroeg staan erin", () => {
+  // Deze woorden zijn ooit per ongeluk verdwenen; deze test voorkomt dat dat nog eens ongemerkt gebeurt.
+  const alle = new Set(Object.values(WOORDENBANK).flat().map((w) => w.woord.toLowerCase()));
+  const gevraagd = [
+    "adequatie", "paradigma", "determinisme", "hedonisme", "anonimiteit", "anomie", "normeren", "legitimeren",
+    "affiliatie", "pedant", "logos", "ethos", "pathos", "liberalisme", "conservatisme", "fascisme", "communisme",
+  ];
+  for (const woord of gevraagd) assert.ok(alle.has(woord), `"${woord}" ontbreekt`);
 });
 
 test("geen woord staat in twee vakgebieden en elk vakgebied heeft alle niveaus", () => {
