@@ -4,11 +4,11 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
 import { kiesMethodes } from "@/lib/experiment";
-import { METHODES } from "@/lib/methodes";
+import { gekozenMethodes, METHODES } from "@/lib/methodes";
 import { nu, useAppData } from "@/lib/opslag";
 import { nieuweKaart } from "@/lib/srs";
 import type { AppData, MethodeId, Woord } from "@/lib/types";
-import { aantalOver, DOMEINEN, kiesNieuweWoorden } from "@/lib/woordenbank";
+import { aantalOver, DOMEINEN, kiesMixWoorden, kiesNieuweWoorden } from "@/lib/woordenbank";
 import { DomeinLijst } from "../components/DomeinLijst";
 import { Illustratie } from "../components/Illustratie";
 import { METHODE_ICONEN } from "../components/iconen";
@@ -29,10 +29,19 @@ interface Ronde {
   spelling: Record<number, boolean>;
 }
 
-function nieuweRonde(data: AppData, domein: string): Ronde {
+/** Speciale waarde voor een ronde met woorden uit al je vakgebieden door elkaar. */
+const MIX = "mix";
+
+function nieuweRonde(data: AppData, keuze: string): Ronde {
+  const profiel = data.profiel!;
   const bekend = new Set(Object.keys(data.woorden));
-  const woorden = kiesNieuweWoorden(domein, data.profiel!.niveau, bekend, PER_RONDE);
-  return { woorden, methodes: kiesMethodes(Object.values(data.kaarten), woorden.length), positie: 0, spelling: {} };
+  const woorden =
+    keuze === MIX
+      ? kiesMixWoorden(profiel.domeinen.filter((d) => DOMEINEN.includes(d)), profiel.niveau, bekend, PER_RONDE)
+      : kiesNieuweWoorden(keuze, profiel.niveau, bekend, PER_RONDE);
+  // Alleen de leermethodes die je zelf hebt aangevinkt (of alle vier bij "ik weet het niet").
+  const methodes = kiesMethodes(Object.values(data.kaarten), woorden.length, Math.random, gekozenMethodes(profiel));
+  return { woorden, methodes, positie: 0, spelling: {} };
 }
 
 function LerenScherm() {
@@ -44,7 +53,7 @@ function LerenScherm() {
 
   // Vanaf het startscherm kun je direct een vakgebied kiezen: dan begint de ronde meteen.
   useEffect(() => {
-    if (data?.profiel && gevraagd && DOMEINEN.includes(gevraagd) && ronde === null) {
+    if (data?.profiel && gevraagd && (gevraagd === MIX || DOMEINEN.includes(gevraagd)) && ronde === null) {
       setRonde(nieuweRonde(data, gevraagd));
       window.history.replaceState(null, "", window.location.pathname);
     }
@@ -163,13 +172,15 @@ function LerenScherm() {
         <h1>Nieuwe woorden</h1>
       </div>
       <p className="tekst-2">
-        Kies een vakgebied. Je krijgt {PER_RONDE} nieuwe woorden, elk op een eigen manier aangeboden.
+        Kies een vakgebied, of een mix van al je vakgebieden. Je krijgt {PER_RONDE} nieuwe woorden via de
+        leermethodes die je hebt gekozen.
       </p>
       {domeinen.length > 0 ? (
         <DomeinLijst
           domeinen={domeinen}
           over={(d) => aantalOver(d, bekend)}
           kies={(d) => setRonde(nieuweRonde(data, d))}
+          kiesMix={() => setRonde(nieuweRonde(data, MIX))}
         />
       ) : (
         <p className="tekst-2">Je hebt nog geen vakgebieden gekozen.</p>

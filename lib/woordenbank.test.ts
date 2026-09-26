@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { aantalOver, kiesAfleiders, kiesNieuweWoorden, woordId, WOORDENBANK } from "./woordenbank.ts";
+import { aantalOver, kiesAfleiders, kiesMixWoorden, kiesNieuweWoorden, woordId, WOORDENBANK } from "./woordenbank.ts";
 
 test("elk woord in de bank is compleet en uniek", () => {
   const ids = new Set<string>();
@@ -98,4 +98,20 @@ test("aantalOver telt wat er nog te leren is", () => {
   const een = kiesNieuweWoorden("Tech", "basis", new Set(), 1);
   assert.equal(aantalOver("Tech", new Set()), totaal);
   assert.equal(aantalOver("Tech", new Set(een.map((w) => w.id))), totaal - 1);
+});
+
+test("een mix haalt woorden uit meerdere vakgebieden, verdeeld en op je eigen niveau", () => {
+  const domeinen = ["Recht", "Economie", "Filosofie"];
+  const gekozen = kiesMixWoorden(domeinen, "gevorderd", new Set(), 6);
+  assert.equal(gekozen.length, 6);
+  for (const d of domeinen) assert.equal(gekozen.filter((w) => w.domein === d).length, 2, d);
+  assert.ok(gekozen.every((w) => w.niveau === "gevorderd"));
+  assert.equal(new Set(gekozen.map((w) => w.id)).size, 6);
+});
+
+test("een mix slaat bekende woorden over en werkt ook als één vakgebied op is", () => {
+  const alleRecht = new Set(kiesNieuweWoorden("Recht", "basis", new Set(), 100).map((w) => w.id));
+  const gekozen = kiesMixWoorden(["Recht", "Tech"], "basis", alleRecht, 5);
+  assert.equal(gekozen.length, 5);
+  assert.ok(gekozen.every((w) => w.domein === "Tech"));
 });

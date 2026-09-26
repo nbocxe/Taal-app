@@ -1,4 +1,4 @@
-import type { MethodeId } from "./types.ts";
+import type { MethodeId, Profiel } from "./types.ts";
 
 export interface Methode {
   id: MethodeId;
@@ -32,3 +32,8 @@ export const METHODES: Record<MethodeId, Methode> = {
 };
 
 export const METHODE_IDS = Object.keys(METHODES) as MethodeId[];
+
+/** De methodes waarmee je leert: je eigen keuze, of alle vier als je niets (of "ik weet het niet") koos. */
+export function gekozenMethodes(profiel: Profiel | null): MethodeId[] {
+  return profiel && profiel.methodes.length > 0 ? profiel.methodes : METHODE_IDS;
+}

@@ -324,3 +324,15 @@ strong.fout { color: var(--fout); }
 }
 [aria-checked="true"] > .schakelaar { background: var(--accent); }
 [aria-checked="true"] > .schakelaar::after { transform: translateX(20px); }
+
+/* Vinkje in meerkeuze-lijsten */
+.vinkje {
+  flex-shrink: 0; width: 22px; height: 22px; border-radius: 6px;
+  border: 2px solid var(--rand); background: var(--vlak);
+  display: inline-flex; align-items: center; justify-content: center;
+}
+[aria-checked="true"] > .vinkje { background: var(--accent); border-color: var(--accent); }
+[aria-checked="true"] > .vinkje::after {
+  content: ""; width: 10px; height: 5px; margin-top: -3px;
+  border-left: 2.5px solid var(--op-accent); border-bottom: 2.5px solid var(--op-accent); transform: rotate(-45deg);
+}

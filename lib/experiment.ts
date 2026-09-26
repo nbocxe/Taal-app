@@ -73,10 +73,11 @@ function trekBeta(a: number, b: number, kans: Kansfunctie): number {
 function trekPerMethode(
   tellingen: ReturnType<typeof telPerMethode>,
   kans: Kansfunctie,
+  methodes: MethodeId[],
 ): MethodeId {
-  let beste = METHODE_IDS[0];
+  let beste = methodes[0];
   let hoogste = -1;
-  for (const m of METHODE_IDS) {
+  for (const m of methodes) {
     const { gemeten, goed } = tellingen[m];
     const trekking = trekBeta(1 + goed, 1 + gemeten - goed, kans);
     if (trekking > hoogste) {
@@ -88,26 +89,32 @@ function trekPerMethode(
 }
 
 /**
- * Kies een methode voor elk nieuw woord.
- * Eerst verdelen we eerlijk over alle methodes (verkennen). Zodra er genoeg metingen zijn,
+ * Kies een methode voor elk nieuw woord, alleen uit de methodes die je zelf hebt aangevinkt.
+ * Eerst verdelen we eerlijk over die methodes (verkennen). Zodra er genoeg metingen zijn,
  * krijgt de methode die bij jou het best werkt vaker de beurt (Thompson sampling),
  * maar blijven de andere af en toe terugkomen (VERKEN_KANS), voor het geval je verandert.
  */
-export function kiesMethodes(kaarten: Kaart[], aantal: number, kans: Kansfunctie = Math.random): MethodeId[] {
+export function kiesMethodes(
+  kaarten: Kaart[],
+  aantal: number,
+  kans: Kansfunctie = Math.random,
+  toegestaan: MethodeId[] = METHODE_IDS,
+): MethodeId[] {
+  const methodes = toegestaan.length > 0 ? toegestaan : METHODE_IDS;
   const tellingen = telPerMethode(kaarten);
-  const verkennen = METHODE_IDS.some((m) => tellingen[m].gemeten < MIN_METINGEN);
+  const verkennen = methodes.some((m) => tellingen[m].gemeten < MIN_METINGEN);
   const gekozen: MethodeId[] = [];
 
   for (let i = 0; i < aantal; i++) {
     let methode: MethodeId;
     if (verkennen) {
-      const minste = Math.min(...METHODE_IDS.map((m) => tellingen[m].geleerd));
-      const kandidaten = METHODE_IDS.filter((m) => tellingen[m].geleerd === minste);
+      const minste = Math.min(...methodes.map((m) => tellingen[m].geleerd));
+      const kandidaten = methodes.filter((m) => tellingen[m].geleerd === minste);
       methode = kandidaten[Math.floor(kans() * kandidaten.length)];
     } else if (kans() < VERKEN_KANS) {
-      methode = METHODE_IDS[Math.floor(kans() * METHODE_IDS.length)];
+      methode = methodes[Math.floor(kans() * methodes.length)];
     } else {
-      methode = trekPerMethode(tellingen, kans);
+      methode = trekPerMethode(tellingen, kans, methodes);
     }
     tellingen[methode].geleerd++;
     gekozen.push(methode);
@@ -115,15 +122,21 @@ export function kiesMethodes(kaarten: Kaart[], aantal: number, kans: Kansfunctie
   return gekozen;
 }
 
-export function analyseer(kaarten: Kaart[], kans: Kansfunctie = Math.random): Analyse {
+/** Vergelijkt de aangevinkte methodes met elkaar. Met één methode valt er niets te vergelijken. */
+export function analyseer(
+  kaarten: Kaart[],
+  kans: Kansfunctie = Math.random,
+  toegestaan: MethodeId[] = METHODE_IDS,
+): Analyse {
+  const methodes = toegestaan.length > 0 ? toegestaan : METHODE_IDS;
   const tellingen = telPerMethode(kaarten);
 
   // Schat per methode de kans dat hij de beste is door veel keer te trekken.
   const RONDES = 2000;
-  const gewonnen = Object.fromEntries(METHODE_IDS.map((m) => [m, 0])) as Record<MethodeId, number>;
-  for (let i = 0; i < RONDES; i++) gewonnen[trekPerMethode(tellingen, kans)]++;
+  const gewonnen = Object.fromEntries(methodes.map((m) => [m, 0])) as Record<MethodeId, number>;
+  for (let i = 0; i < RONDES; i++) gewonnen[trekPerMethode(tellingen, kans, methodes)]++;
 
-  const perMethode: MethodeStat[] = METHODE_IDS.map((m) => {
+  const perMethode: MethodeStat[] = methodes.map((m) => {
     const t = tellingen[m];
     return {
       methode: m,
@@ -141,7 +154,7 @@ export function analyseer(kaarten: Kaart[], kans: Kansfunctie = Math.random): An
     fase,
     perMethode,
     voortgang: Math.min(1, minGemeten / MIN_METINGEN),
-    beste: fase === "benutten" ? koploper.methode : null,
+    beste: fase === "benutten" && methodes.length > 1 ? koploper.methode : null,
   };
 }
 

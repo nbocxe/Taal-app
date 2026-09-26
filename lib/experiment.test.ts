@@ -54,3 +54,29 @@ test("met te weinig metingen noemen we nog geen beste methode", () => {
   assert.equal(analyse.fase, "verkennen");
   assert.equal(analyse.beste, null);
 });
+
+test("alleen de aangevinkte methodes worden gekozen", () => {
+  const gekozen = kiesMethodes([], 20, zaad(5), ["beeld", "doen"]);
+  assert.ok(gekozen.every((m) => m === "beeld" || m === "doen"));
+  assert.equal(gekozen.filter((m) => m === "beeld").length, 10);
+});
+
+test("ook met een duidelijke winnaar blijft de keuze binnen de aangevinkte methodes", () => {
+  const kaarten: Kaart[] = [];
+  for (const m of METHODE_IDS) for (let i = 0; i < 20; i++) kaarten.push(gemetenKaart(m, m === "lezen", i));
+  const gekozen = kiesMethodes(kaarten, 200, zaad(6), ["beeld", "luisteren"]);
+  assert.ok(gekozen.every((m) => m === "beeld" || m === "luisteren"));
+});
+
+test("met één aangevinkte methode is er geen vergelijking", () => {
+  const kaarten = Array.from({ length: 20 }, (_, i) => gemetenKaart("doen", true, i));
+  const analyse = analyseer(kaarten, zaad(7), ["doen"]);
+  assert.equal(analyse.perMethode.length, 1);
+  assert.equal(analyse.beste, null);
+  assert.deepEqual(kiesMethodes(kaarten, 5, zaad(8), ["doen"]), ["doen", "doen", "doen", "doen", "doen"]);
+});
+
+test("geen keuze (ik weet het niet) betekent alle methodes", () => {
+  const gekozen = kiesMethodes([], 8, zaad(9), []);
+  for (const m of METHODE_IDS) assert.equal(gekozen.filter((g) => g === m).length, 2);
+});

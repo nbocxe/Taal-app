@@ -23,7 +23,17 @@ function laad(): AppData {
     if (!ruw) return leeg();
     const opgeslagen = JSON.parse(ruw);
     // Nieuwe instellingen krijgen hun standaardwaarde als ze in oudere gegevens nog ontbreken.
-    return { ...leeg(), ...opgeslagen, instellingen: { ...leeg().instellingen, ...opgeslagen.instellingen } };
+    const data: AppData = {
+      ...leeg(),
+      ...opgeslagen,
+      instellingen: { ...leeg().instellingen, ...opgeslagen.instellingen },
+    };
+    // Oudere profielen hadden één "voorkeur" die alleen een inschatting was; die worden "alle methodes".
+    if (data.profiel && !Array.isArray(data.profiel.methodes)) {
+      const { voorkeur: _oud, ...rest } = data.profiel as typeof data.profiel & { voorkeur?: unknown };
+      data.profiel = { ...rest, methodes: [] };
+    }
+    return data;
   } catch {
     return leeg();
   }

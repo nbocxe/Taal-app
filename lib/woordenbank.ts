@@ -65,6 +65,33 @@ export function kiesNieuweWoorden(
     .map(({ _toeval, ...w }) => w);
 }
 
+/**
+ * Kies nieuwe woorden uit meerdere vakgebieden door elkaar.
+ * Woorden op je eigen niveau gaan voor, en de ronde wordt zo gelijk mogelijk over de vakgebieden verdeeld.
+ */
+export function kiesMixWoorden(
+  domeinen: string[],
+  niveau: Niveau,
+  bekend: Set<string>,
+  aantal: number,
+  kans: () => number = Math.random,
+): Woord[] {
+  const eigen = NIVEAU_VOLGORDE.indexOf(niveau);
+  return domeinen
+    .flatMap((domein) =>
+      kiesNieuweWoorden(domein, niveau, bekend, aantal, kans).map((w, plek) => ({
+        w,
+        afstand: Math.abs(NIVEAU_VOLGORDE.indexOf(w.niveau) - eigen),
+        plek,
+        toeval: kans(),
+      })),
+    )
+    .sort((a, b) => a.afstand - b.afstand || a.plek - b.plek || a.toeval - b.toeval)
+    .slice(0, aantal)
+    .map(({ w }) => w)
+    .sort(() => kans() - 0.5);
+}
+
 /** Hoeveel woorden er in een vakgebied nog over zijn. */
 export function aantalOver(domein: string, bekend: Set<string>): number {
   return (WOORDENBANK[domein] ?? []).filter((w) => !bekend.has(woordId(domein, w.woord))).length;
