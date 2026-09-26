@@ -336,3 +336,7 @@ strong.fout { color: var(--fout); }
   content: ""; width: 10px; height: 5px; margin-top: -3px;
   border-left: 2.5px solid var(--op-accent); border-bottom: 2.5px solid var(--op-accent); transform: rotate(-45deg);
 }
+
+/* Boven de tekening: links de leermethode, rechts het vakgebied. */
+.kaartkop { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: -12px; }
+.kaartkop .vakgebied { text-align: right; }

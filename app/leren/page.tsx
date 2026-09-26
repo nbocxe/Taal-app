@@ -111,10 +111,13 @@ function LerenScherm() {
           stop={() => setRonde(null)}
           terug={() => setRonde({ ...ronde, positie: Math.max(0, ronde.positie - 1) })}
         />
-        <span className="label accent" style={{ display: "flex", alignItems: "center", gap: 6 }}>
-          {dictee ? METHODE_ICONEN.doen : METHODE_ICONEN[methode]}
-          {dictee ? "Spelling" : METHODES[methode].naam}
-        </span>
+        <div className="kaartkop">
+          <span className="label accent" style={{ display: "flex", alignItems: "center", gap: 6 }}>
+            {dictee ? METHODE_ICONEN.doen : METHODE_ICONEN[methode]}
+            {dictee ? "Spelling" : METHODES[methode].naam}
+          </span>
+          <span className="label vakgebied">{woord.domein}</span>
+        </div>
         <div className="illustratie">
           <Illustratie domein={woord.domein} />
         </div>
