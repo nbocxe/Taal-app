@@ -7,13 +7,23 @@ import type { AppData } from "./types";
 const SLEUTEL = "taalapp:v1";
 
 function leeg(): AppData {
-  return { versie: 1, profiel: null, woorden: {}, kaarten: {}, klokVerschuiving: 0 };
+  return {
+    versie: 1,
+    profiel: null,
+    woorden: {},
+    kaarten: {},
+    instellingen: { spellingoefening: false },
+    klokVerschuiving: 0,
+  };
 }
 
 function laad(): AppData {
   try {
     const ruw = localStorage.getItem(SLEUTEL);
-    return ruw ? { ...leeg(), ...JSON.parse(ruw) } : leeg();
+    if (!ruw) return leeg();
+    const opgeslagen = JSON.parse(ruw);
+    // Nieuwe instellingen krijgen hun standaardwaarde als ze in oudere gegevens nog ontbreken.
+    return { ...leeg(), ...opgeslagen, instellingen: { ...leeg().instellingen, ...opgeslagen.instellingen } };
   } catch {
     return leeg();
   }

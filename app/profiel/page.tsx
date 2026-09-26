@@ -18,6 +18,8 @@ export default function Profiel() {
   const analyse = analyseer(kaarten);
   const voorkeur = data.profiel?.voorkeur;
   const verschuiving = Math.round(data.klokVerschuiving / DAG);
+  const metSpelling = kaarten.filter((k) => k.spelling);
+  const spelling = { totaal: metSpelling.length, goed: metSpelling.filter((k) => k.spelling === "goed").length };
 
   const download = () => {
     const blob = new Blob([exporteer(data)], { type: "application/json" });
@@ -87,6 +89,26 @@ export default function Profiel() {
       <section className="sectie">
         <h2>Instellingen</h2>
         <div className="lijst">
+          <button
+            className="regel"
+            role="switch"
+            aria-checked={data.instellingen.spellingoefening}
+            onClick={() =>
+              wijzig((d) => ({
+                ...d,
+                instellingen: { ...d.instellingen, spellingoefening: !d.instellingen.spellingoefening },
+              }))
+            }
+          >
+            <span className="groei">
+              <span className="titel">Spellingoefening</span>
+              <span className="sub">
+                Elk nieuw woord eerst beluisteren en zelf schrijven
+                {spelling.totaal > 0 && ` · tot nu toe ${spelling.goed} van ${spelling.totaal} goed`}
+              </span>
+            </span>
+            <span className="schakelaar" aria-hidden="true" />
+          </button>
           <Link className="regel" href="/start">
             <span className="groei">
               <span className="titel">Voorkeuren</span>

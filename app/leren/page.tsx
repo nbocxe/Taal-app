@@ -14,6 +14,7 @@ import { Illustratie } from "../components/Illustratie";
 import { METHODE_ICONEN } from "../components/iconen";
 import { Sessiekop } from "../components/Sessiekop";
 import { useSessieModus } from "../components/TabBalk";
+import { Dictee } from "./Dictee";
 import { Beeld, Doen, Lezen, Luisteren } from "./methodes";
 
 const PER_RONDE = 5;
@@ -24,12 +25,14 @@ interface Ronde {
   woorden: Woord[];
   methodes: MethodeId[];
   positie: number;
+  /** Uitslag van de spellingoefening per kaart (true = goed), als die aan staat. */
+  spelling: Record<number, boolean>;
 }
 
 function nieuweRonde(data: AppData, domein: string): Ronde {
   const bekend = new Set(Object.keys(data.woorden));
   const woorden = kiesNieuweWoorden(domein, data.profiel!.niveau, bekend, PER_RONDE);
-  return { woorden, methodes: kiesMethodes(Object.values(data.kaarten), woorden.length), positie: 0 };
+  return { woorden, methodes: kiesMethodes(Object.values(data.kaarten), woorden.length), positie: 0, spelling: {} };
 }
 
 function LerenScherm() {
@@ -72,7 +75,13 @@ function LerenScherm() {
         : {
             ...d,
             woorden: { ...d.woorden, [woord.id]: woord },
-            kaarten: { ...d.kaarten, [woord.id]: nieuweKaart(woord.id, methode, nu(d)) },
+            kaarten: {
+              ...d.kaarten,
+              [woord.id]: {
+                ...nieuweKaart(woord.id, methode, nu(d)),
+                ...(ronde.positie in ronde.spelling && { spelling: ronde.spelling[ronde.positie] ? "goed" : "fout" }),
+              },
+            },
           },
     );
     setRonde({ ...ronde, positie: ronde.positie + 1 });
@@ -82,6 +91,9 @@ function LerenScherm() {
     const woord = ronde.woorden[ronde.positie];
     const methode = ronde.methodes[ronde.positie];
     const Component = COMPONENTEN[methode];
+    const alGezien = woord.id in data.kaarten;
+    // Met de spellingoefening aan begint elke nieuwe kaart met luisteren en zelf schrijven.
+    const dictee = data.instellingen.spellingoefening && !alGezien && !(ronde.positie in ronde.spelling);
     return (
       <>
         <Sessiekop
@@ -91,13 +103,21 @@ function LerenScherm() {
           terug={() => setRonde({ ...ronde, positie: Math.max(0, ronde.positie - 1) })}
         />
         <span className="label accent" style={{ display: "flex", alignItems: "center", gap: 6 }}>
-          {METHODE_ICONEN[methode]}
-          {METHODES[methode].naam}
+          {dictee ? METHODE_ICONEN.doen : METHODE_ICONEN[methode]}
+          {dictee ? "Spelling" : METHODES[methode].naam}
         </span>
         <div className="illustratie">
           <Illustratie domein={woord.domein} />
         </div>
-        <Component key={woord.id} woord={woord} klaar={woordKlaar} alGezien={woord.id in data.kaarten} />
+        {dictee ? (
+          <Dictee
+            key={`dictee-${woord.id}`}
+            woord={woord}
+            klaar={(goed) => setRonde({ ...ronde, spelling: { ...ronde.spelling, [ronde.positie]: goed } })}
+          />
+        ) : (
+          <Component key={woord.id} woord={woord} klaar={woordKlaar} alGezien={alGezien} />
+        )}
       </>
     );
   }

@@ -25,6 +25,10 @@ Je hoeft geen leerstijltest te doen. De app voert een klein persoonlijk experime
 4. In **Mijn leerprofiel** zie je per methode hoeveel je nog wist. Zodra er genoeg metingen zijn, krijg je vaker
    woorden via de methode die bij jou het beste werkt. De andere komen af en toe terug, voor het geval dat verandert.
 
+**Spellingoefening (optioneel):** zet je in *Profiel → Instellingen* de spellingoefening aan, dan begint elk nieuw
+woord met een dictee. Je hoort het woord, typt het zelf, en de app laat zien of het goed is en welke letters anders
+moesten. Daarna volgt de gewone leermethode. De oefening geldt voor alle methodes gelijk, dus het experiment blijft eerlijk.
+
 Woorden die je kent komen steeds later terug (1, 3, 7, 16, 35 en 90 dagen). Dit heet *spaced repetition*.
 
 ## Waarom geen VARK-test?
@@ -82,6 +86,7 @@ GitHub de app opnieuw en zet hem online (zie `.github/workflows/pages.yml`). Een
 | `app/` | De schermen: Vandaag, Leren, Herhalen, Profiel en Kennismaken |
 | `app/components/` | Gedeelde onderdelen: tabbalk, tekeningen per vakgebied, iconen |
 | `app/leren/methodes.tsx` | De vier leermethodes |
+| `app/leren/Dictee.tsx` en `lib/spelling.ts` | De spellingoefening en de spellingcontrole |
 | `app/globals.css` | Kleuren, lettertypes en de vormgeving van alle onderdelen |
 | `lib/woorden/` | De woorden, één bestand per vakgebied |
 | `lib/woordenbank.ts` | Welke nieuwe woorden je krijgt en welke foute antwoorden in de overhoring staan |
