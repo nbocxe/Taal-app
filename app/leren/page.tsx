@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
 import { kiesMethodes } from "@/lib/experiment";
+import { kiesPadWoorden, PADEN, padVoortgang, vindPad } from "@/lib/leerpaden";
 import { gekozenMethodes, METHODES } from "@/lib/methodes";
 import { nu, useAppData } from "@/lib/opslag";
 import { nieuweKaart } from "@/lib/srs";
@@ -11,7 +12,7 @@ import type { AppData, MethodeId, Woord } from "@/lib/types";
 import { aantalOver, DOMEINEN, kiesMixWoorden, kiesNieuweWoorden } from "@/lib/woordenbank";
 import { DomeinLijst } from "../components/DomeinLijst";
 import { Illustratie } from "../components/Illustratie";
-import { METHODE_ICONEN } from "../components/iconen";
+import { IcoonPijl, METHODE_ICONEN } from "../components/iconen";
 import { Sessiekop } from "../components/Sessiekop";
 import { useSessieModus } from "../components/TabBalk";
 import { Dictee } from "./Dictee";
@@ -27,37 +28,51 @@ interface Ronde {
   positie: number;
   /** Uitslag van de spellingoefening per kaart (true = goed), als die aan staat. */
   spelling: Record<number, boolean>;
+  /** Gezet als de ronde bij een hoofdstuk van een leerpad hoort. */
+  pad?: { id: string; hoofdstuk: number };
 }
 
 /** Speciale waarde voor een ronde met woorden uit al je vakgebieden door elkaar. */
 const MIX = "mix";
 
-function nieuweRonde(data: AppData, keuze: string): Ronde {
+function nieuweRonde(data: AppData, keuze: string, pad?: Ronde["pad"]): Ronde {
   const profiel = data.profiel!;
   const bekend = new Set(Object.keys(data.woorden));
-  const woorden =
-    keuze === MIX
+  const leerpad = pad && vindPad(pad.id);
+  const woorden = leerpad
+    ? // Bij een leerpad leer je de woorden van het hoofdstuk in de volgorde van het verhaal.
+      kiesPadWoorden(leerpad, pad.hoofdstuk, bekend)
+    : keuze === MIX
       ? kiesMixWoorden(profiel.domeinen.filter((d) => DOMEINEN.includes(d)), profiel.niveau, bekend, PER_RONDE)
       : kiesNieuweWoorden(keuze, profiel.niveau, bekend, PER_RONDE);
   // Alleen de leermethodes die je zelf hebt aangevinkt (of alle vier bij "ik weet het niet").
   const methodes = kiesMethodes(Object.values(data.kaarten), woorden.length, Math.random, gekozenMethodes(profiel));
-  return { woorden, methodes, positie: 0, spelling: {} };
+  return { woorden, methodes, positie: 0, spelling: {}, ...(leerpad && { pad }) };
 }
 
 function LerenScherm() {
   const [data, wijzig] = useAppData();
   const [ronde, setRonde] = useState<Ronde | null>(null);
-  const gevraagd = useSearchParams().get("vakgebied");
+  const router = useRouter();
+  const zoek = useSearchParams();
+  const gevraagd = zoek.get("vakgebied");
+  const gevraagdPad = vindPad(zoek.get("pad"));
+  const gevraagdHoofdstuk = Number(zoek.get("hoofdstuk") ?? 0);
   const bezig = ronde !== null && ronde.positie < ronde.woorden.length;
   useSessieModus(bezig);
 
   // Vanaf het startscherm kun je direct een vakgebied kiezen: dan begint de ronde meteen.
+  // Vanuit een leerpad begint meteen een ronde met de woorden van dat hoofdstuk.
   useEffect(() => {
-    if (data?.profiel && gevraagd && (gevraagd === MIX || DOMEINEN.includes(gevraagd)) && ronde === null) {
+    if (!data?.profiel || ronde !== null) return;
+    if (gevraagdPad) {
+      setRonde(nieuweRonde(data, gevraagdPad.domein, { id: gevraagdPad.id, hoofdstuk: gevraagdHoofdstuk }));
+      window.history.replaceState(null, "", window.location.pathname);
+    } else if (gevraagd && (gevraagd === MIX || DOMEINEN.includes(gevraagd))) {
       setRonde(nieuweRonde(data, gevraagd));
       window.history.replaceState(null, "", window.location.pathname);
     }
-  }, [data, gevraagd, ronde]);
+  }, [data, gevraagd, gevraagdPad, gevraagdHoofdstuk, ronde]);
 
   if (!data) return null;
   if (!data.profiel) {
@@ -108,7 +123,7 @@ function LerenScherm() {
         <Sessiekop
           positie={ronde.positie}
           totaal={ronde.woorden.length}
-          stop={() => setRonde(null)}
+          stop={() => (ronde.pad ? router.push(`/paden/${ronde.pad.id}/`) : setRonde(null))}
           terug={() => setRonde({ ...ronde, positie: Math.max(0, ronde.positie - 1) })}
         />
         <div className="kaartkop">
@@ -135,6 +150,7 @@ function LerenScherm() {
   }
 
   if (ronde) {
+    const leerpad = ronde.pad && vindPad(ronde.pad.id);
     return (
       <>
         <div className="kop">
@@ -156,10 +172,19 @@ function LerenScherm() {
             </div>
           ))}
         </div>
+        {ronde.woorden.length === 0 && (
+          <p className="tekst-2">Je kent alle woorden van dit hoofdstuk al. Tijd voor de toets?</p>
+        )}
         <div className="knoprij">
-          <button className="knop" onClick={() => setRonde(null)}>
-            Nog een ronde
-          </button>
+          {leerpad ? (
+            <Link className="knop" href={`/paden/${leerpad.id}/`}>
+              Terug naar het leerpad
+            </Link>
+          ) : (
+            <button className="knop" onClick={() => setRonde(null)}>
+              Nog een ronde
+            </button>
+          )}
           <Link className="knop tweede" href="/">
             Naar Vandaag
           </Link>
@@ -188,6 +213,38 @@ function LerenScherm() {
       ) : (
         <p className="tekst-2">Je hebt nog geen vakgebieden gekozen.</p>
       )}
+
+      <section className="sectie">
+        <h2>Leerpaden</h2>
+        <p className="tekst-2 klein" style={{ margin: 0 }}>
+          Leer de woorden uit een bekende bron, hoofdstuk voor hoofdstuk, met een leestekst en een toets.
+        </p>
+        <div className="lijst">
+          {/* Paden uit je eigen vakgebieden eerst. */}
+          {[...PADEN]
+            .sort((a, b) => Number(!domeinen.includes(a.domein)) - Number(!domeinen.includes(b.domein)))
+            .map((pad) => {
+              const v = padVoortgang(pad, bekend);
+              return (
+                <Link key={pad.id} className="regel" href={`/paden/${pad.id}/`}>
+                  <span className="duim">
+                    <Illustratie domein={pad.domein} />
+                  </span>
+                  <span className="groei">
+                    <span className="titel">{pad.titel}</span>
+                    <span className="sub">
+                      {pad.auteur} · {v.geleerd} van {v.totaal} woorden
+                    </span>
+                  </span>
+                  <span className="zacht">
+                    <IcoonPijl />
+                  </span>
+                </Link>
+              );
+            })}
+        </div>
+      </section>
+
       <p className="zacht klein">
         Andere vakgebieden of een ander niveau? <Link href="/start">Pas je voorkeuren aan</Link>.
       </p>

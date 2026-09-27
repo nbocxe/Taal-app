@@ -10,9 +10,11 @@ import { economie } from "./woorden/economie.ts";
 import { filosofie } from "./woorden/filosofie.ts";
 import { maatschappij } from "./woorden/maatschappij.ts";
 import { natuurkunde } from "./woorden/natuurkunde.ts";
+import { natuurkundeHawking } from "./woorden/natuurkunde-hawking.ts";
 import { politiek } from "./woorden/politiek.ts";
 import { politiekeStromingen } from "./woorden/politieke-stromingen.ts";
 import { psychologie } from "./woorden/psychologie.ts";
+import { psychologieDsm } from "./woorden/psychologie-dsm.ts";
 import { recht } from "./woorden/recht.ts";
 import { taalEnRetorica } from "./woorden/taal-en-retorica.ts";
 import { tech } from "./woorden/tech.ts";
@@ -28,9 +30,10 @@ export const WOORDENBANK: Record<string, BankWoord[]> = {
   Maatschappij: maatschappij,
   Economie: economie,
   Recht: recht,
-  Psychologie: psychologie,
+  // De woorden uit de leerpaden (lib/paden/) horen gewoon bij hun vakgebied.
+  Psychologie: [...psychologie, ...psychologieDsm],
   Biologie: biologie,
-  Natuurkunde: natuurkunde,
+  Natuurkunde: [...natuurkunde, ...natuurkundeHawking],
   Tech: tech,
 };
 

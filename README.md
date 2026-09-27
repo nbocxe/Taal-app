@@ -2,7 +2,7 @@
 
 Een app om je woordenschat per vakgebied te vergroten en om te ontdekken **hoe jij het beste leert**.
 
-De woordenlijst bevat 230 woorden in twaalf vakgebieden: algemene kennis, taal & retorica, filosofie, politiek,
+De woordenlijst bevat 275 woorden in twaalf vakgebieden: algemene kennis, taal & retorica, filosofie, politiek,
 politieke stromingen, maatschappij, economie, recht, psychologie, biologie, natuurkunde en tech.
 
 Deze eerste versie werkt zonder AI: de woorden komen uit een ingebouwde woordenlijst. Er is geen account, geen
@@ -30,6 +30,12 @@ Je hoeft geen leerstijltest te doen. De app voert een klein persoonlijk experime
 **Spellingoefening (optioneel):** zet je in *Profiel → Instellingen* de spellingoefening aan, dan begint elk nieuw
 woord met een dictee. Je hoort het woord, typt het zelf, en de app laat zien of het goed is en welke letters anders
 moesten. Daarna volgt de gewone leermethode. De oefening geldt voor alle methodes gelijk, dus het experiment blijft eerlijk.
+
+**Leerpaden:** onder *Leren* staan leerpaden bij bekende bronnen: *Een korte geschiedenis van de tijd* van Stephen
+Hawking (natuurkunde) en de DSM-5 (psychologie). Een pad heeft vier hoofdstukken met elk zes woorden. Per hoofdstuk
+leer je de woorden in de volgorde van het verhaal, lees je een korte tekst waarin ze samen voorkomen (tik op een woord
+voor de betekenis) en doe je een toets. De toets is extra oefening en telt niet mee in het experiment. De teksten zijn
+zelf geschreven; er staat geen tekst uit de boeken in.
 
 Woorden die je kent komen steeds later terug (1, 3, 7, 16, 35 en 90 dagen). Dit heet *spaced repetition*.
 
@@ -66,6 +72,10 @@ Een tip voor de definitie: gebruik het woord zelf er niet in, anders verklap je 
 Een nieuw vakgebied maak je door een nieuw bestand in `lib/woorden/` te zetten en het toe te voegen bovenin
 `lib/woordenbank.ts`. Het verschijnt dan vanzelf in de app.
 
+Een nieuw leerpad maak je door een bestand in `lib/paden/` te zetten (kopieer `hawking.ts`) en het toe te voegen in
+`lib/leerpaden.ts`. De woorden van het pad moeten in de woordenlijst van het vakgebied staan. In de leestekst markeer
+je een woord met `[[woord]]`, of met `[[zwarte gaten|zwart gat]]` als de tekst een andere vorm gebruikt.
+
 Draai daarna `npm test`: die controleert onder meer of elk woord compleet is en of er geen dubbele woorden in staan.
 
 ## Ontwerp
@@ -92,6 +102,8 @@ GitHub de app opnieuw en zet hem online (zie `.github/workflows/pages.yml`). Een
 | `app/globals.css` | Kleuren, lettertypes en de vormgeving van alle onderdelen |
 | `lib/woorden/` | De woorden, één bestand per vakgebied |
 | `lib/woordenbank.ts` | Welke nieuwe woorden je krijgt en welke foute antwoorden in de overhoring staan |
+| `app/paden/` en `lib/leerpaden.ts` | De leerpaden: padpagina, leestekst en toets |
+| `lib/paden/` | De inhoud van de leerpaden, één bestand per bron |
 | `lib/srs.ts` | Het herhaalschema |
 | `lib/experiment.ts` | Welke methode krijgt een woord, en welke werkt voor jou het best |
 | `lib/opslag.ts` | Bewaart alles in je browser (nog geen accounts) |
