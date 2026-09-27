@@ -13,6 +13,7 @@ function leeg(): AppData {
     woorden: {},
     kaarten: {},
     instellingen: { spellingoefening: false },
+    paden: {},
     klokVerschuiving: 0,
   };
 }
